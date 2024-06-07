@@ -7,7 +7,7 @@ body {
     height: 100vh;
     align-items: center;
     width: auto;
-    margin: 0; /* Ensure no margin on body to fit full viewport */
+    margin: 0; 
 }
 
 .back-btn {
@@ -49,7 +49,7 @@ body {
 
 .image-container {
     position: absolute;
-    top: 40px;
+    margin-bottom: 340px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -188,9 +188,4 @@ body {
 
 .login-register p a:hover {
     text-decoration: underline;
-}
-
-.image-container.register-active {
-    transition: 0.18s ease;
-    top: 40px;
 }
