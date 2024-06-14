@@ -24,12 +24,6 @@ body {
     color: black;
 }
 
-.back-arrow {
-    width: 15px; 
-    height: auto;
-    margin-right: 5px; 
-}
-
 .wrapper {
     position: relative;
     margin-top: 130px; 
@@ -61,11 +55,6 @@ body {
     height: auto;
 }
 
-.wrapper.active {
-    width: 400px;
-    height: 400px; 
-}
-
 .wrapper .form-login {
     width: 100%;
     padding: 40px;
@@ -79,23 +68,7 @@ body {
     transform: translateX(-400px);
 }
 
-.wrapper .form-register {
-    padding: 40px;
-    position: absolute;
-    transition: none;
-    transform: translateX(400px);
-    overflow-y: auto; 
-    height: calc(100% - 80px); 
-    padding-bottom: 20px; 
-}
-
-.wrapper.active .form-register {
-    transition: transform 0.18s ease;
-    transform: translateX(0px);
-    margin-top: 10px;
-}
-
-.form-login h2, .form-register h2 {
+.form-login h2 {
     font-size: 2em;
     color: black;
     text-align: center;
