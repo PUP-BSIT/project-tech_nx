@@ -47,7 +47,7 @@
   color: white;
 }
 
-.header {
+.banner-header {
   width: 100%;
   position: absolute;
   top: 50%;
@@ -57,14 +57,15 @@
   color: white;
 }
 
-.header h1 {
+.banner-header h1 {
   font-size: 70px;
 }
 
-.header p {
+.banner-header p {
   font-weight: 100;
   line-height: 25px;
 }
+
 
 body {
     height: 100vh;
