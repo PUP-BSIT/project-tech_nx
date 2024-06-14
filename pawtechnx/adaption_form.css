@@ -86,14 +86,13 @@
 }
 
 .content {
+    margin-top: 20px;
     text-align: center;
     padding-top: 15px;
     padding-bottom: 50px;
 }
 
 .privacy-policy {
-    margin: 60px;
-    padding: 20px;
     background: #fff;
 }
 
@@ -132,7 +131,7 @@
 }
 
 .adoption-section {
-    padding: 2rem;
+    margin-top: 50px;
     background: #fff;
     text-align: center;
 }
@@ -184,6 +183,7 @@
 }
 
 footer {
+    margin-top: 30px;
     background: #f4f4f4;
     color: black;
     padding: 2rem 0;
