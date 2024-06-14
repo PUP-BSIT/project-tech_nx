@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .profile-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    width: 650px;
+    height: 450px;
+    padding: 20px;
+  }
+  
+  .profile-icon {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 70px;
+  }
+  
+  .profile-icon img {
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    margin-left: 100px;
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .profile-info h2 {
+    margin: 0 0 20px 0;
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .profile-field-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .profile-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;    
+  }
+  
+  .profile-field label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .profile-value {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .profile-email {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
