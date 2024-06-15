@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="home_style.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="home_style.css" rel="stylesheet" />
     <title>PAWTECHNX</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="banner">
-        <div class="nav-bar">
-          <div class="logo">
-            <p>PAWTECHNX</p>
-          </div>
-          <ul>
-            <li><a href="./home_page.html">Home</a></li>
-            <li><a href="./pet_page.html">Pets</a></li>
-            <li><a href="./about_us.html">About Us</a></li>
-            <li><a href="./contacts.html">Contact Us</a></li>
-          </ul>
+      <div class="nav-bar">
+        <div class="logo">
+          <p>PAWTECHNX</p>
         </div>
-        <div class="header">
-          <h1>Rescue. Adopt. Love.</h1>
-          <p>Finding Forever Homes for Our Furry Friends</p>
+        <ul>
+          <li><a href="./home_page.html">Home</a></li>
+          <li class="dropdown">
+            <button class="dropbtn">Pets</button>
+            <div class="dropdown-content">
+              <a href="#">Cats</a>
+              <a href="#">Hamsters</a>
+              <a href="#">Dogs</a>
+              <a href="#">Rabbits</a>
+            </div>
+          </li>
+          <li><a href="./about_us.html">About Us</a></li>
+          <li><a href="./contacts.html">Contact Us</a></li>
           <div class="register">
-            <button>
-              <a href="./Login.html">Log in</a>
-            </button>
-            <button>
-              <a href="#">Sign up</a>
-            </button>
+            <button><a href="./Login.html">Log in</a></button>
+            <button><a href="#">Sign up</a></button>
           </div>
-        </div>
+        </ul>
       </div>
+     
+      <div class="header">
+        <h1>Rescue. Adopt. Love.</h1>
+        <p>Finding Forever Homes for Our Furry Friends</p>
+      </div>
+    </div>
     <div class="content">
-      <h2>They are waiting for you!</h2>
-      <p>View our adorable pets and bring home happiness</p> 
+      <h3>Meet our Featured Pets!</h3>
+      <p>They are ready for a loving Home.</p>
     </div>
     <div class="wrapper">
       <div class="carousel-container">
@@ -61,6 +66,27 @@
             <h2>Eliza</h2>
             <span>2 years old</span>
           </li>
+          <li class="cat">
+            <div class="pet-image">
+              <img src="images/cat4.jpg" />
+            </div>
+            <h2>Nicole</h2>
+            <span>5 years old</span>
+          </li>
+          <li class="cat">
+            <div class="pet-image">
+              <img src="images/cat5.jpg" />
+            </div>
+            <h2>Alona</h2>
+            <span>4 months old</span>
+          </li>
+          <li class="cat">
+            <div class="pet-image">
+              <img src="images/cat6.jpg" />
+            </div>
+            <h2>Drea</h2>
+            <span>3 years old</span>
+          </li>
         </ul>
         <h1>Hamsters</h1>
         <ul class="carousel hamsters">
@@ -83,6 +109,20 @@
               <img src="images/hamster3.jpg" />
             </div>
             <h2>Oreo</h2>
+            <span>3 years old</span>
+          </li>
+          <li class="hamster">
+            <div class="pet-image">
+              <img src="images/hamster4.jpg" />
+            </div>
+            <h2>Cookie</h2>
+            <span>3 years old</span>
+          </li>
+          <li class="hamster">
+            <div class="pet-image">
+              <img src="images/hamster5.jpg" />
+            </div>
+            <h2>Peanut</h2>
             <span>3 years old</span>
           </li>
         </ul>
@@ -109,8 +149,22 @@
             <h2>Bella</h2>
             <span>3 years old</span>
           </li>
-          </ul>
-          <h1>Rabbits</h1>
+          <li class="dog">
+            <div class="pet-image">
+              <img src="images/dog4.jpg" />
+            </div>
+            <h2>Charlie</h2>
+            <span>4 years old</span>
+          </li>
+          <li class="dog">
+            <div class="pet-image">
+              <img src="images/dog5.jpg" />
+            </div>
+            <h2>Lucy</h2>
+            <span>2 years old</span>
+          </li>
+        </ul>
+        <h1>Rabbits</h1>
         <ul class="carousel rabbits">
           <li class="rabbit">
             <div class="pet-image">
@@ -133,20 +187,50 @@
             <h2>Cotton</h2>
             <span>3 years old</span>
           </li>
-          </ul>
-          <div class="more">
-            <button>
-              <a href="#">See more</a>
-            </button>            
-          </div>
-        </div>
+          <li class="rabbit">
+            <div class="pet-image">
+              <img src="images/rabbit4.jpg" />
+            </div>
+            <h2>Fluffy</h2>
+            <span>4 years old</span>
+          </li>
+          <li class="rabbit">
+            <div class="pet-image">
+              <img src="images/rabbit5.jpg" />
+            </div>
+            <h2>Snowball</h2>
+            <span>1 year old</span>
+          </li>
+        </ul>
       </div>
-
-      <div class="steps">
-        <h2>How to adopt?</h2>
-        <p>Here's a step-by-step guide to adopt a pet</p>
+    </div>
+    <div class="steps">
+      <h2>How to adopt?</h2>
+      <p>Here's a step-by-step guide to adopt a pet</p>
+      <!--TODO Continue the contents and design-->
+    </div>
+    <div class="footer">
+      <div class="logo">
+          <p>PAWTECHNX</p>
       </div>
-      
-
-</body>
+      <div class="address">
+          <h4>Address</h4>
+          <p>Blk 123</p>
+          <p>Lower Bicutan</p>
+          <p>Taguig City</p>
+      </div>
+      <div class="contact">
+          <h4>Contacts</h4>
+          <p>0912345678</p>
+          <p>1234567890</p>
+          <p>email@example.com</p>
+      </div>
+      <div class="info">
+          <h4>Information</h4>
+          <p>Privacy Policy</p>
+          <p>FAQ</p>
+          <p>About Us</p>
+      </div>
+  </div>
+  </body>
 </html>
