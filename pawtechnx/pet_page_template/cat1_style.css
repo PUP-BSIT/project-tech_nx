@@ -68,17 +68,16 @@ body {
   }
   
   .gallery-images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    justify-items: center;
   }
   
   .gallery-images img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 10px;
   }
   
   
