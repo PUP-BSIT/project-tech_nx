@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.banner {
+  width: 100%;
+  height: 50vh;
+  background-image: url(pet_page/images/header.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.nav-bar {
+  width: 90%;
+  margin: auto;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 900;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.nav-bar ul {
+  display: flex;
+  margin-left: auto;
+}
+
+.nav-bar ul li {
+  list-style: none;
+  margin: 0 20px;
+}
+
+.nav-bar ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.header {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.header h1 {
+  font-size: 70px;
+}
+
+.header p {
+  margin: 20px auto;
+  font-weight: 100;
+  line-height: 25px;
+}
+
+.privacy-policy {
+  background: #fff;
+  padding-top: 20px;
+}
+
+.privacy-policy h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.privacy-policy p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 20px;
+}
+
+hr {
+    border: none; 
+    height: 2px; 
+    background-color: #333; 
+    margin: 40px auto; 
+    width: 80%; 
+  }
+
+.policies-title p {
+  font-size: 30px;
+  color: black;
+}
+
+.adoption-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+  align-items: center;
+}
+
+.adoption-section p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+  align-items: center;
+}
+
+.adoption-section {
+  margin-top: 50px;
+  background: #fff;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.adoption-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+}
+
+.adoption-form h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adoption-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  text-align: left;
+}
+
+.adoption-form input,
+.adoption-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.adoption-form button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.adoption-form button:hover {
+  background: darkorange;
+}
+
+footer {
+  width: 100%;
+  background-color: whitesmoke;
+  color: black;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.footer-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-address,
+.footer-contact,
+.footer-info {
+  flex: 1;
+}
+
+.footer-address h3,
+.footer-contact h3,
+.footer-info h3 {
+  margin-bottom: 10px;
+}
+
+.footer-address p,
+.footer-contact p,
+.footer-info p {
+  margin-bottom: 5px;
+}
