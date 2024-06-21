@@ -38,39 +38,40 @@
       <div class="carousel-container">
         <h1>Cats</h1>
         <ul class="carousel">
-          <a href="pet_page/cat1_details.html">
-            <li class="cat">
-              <div class="pet-image">
-                <img src="images/cat/precious/cat1.jpg"/>
-              </div>
-              <h2>Precious</h2>
-              <span>1 year old</span>
-            </li>
-          </a>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat2.jpg" />
+              <img
+                src="pet_page/images/cat/precious/cat1.jpg"
+                data-name="Precious"
+              />
+            </div>
+            <h2>Precious</h2>
+            <span>1 year old</span>
+          </li>
+          <li class="cat">
+            <div class="pet-image">
+              <img src="pet_page/images/cat/cat2.jpg" data-name="Sofia" />
             </div>
             <h2>Sofia</h2>
             <span>4 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat3.jpg" />
+              <img src="pet_page/images/cat/cat3.jpg" data-name="Eliza" />
             </div>
             <h2>Eliza</h2>
             <span>2 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat4.jpg" />
+              <img src="pet_page/images/cat/cat4.jpg" data-name="Nicole"/>
             </div>
             <h2>Nicole</h2>
             <span>5 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat5.jpg" />
+              <img src="pet_page/images/cat/cat5.jpg" data-name="Alona" />
             </div>
             <h2>Alona</h2>
             <span>4 months old</span>
@@ -80,7 +81,7 @@
           <a href="cat1_details.html">
             <li class="cat">
               <div class="pet-image">
-                <img src="images/cat/precious/cat1.jpg" />
+                <img src="pet_page/images/cat/precious/cat1.jpg" />
               </div>
               <h2>Precious</h2>
               <span>1 year old</span>
@@ -88,28 +89,28 @@
           </a>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat2.jpg" />
+              <img src="pet_page/images/cat/cat2.jpg" />
             </div>
             <h2>Sofia</h2>
             <span>4 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat3.jpg" />
+              <img src="pet_page/images/cat/cat3.jpg" />
             </div>
             <h2>Eliza</h2>
             <span>2 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat4.jpg" />
+              <img src="pet_page/images/cat/cat4.jpg" />
             </div>
             <h2>Nicole</h2>
             <span>5 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat5.jpg" />
+              <img src="pet_page/images/cat/cat5.jpg" />
             </div>
             <h2>Alona</h2>
             <span>4 months old</span>
@@ -119,7 +120,7 @@
           <a href="cat1_details.html">
             <li class="cat">
               <div class="pet-image">
-                <img src="images/cat/precious/cat1.jpg" />
+                <img src="pet_page/images/cat/precious/cat1.jpg" />
               </div>
               <h2>Precious</h2>
               <span>1 year old</span>
@@ -127,33 +128,40 @@
           </a>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat2.jpg" />
+              <img src="pet_page/images/cat/cat2.jpg" />
             </div>
             <h2>Sofia</h2>
             <span>4 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat3.jpg" />
+              <img src="pet_page/images/cat/cat3.jpg" />
             </div>
             <h2>Eliza</h2>
             <span>2 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat4.jpg" />
+              <img src="pet_page/images/cat/cat4.jpg" />
             </div>
             <h2>Nicole</h2>
             <span>5 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="images/cat/cat5.jpg" />
+              <img src="pet_page/images/cat/cat5.jpg" />
             </div>
             <h2>Alona</h2>
             <span>4 months old</span>
           </li>
         </ul>
+      </div>
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modal_image" class="modal-image" alt="Pet Image" />
+        <div id="modal_details" class="modal-details"></div>
       </div>
     </div>
     <div class="footer">
@@ -179,5 +187,6 @@
         <p>About Us</p>
       </div>
     </div>
+    <script src="pet_script.js"></script>
   </body>
 </html>
