@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: sans-serif;
 }
 
 .banner {
@@ -15,7 +15,6 @@
 }
 
 .nav-bar {
-  width: 90%;
   margin: auto;
   padding: 15px;
   display: flex;
@@ -77,18 +76,13 @@
   display: block;
 }
 
-.nav-bar ul li .dropdown-content a:hover {
-  background-color: #ddd;
-}
-
 .nav-bar ul li:hover .dropdown-content {
   display: block;
 }
 
 .nav-bar ul li a:hover {
-  color: #333;
-  background-color: #ddd;
-  padding: 10px;
+  color: #ffbe00;
+  font-size: 18px;
 }
 
 .header {
@@ -103,17 +97,15 @@
 .header h1 {
   font-size: 55px;
   margin-bottom: 10px;
-  font-size: 50px;
 }
 
 .header p {
-  margin: 0;
   padding-right: 150px;
 }
 
-.register {
-  text-align: right;
-  padding-right: 15px;
+.login {
+  text-align: left;
+  padding-left: 50px;
 }
 
 .content {
@@ -123,7 +115,6 @@
 }
 
 .wrapper {
-  max-width: 1100px;
   width: 100%;
   margin: auto;
   position: relative;
@@ -143,7 +134,6 @@ h1 {
 .carousel {
   display: grid;
   grid-auto-flow: column;
-  gap: 16px;
   border-radius: 8px;
   width: 90%;
 }
@@ -153,7 +143,7 @@ h1 {
 .dog,
 .rabbit {
   height: 300px;
-  background: lightgray;
+  /*background: lightgray;*/
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -162,21 +152,19 @@ h1 {
   border-radius: 8px;
 }
 
-.pet-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 148px;
-  width: 148px;
-  border-radius: 50%;
-}
-
 .pet-image img {
-  width: 140px;
-  height: 140px;
+  margin-top: 50px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #fff;
+  /*border: 4px solid #fff;*/
+  box-shadow: 0px 8px 32px rgba(0, 0.7, 0, 0.7);
+  animation: pulse 2s infinite;
+}
+
+.pet-image img:hover {
+  transform: scale(1.2);
 }
 
 .cat h2,
@@ -184,32 +172,29 @@ h1 {
 .dog h2,
 .rabbit h2 {
   font-weight: 500;
-  font-size: 1.56rem;
   margin: 30px 0 5px;
   text-align: center;
 }
 
-.cat span,
-.hamster span,
-.dog span,
-.rabbit span {
-  color: #6a6d78;
-  font-size: 1.31rem;
-  text-align: center;
+a:visited {
+  color: orange;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
 }
 
 .steps {
   text-align: center;
   padding: 50px;
-  height: 150vh;
+  height: 130vh;
 }
-
-
 
 .fstep,
 .sstep,
 .tstep,
-.fourth-step, 
+.fourth-step,
 .fifth-step {
   padding: 30px;
   text-align: left;

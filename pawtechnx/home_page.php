@@ -13,7 +13,7 @@
           <p>PAWTECHNX</p>
         </div>
         <ul>
-          <li><a href="./home_page.html">Home</a></li>
+          <li><a href="./home_page.php">Home</a></li>
           <li class="dropdown">
             <button class="dropbtn">Adopt</button>
             <div class="dropdown-content">
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="header">
-      <h1>Love and Adopt a pet</h1>
+      <h1>Love and Adopt a Pet</h1>
       <p>Learn how to adopt a pet today!</p>
     </div>
     <div class="wrapper">
@@ -44,26 +44,23 @@
             <div class="pet-image">
               <img src="pet_page/images/cat/precious/cat1.jpg" />
             </div>
-            <h2>Precious</h2>
-            <span>1 year old</span>
+            <h2>Cat</h2>
           </li>
         </a>
           <a href="./hamsters.html">
           <li class="hamster">
             <div class="pet-image">
-              <img src="pet_page/images/hamster/hamster1.jpg" />
+              <img src="pet_page/images/hamster/hamster6.jpg" />
             </div>
-            <h2>Mikaella</h2>
-            <span>3 years old</span>
+            <h2>Hamster</h2>
           </li>
         </a>
           <a href="./dogs.html">
             <li class="dog">
               <div class="pet-image">
-                <img src="pet_page/images/dog/dog1.jpg" />
+                <img src="pet_page/images/dog/dog6.jpg" />
               </div>
-              <h2>Sofia</h2>
-              <span>2 years old</span>
+              <h2>Dog</h2>
             </li>
           </a>
           <a href="./rabbits.html">
@@ -71,8 +68,7 @@
               <div class="pet-image">
                 <img src="pet_page/images/rabbit/rabbit1.jpg" />
               </div>
-              <h2>Alona</h2>
-              <span>1 year old</span>
+              <h2>Rabbit</h2>
             </li>
           </a>
         </ul>
@@ -105,7 +101,7 @@
         </p>
         <p class="fifth-step"><strong>Meet the Pet: </strong> 
           If your application is approved, arrange a meeting with 
-          the pet either at the shelter, a foster home, or another designated 
+          the pet either at the shelter, a foster home, or anotherW designated 
           location. Spend time interacting with the pet to see if there's a 
           good match.
         </p>
