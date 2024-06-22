@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="home_style.css" rel="stylesheet" />
+    <link href="../style/home_style.css" rel="stylesheet" />
     <title>PAWTECHNX</title>
   </head>
   <body>
@@ -25,7 +25,7 @@
           </li>
           <li><a href="./about_us.html">About Us</a></li>
           <div class="login">
-            <li><a href="./Login.html">Log in</a></li>
+            <li><a href="../php/login.php">Log in</a></li>
           </div>
         </ul>
       </div>
@@ -39,7 +39,7 @@
         <h1>Meet our Featured Pets!</h1>
         <p>They are ready for a loving home.</p>
         <ul class="carousel">
-          <a href="./cats.html">
+          <a href="../../images/cats.html">
           <li class="cat">
             <div class="pet-image">
               <img src="pet_page/images/cat/precious/cat1.jpg" />

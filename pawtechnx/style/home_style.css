@@ -8,7 +8,7 @@
 .banner {
   width: 100%;
   height: 70vh;
-  background-image: url(pet_page/images/header.jpg);
+  background-image: url(../pet_page/images/header.jpg);
   background-size: cover;
   background-position: center;
   position: relative;

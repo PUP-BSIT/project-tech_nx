@@ -1,17 +1,45 @@
 <?php
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
     $mysqli = require __DIR__ . "/dataconnection.php";
-    
-    $sql = "SELECT * FROM user WHERE email = ?";
-    $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("s", $_POST["email"]);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
 
-    var_dump($user);
+    if (isset($_POST["email"]) && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        $sql = "SELECT * FROM user WHERE email = ?";
+        $stmt = mysqli_prepare($mysqli, $sql);
+
+        if ($stmt === false) {
+            die('Prepare failed: ' . htmlspecialchars(mysqli_error($mysqli)));
+        }
+
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if ($result) {
+            $user = mysqli_fetch_assoc($result);
+            if ($user && password_verify($password, $user['password'])) {
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_email'] = $user['email'];
+                echo 'Login successful! Welcome, ' . htmlspecialchars($user['email']) . '.';
+                header("Location: home_page.php");
+                exit;
+            } else {
+                echo 'Invalid email or password.';
+            }
+        } else {
+            echo 'No user found with this email.';
+        }
+
+        mysqli_stmt_close($stmt);
+    } else {
+        echo 'Invalid email address.';
+    }
+
+    mysqli_close($mysqli);
     exit;
 }
 ?>
@@ -21,8 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="login_style.css" rel="stylesheet" />
-    <script src="login.js"></script>
+    <link href="../style/login_style.css" rel="stylesheet" />
+    <script src="../script/login.js"></script>
     <title>Login</title>
   </head>
   <body>
@@ -44,26 +72,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           </li>
           <li><a href="./about_us.html">About Us</a></li>
           <div class="login">
-            <li><a href="./Login.html">Log in</a></li>
+            <li><a href="./login.html">Log in</a></li>
           </div>
         </ul>
       </div>
     </div>
-    <!-- <div class="image-container">
-      <img
-        src="https://s3-alpha-sig.figma.com/img/0e01/5e3a/c73b5846f7ac4b5aa450d2355cfb9e06?Expires=1718582400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dxHRCG5s4mVjVW3yvy7FBc-Vn7Lweb4pN1ZWL-J4HpjMSyzFabzzMHXNHbkNdQMXn1cuF72pCN1j~HqNTrgrePlLaXuFoXjIHdu2SF355c89L3966Np1YoYeTbHDMrD3i7W4LJFnPOKfU1vUG~90Vv59a-vAIhPiIxuPA3qJd2EAjMlrpIZ6VyaUJBJE7~AJu3sRSCo-UCHqKDCgNtVIU8ktSmnVVQTvxETNK~56i3csPRj4PJoTQ49qBKpf1XksDq~ioDPJxYfc21uFRw94Zi8WAKkEgv3PxcLJEHNBqpm7wHvV5hlnZa6iTgpnJqGjSyL6fhSAHdKPZkUVQpF-Ag__"
-        alt="Decorative Image"/>
-    </div>-->
     <div class="wrapper">
       <div class="form-login">
         <h2>Login</h2>
-        <form>
+        <form action="login.php" method="POST">
           <div class="input-box">
             <input type="email" name="email" required />
             <label>Email</label>
           </div>
           <div class="input-box">
-            <input type="password" name="pass" required />
+            <input type="password" name="password" required />
             <label>Password</label>
           </div>
           <div class="remember-forgot">
