@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (admincodeExists($conn, $admin_code)) {
-        echo "Admin code already exists. Please create a different admin code.";
+        echo "Admin code already exists. Please use a different admin code.";
         exit();
     }
 
