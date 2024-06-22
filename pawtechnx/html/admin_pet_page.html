@@ -3,84 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PawTechnx - Pets Information</title>
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="admin_pet_page.css">
 </head>
 <body>
-    <header class="nav-bar">
-        <div class="logo">PAWTECHNX</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Pets</a></li>
-                <li><a href="#">Adoption Forms</a></li>
-                <li><a href="#">Messages</a></li>
-                <li><a href="#">Schedules</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="banner">
-        <h1>Pets Information</h1>
-        <p>Add, Update and Delete pet details here</p>
-    </section>
-
-    <section class="pets-section">
-        <div class="pet-category">
-            <h2>Cat</h2>
-            <div class="pet-row">
-                <div class="pet">
-                    <img src="images/cat1.jpg" alt="Cat">
-                    <div class="edit-icon">&#9998;</div>
-                </div>
-                <div class="add-pet">
-                    <a href="pet_details_admin.html" class="add-icon">+</a>
-                </div>
+    <div class="admin-dashboard">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>WELCOME, ADMIN!</h2>
+                <img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg" 
+                     alt="Admin Profile" class="admin-profile">
             </div>
-        </div>
-
-        <div class="pet-category">
-            <h2>Rabbit</h2>
-            <div class="pet-row">
-                <div class="pet">
-                    <img src="images/rabbit1.jpg" alt="Rabbit">
-                    <div class="edit-icon">&#9998;</div>
+            <nav>
+                <ul>
+                    <li><a href="#">USERS LIST</a></li>
+                    <li class="active"><a href="#">PET LIST</a></li>
+                    <li>ADOPTION PROGRESS
+                        <ul>
+                            <li><a href="#">Request List</a></li>
+                            <li><a href="#">Form Responses</a></li>
+                            <li><a href="#">Rejected Request</a></li>
+                        </ul>
+                    </li>
+                    <li>MESSAGES/CONTACTS</li>
+                    <li>PAGES
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Address</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <div class="hamburger-menu" id="hamburgerMenu">
+                        &#9776;
+                    </div>
+                    <div class="logo">PAWTECHNX</div>
                 </div>
-                <div class="add-pet">
-                    <a href="pet_details_admin.html" class="add-icon">+</a>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search">
                 </div>
+                <div class="header-icons">
+                    <a href="#">Home</a>
+                    <a href="#">Notifications</a>
+                </div>
+            </header>
+            <div class="content">
+                <h1>Pet List</h1>
+                <div id="petList" class="pet-list"></div>
+                <button id="addPetBtn">Add Pet</button>
             </div>
+            <footer>
+                <p>&copy; 2024 PAWTECH. All rights reserved.</p>
+            </footer>
         </div>
+    </div>
 
-        <div class="pet-category">
-            <h2>Hamster</h2>
-            <div class="pet-row">
-                <div class="pet">
-                    <img src="images/hamster1.jpg" alt="Hamster">
-                    <div class="edit-icon">&#9998;</div>
-                </div>
-                <div class="add-pet">
-                    <a href="pet_details_admin.html" class="add-icon">+</a>
-                </div>
-            </div>
+    <div id="petModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="petForm">
+                <input type="hidden" id="petId" name="id">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="species">Species:</label>
+                <input type="text" id="species" name="species" required>
+                <label for="breed">Breed:</label>
+                <input type="text" id="breed" name="breed" required>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+                <label for="profile_image">Profile Image URL:</label>
+                <input type="text" id="profile_image" name="profile_image" required>
+                <button type="submit">Save</button>
+                <button type="button" id="deletePetBtn">Delete</button>
+            </form>
         </div>
-
-        <div class="pet-category">
-            <h2>Dog</h2>
-            <div class="pet-row">
-                <div class="pet">
-                    <img src="images/dog1.jpg" alt="Dog">
-                    <div class="edit-icon">&#9998;</div>
-                </div>
-                <div class="add-pet">
-                    <a href="pet_details_admin.html" class="add-icon">+</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 PAWTECHNX. All rights reserved.</p>
-    </footer>
+    </div>
+    <script src="admin_pet_page.js"></script>
 </body>
 </html>
