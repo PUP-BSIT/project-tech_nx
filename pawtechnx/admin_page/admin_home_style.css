@@ -1,5 +1,5 @@
 body {
-  font-family: 'popins', sans-serif;
+  font-family: "popins", sans-serif;
   width: 100vw;
   height: 100vh;
   font-size: 0.88rem;
@@ -73,7 +73,8 @@ aside {
 
 aside.top {
   background-color: #f8f8f8;
-  display: flex;justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
   margin-top: 1.4rem;
 }
@@ -107,12 +108,12 @@ aside .sidebar a {
   gap: 1rem;
   align-items: center;
   height: 3.2rem;
-  transition: all .1s ease-in;
+  transition: all 0.1s ease-in;
 }
 
 aside .sidebar a span {
   font-size: 1.6rem;
-  transition: all .1s ease-in;
+  transition: all 0.1s ease-in;
 }
 
 aside .sidebar a:last-child {
@@ -123,7 +124,7 @@ aside .sidebar a:last-child {
 
 aside .sidebar a:hover span {
   margin-left: 1rem;
-  transition: .4s ease;
+  transition: 0.4s ease;
 }
 
 .main {
