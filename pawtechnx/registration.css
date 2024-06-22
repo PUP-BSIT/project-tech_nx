@@ -137,3 +137,12 @@ body {
 .login-register p a:hover {
     text-decoration: underline;
 }
+
+.form-register for .error-msg {
+    margin: 10px 0;
+    display: block;
+    background: crimson;
+    color: #fff;
+    border-radius: 5px;
+    font-size:20px
+}

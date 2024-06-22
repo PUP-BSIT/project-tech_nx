@@ -2,20 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: sans-serif;
 }
 
 .banner {
   width: 100%;
-  height: 50vh;
-  background-image: url(images/header.jpg);
+  height: 70vh;
+  background-image: url(pet_page/images/header.jpg);
   background-size: cover;
   background-position: center;
   position: relative;
 }
 
 .nav-bar {
-  width: 90%;
   margin: auto;
   padding: 15px;
   display: flex;
@@ -67,76 +66,46 @@
   left: 0;
   background-color: white;
   min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .nav-bar ul li .dropdown-content a {
   color: black;
   padding: 12px 16px;
-  text-decoration: none;
   display: block;
-}
-
-.nav-bar ul li .dropdown-content a:hover {
-  background-color: #ddd;
 }
 
 .nav-bar ul li:hover .dropdown-content {
   display: block;
 }
 
+.nav-bar ul li a:hover {
+  color: #ffbe00;
+  font-size: 18px;
+}
+
 .header {
   width: 100%;
   position: absolute;
-  top: 50%;
-  right: 0; 
-  transform: translateY(-50%);
-  text-align: right; 
+  top: 15%;
+  text-align: right;
   color: white;
-  padding-right: 40px; 
+  padding-right: 60px;
 }
 
 .header h1 {
   font-size: 55px;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .header p {
-  margin: 0; 
-  font-weight: 100;
-  line-height: 10px;
-  padding-right: 120px; 
+  padding-right: 150px;
 }
 
-.register {
-  text-align: right;
-  padding-right: 15px;
-}
-
-button {
-  padding: 8px;
-  background-color: #FFBE00;
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition-duration: 0.4s;
-  
-}
-
-button a {
-  text-decoration: none;
-  color: white;
-}
-
-button:hover {
-  background-color: #b69020;
+.login {
+  text-align: left;
+  padding-left: 50px;
 }
 
 .content {
@@ -146,7 +115,6 @@ button:hover {
 }
 
 .wrapper {
-  max-width: 1100px;
   width: 100%;
   margin: auto;
   position: relative;
@@ -159,51 +127,24 @@ button:hover {
   align-items: center;
 }
 
+h1 {
+  padding-top: 50px;
+}
+
 .carousel {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 33.33%;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 16px;
   border-radius: 8px;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: black; 
   width: 90%;
 }
 
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel.no-transition {
-  scroll-behavior: auto;
-}
-
-.carousel.dragging {
-  scroll-snap-type: none;
-  scroll-behavior: auto;
-}
-
-.carousel.dragging .cat,
-.carousel.dragging .hamster,
-.carousel.dragging .dog,
-.carousel.dragging .rabbit {
-  cursor: grab;
-  user-select: none;
-}
-
-.carousel .cat,
-.carousel .hamster,
-.carousel .dog,
-.carousel .rabbit {
-  scroll-snap-align: start;
-  height: 342px;
-  list-style: none;
-  background: lightgray;
+.cat,
+.hamster,
+.dog,
+.rabbit {
+  height: 300px;
+  /*background: lightgray;*/
   cursor: pointer;
-  padding-bottom: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -211,46 +152,52 @@ button:hover {
   border-radius: 8px;
 }
 
-.pet-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 148px;
-  width: 148px;
-  border-radius: 50%;
-}
-
 .pet-image img {
-  width: 140px;
-  height: 140px;
+  margin-top: 50px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #fff;
+  /*border: 4px solid #fff;*/
+  box-shadow: 0px 8px 32px rgba(0, 0.7, 0, 0.7);
+  animation: pulse 2s infinite;
 }
 
-.carousel .cat h2,
-.carousel .hamster h2,
-.carousel .dog h2,
-.carousel .rabbit h2 {
+.pet-image img:hover {
+  transform: scale(1.2);
+}
+
+.cat h2,
+.hamster h2,
+.dog h2,
+.rabbit h2 {
   font-weight: 500;
-  font-size: 1.56rem;
   margin: 30px 0 5px;
   text-align: center;
 }
 
-.carousel .cat span,
-.carousel .hamster span,
-.carousel .dog span,
-.carousel .rabbit span {
-  color: #6a6d78;
-  font-size: 1.31rem;
-  text-align: center;
+a:visited {
+  color: orange;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
 }
 
 .steps {
   text-align: center;
   padding: 50px;
-  height: 70vh;
+  height: 130vh;
+}
+
+.fstep,
+.sstep,
+.tstep,
+.fourth-step,
+.fifth-step {
+  padding: 30px;
+  text-align: left;
 }
 
 .footer {
