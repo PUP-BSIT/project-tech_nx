@@ -18,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm'];
 
-    if (empty($fname) || empty($lname) || empty($contact) || empty($email) || empty($password) || empty($confirm_password)) {
+    if (empty($fname) || empty($lname) || empty($contact) || empty($email) 
+      || empty($password) || empty($confirm_password)) {
         echo "All fields are required.";
         exit();
     }
@@ -38,7 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = mysqli_real_escape_string($conn, $hashed_password);
 
     $sql = "INSERT INTO users (Firstname, Lastname, Contact, Email, Password) 
-            VALUES ('$fname', '$lname', '$contact', '$email', '$hashed_password')";
+            VALUES ('$fname', '$lname', '$contact', '$email', 
+              '$hashed_password')";
 
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
