@@ -9,11 +9,11 @@
 <body>
     <h1>Adoption Meeting Scheduler</h1>
     
-    <form id="meetingForm">
+    <form id="meeting_form">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         
-        <label for="petId">Pet ID:</label>
+        <label for="pet_id">Pet ID:</label>
         <input type="text" id="petId" name="petId" required>
         
         <label for="date">Date:</label>
@@ -21,8 +21,8 @@
         
         <label for="type">Type of Meeting:</label>
         <select id="type" name="type" required>
-            <option value="Online">In-person</option>
-            <option value="Visit">Virtual</option>
+            <option value="online">Online</option>
+            <option value="visit">Visit</option>
         </select>
         
         <label for="status">Status:</label>
@@ -35,7 +35,7 @@
         <button type="submit">Schedule Meeting</button>
     </form>
     
-    <table id="meetingsTable">
+    <table id="meetings_table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -49,6 +49,6 @@
         </tbody>
     </table>
     
-    <script src="scripts.js"></script>
+    <script src="schedule_scripts.js"></script>
 </body>
 </html>
