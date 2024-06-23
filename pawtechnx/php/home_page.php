@@ -13,17 +13,17 @@
           <p>PAWTECHNX</p>
         </div>
         <ul>
-          <li><a href="./home_page.php">Home</a></li>
+          <li><a href="../php/home_page.php">Home</a></li>
           <li class="dropdown">
             <button class="dropbtn">Adopt</button>
             <div class="dropdown-content">
-              <a href="./cats.html">Cats</a>
-              <a href="./hamsters.html">Hamsters</a>
-              <a href="./dogs.html">Dogs</a>
-              <a href="./rabbits.html">Rabbits</a>
+              <a href="../html/cats.html">Cats</a>
+              <a href="../html/hamsters.html">Hamsters</a>
+              <a href="../html/dogs.html">Dogs</a>
+              <a href="../html/rabbits.html">Rabbits</a>
             </div>
           </li>
-          <li><a href="./about_us.html">About Us</a></li>
+          <li><a href="../html/about_us.html">About Us</a></li>
           <div class="login">
             <li><a href="../php/login.php">Log in</a></li>
           </div>
@@ -39,34 +39,34 @@
         <h1>Meet our Featured Pets!</h1>
         <p>They are ready for a loving home.</p>
         <ul class="carousel">
-          <a href="../../images/cats.html">
+          <a href="../html/cats.html">
           <li class="cat">
             <div class="pet-image">
-              <img src="pet_page/images/cat/precious/cat1.jpg" />
+              <img src="../images/cat/cat1.jpg" />
             </div>
             <h2>Cat</h2>
           </li>
         </a>
-          <a href="./hamsters.html">
+          <a href="../html/hamsters.html">
           <li class="hamster">
             <div class="pet-image">
-              <img src="pet_page/images/hamster/hamster6.jpg" />
+              <img src="../images/hamster/hamster6.jpg" />
             </div>
             <h2>Hamster</h2>
           </li>
         </a>
-          <a href="./dogs.html">
+          <a href="../html/dogs.html">
             <li class="dog">
               <div class="pet-image">
-                <img src="pet_page/images/dog/dog6.jpg" />
+                <img src="../images/dog/dog6.jpg" />
               </div>
               <h2>Dog</h2>
             </li>
           </a>
-          <a href="./rabbits.html">
+          <a href="../html/rabbits.html">
             <li class="rabbit">
               <div class="pet-image">
-                <img src="pet_page/images/rabbit/rabbit1.jpg" />
+                <img src="../images/rabbit/rabbit1.jpg" />
               </div>
               <h2>Rabbit</h2>
             </li>

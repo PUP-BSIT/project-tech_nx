@@ -60,19 +60,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           <p>PAWTECHNX</p>
         </div>
         <ul>
-          <li><a href="./home_page.php">Home</a></li>
+          <li><a href="../php/home_page.php">Home</a></li>
           <li class="dropdown">
             <button class="dropbtn">Adopt</button>
             <div class="dropdown-content">
-              <a href="./cats.html">Cats</a>
-              <a href="./hamsters.html">Hamsters</a>
-              <a href="./dogs.html">Dogs</a>
-              <a href="./rabbits.html">Rabbits</a>
+              <a href="../html/cats.html">Cats</a>
+              <a href="../html/hamsters.html">Hamsters</a>
+              <a href="../html/dogs.html">Dogs</a>
+              <a href="../html/rabbits.html">Rabbits</a>
             </div>
           </li>
-          <li><a href="./about_us.html">About Us</a></li>
+          <li><a href="../html/about_us.html">About Us</a></li>
           <div class="login">
-            <li><a href="./login.html">Log in</a></li>
+            <li><a href="../php/login.php">Log in</a></li>
           </div>
         </ul>
       </div>
@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           <button type="submit" class="btn" name="login">Login</button>
           <div class="login-register">
             <p>
-              Don't have an account? <a href="registration.html"> Register</a>
+              Don't have an account? <a href="../html/registration.html"> Register</a>
             </p>
           </div>
           <div class="login-register">
