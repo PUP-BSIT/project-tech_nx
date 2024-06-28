@@ -10,8 +10,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
         die("Connection failed: " .  mysqli_connect_error());
     }
 
-$sql = "SELECT id, name, email, phone, address, profile_image, created_at
-        FROM users";
+$sql = "SELECT user_ID, Firstname, Lastname, Contact, Email, profile_image,
+        created_at FROM users";
 $result = mysqli_query($conn, $sql);
 
 $users = array();
