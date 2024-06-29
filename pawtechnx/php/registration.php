@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
+  <link href="../style/registration.css" rel="stylesheet" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="../style/login_style.css" rel="stylesheet" />
-  <script src="../script/login.js"></script>
-  <title>Login</title>
+  <title>Registration</title>
 </head>
 
 <body>
@@ -33,27 +32,36 @@
       </ul>
     </div>
   </div>
+  <!--<div class="image-container">
+      <img
+        src="https://s3-alpha-sig.figma.com/img/0e01/5e3a/c73b5846f7ac4b5aa450d2355cfb9e06?Expires=1718582400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dxHRCG5s4mVjVW3yvy7FBc-Vn7Lweb4pN1ZWL-J4HpjMSyzFabzzMHXNHbkNdQMXn1cuF72pCN1j~HqNTrgrePlLaXuFoXjIHdu2SF355c89L3966Np1YoYeTbHDMrD3i7W4LJFnPOKfU1vUG~90Vv59a-vAIhPiIxuPA3qJd2EAjMlrpIZ6VyaUJBJE7~AJu3sRSCo-UCHqKDCgNtVIU8ktSmnVVQTvxETNK~56i3csPRj4PJoTQ49qBKpf1XksDq~ioDPJxYfc21uFRw94Zi8WAKkEgv3PxcLJEHNBqpm7wHvV5hlnZa6iTgpnJqGjSyL6fhSAHdKPZkUVQpF-Ag__"
+        alt="Decorative Image"/>
+    </div>-->
   <div class="wrapper">
-    <div class="form-login">
-      <h2>Login</h2>
-      <form action="../php/login_process.php" method="POST">
+    <div class="form-register">
+      <h2>Registration</h2>
+      <form action="../php/register_process.php" method="POST">
         <div class="input-box">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" required>
         </div>
         <div class="input-box">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
         </div>
-        <div class="remember-forgot">
-          <label><input type="checkbox" /> Remember me</label>
-          <a href="#">Forgot Password</a>
+        <div class="input-box">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn" name="login">Login</button>
+        <div class="input-box">
+          <label for="confirm">Confirm Password</label>
+          <input type="password" name="confirm" id="confirm" required />
+        </div>
+        <button type="submit" class="btn" name="submit" onclick="submitUser()">
+          Register
+        </button>
         <div class="login-register">
-          <p>
-            Don't have an account? <a href="../html/registration.html"> Register</a>
-          </p>
+          <p>Already have an account? <a href="Login.html">Login</a></p>
         </div>
         <div class="login-register">
           <p>Are you an admin? Proceed <a href="admin_login.html">here</a></p>
@@ -84,6 +92,7 @@
       <p>About Us</p>
     </div>
   </div>
+  <script src="registration.js"></script>
 </body>
 
 </html>
