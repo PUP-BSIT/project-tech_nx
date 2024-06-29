@@ -36,20 +36,3 @@ window.onclick = function(event) {
         closeModal();
     }
 }
-
-function adoptPet(petID) {
-    fetch('check_login_status.php')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            if (data.loggedIn) {
-                window.location.href = 'adoption_form.php?pet_id=' + petID;
-            } else {
-                window.location.href = 'login.php';
-            }
-        })
-        .catch(function(error) {
-            console.error('Error:', error);
-        });
-}
