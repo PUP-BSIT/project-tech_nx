@@ -1,17 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
     const petList = document.getElementById("petList");
     const addPetBtn = document.getElementById("addPetBtn");
     const petModal = document.getElementById("petModal");
     const closeModal = document.querySelector(".close");
     const petForm = document.getElementById("petForm");
     const deletePetBtn = document.getElementById("deletePetBtn");
+
+    if (!petList || !addPetBtn || !petModal || !closeModal || !petForm
+         || !deletePetBtn) return;
   
     function fetchPets() {
         fetch("get_pets.php")
-            .then(response => response.json())
-            .then(data => {
-                petList.innerHTML = "";
-                data.forEach(pet => {
+            .then(function(response) {
+            return response.json();
+            })
+            .then(function(data) {
+            petList.innerHTML = '';
+            data.forEach(function(pet) {
                     const petItem = document.createElement("div");
                     petItem.classList.add("pet-item");
                     petItem.dataset.id = pet.id;
@@ -26,15 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     `;
                     petList.appendChild(petItem);
   
-                    petItem.addEventListener("click", () => {
+                    petItem.addEventListener("click", function() {
                         openModal(pet);
                     });
                 });
             })
-            .catch(error => console.error("Error fetching pets:", error));
+            .catch(function(error) {
+                console.error('Error fetching pets:', error);
+            });
     }
   
-    function openModal(pet = {}) {
+    function openModal(pet) {
+        pet = pet || {};
         petModal.style.display = "block";
         petForm.id.value = pet.id || "";
         petForm.name.value = pet.name || "";
@@ -46,11 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
         deletePetBtn.style.display = pet.id ? "inline" : "none";
     }
   
-    closeModal.addEventListener("click", () => {
+    closeModal.addEventListener("click", function() {
         petModal.style.display = "none";
     });
   
-    petForm.addEventListener("submit", event => {
+    petForm.addEventListener("submit", function(event){
         event.preventDefault();
         const formData = new FormData(petForm);
         const isUpdate = Boolean(formData.get("id"));
@@ -60,36 +68,44 @@ document.addEventListener("DOMContentLoaded", () => {
             method: "POST",
             body: formData
         })
-        .then(response => response.text())
-        .then(data => {
-            alert(data);
-            petModal.style.display = "none";
-            fetchPets();
-        })
-        .catch(error => console.error("Error:", error));
-    });
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(data) {
+                alert(data);
+                petModal.style.display = 'none';
+                fetchPets();
+            })
+            .catch(function(error) {
+                console.error('Error:', error);
+            });
+});
   
-    deletePetBtn.addEventListener("click", () => {
-        const petId = petForm.id.value;
+    deletePetBtn.addEventListener('click', function() {
+        const petId = petForm.id.valueOf;
         if (confirm("Are you sure you want to delete this pet?")) {
             fetch("delete_pet.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: `id=${petId}`
+                body: 'id=' + petId
             })
-            .then(response => response.text())
-            .then(data => {
-                alert(data);
-                petModal.style.display = "none";
-                fetchPets();
-            })
-            .catch(error => console.error("Error:", error));
+                .then(function(response) {
+                    return response.text();
+                })
+                .then(function(data) {
+                    alert(data);
+                    petModal.style.display = 'none';
+                    fetchPets();
+                })
+                .catch(function(error) {
+                    console.error('Error:', error);
+                });
         }
     });
   
-    addPetBtn.addEventListener("click", () => {
+    addPetBtn.addEventListener("click", function() {
         openModal();
     });
   
