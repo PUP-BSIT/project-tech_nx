@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pet_adoption_system";
+include "dataconnection.php";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -18,6 +15,12 @@ $pets = array();
 
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
+        $formatted_id = 'PT-' . str_pad($row['id'], 3, '0', STR_PAD_LEFT) . '-PTX';
+        
+        $row['pet_ID'] = $formatted_id;
+        
+        unset($row['id']);
+        
         $pets[] = $row;
     }
 }
