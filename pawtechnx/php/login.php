@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="../style/login_style.css" rel="stylesheet" />
-  <script src="../script/login.js"></script>
+
   <title>Login</title>
 </head>
 

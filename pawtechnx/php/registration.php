@@ -27,12 +27,12 @@ function generateUserId($conn) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
-    $contact = $_POST['contact'];
     $email = $_POST['email'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm'];
 
-    if (empty($fname) || empty($lname) || empty($contact) || empty($email) || empty($password) || empty($confirm_password)) {
+    if (empty($fname) || empty($lname) || empty($email) || empty($username) || empty($password) || empty($confirm_password)) {
         echo "All fields are required.";
         exit();
     }
@@ -47,12 +47,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
     $user_id = generateUserId($conn);
 
-    $sql = "INSERT INTO users (user_id, Firstname, Lastname, Contact, Email, Password) 
-            VALUES ('$user_id', '$fname', '$lname', '$contact', '$email', '$hashed_password')";
+    $role = 'user'; 
+
+    $sql = "INSERT INTO users (user_id, Firstname, Lastname, Username, Email, Password, role) 
+            VALUES ('$user_id', '$fname', '$lname', '$username', '$email', '$password', '$role')";
 
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
