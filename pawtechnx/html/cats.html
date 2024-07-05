@@ -13,7 +13,7 @@
           <p>PAWTECHNX</p>
         </div>
         <ul>
-          <li><a href="../php/landing_page.php">Home</a></li>
+          <li><a href="../php/home_page.php">Home</a></li>
           <li class="dropdown">
             <button class="dropbtn">Adopt</button>
             <div class="dropdown-content">
@@ -23,7 +23,7 @@
               <a href="../html/rabbits.html">Rabbits</a>
             </div>
           </li>
-          <li><a href="../html/about_us.html">About Us</a></li>
+          <li><a href="../php/about_us.php">About Us</a></li>
           <div class="login">
             <li><a href="../php/login.php">Log in</a></li>
           </div>

@@ -8,14 +8,16 @@
   </head>
 
   <body>
-    <div class="banner">
+    <div class="banner" id="banner">
       <div class="nav-bar">
         <div class="logo">
           <p>PAWTECHNX</p>
         </div>
         <ul>
-          <li><a href="../php/landing_page.php">Home</a></li>
-          <li class="dropdown">
+          <li><a href="#banner">Home</a></li>
+          <li><a href="#wrapper">Meet Pets</a></li>
+          <li><a href="#steps">Adopt Pets</a></li>
+          <!--<li class="dropdown">
             <button class="dropbtn">Adopt</button>
             <div class="dropdown-content">
               <a href="../html/cats.html">Cats</a>
@@ -24,7 +26,7 @@
               <a href="../html/rabbits.html">Rabbits</a>
             </div>
           </li>
-          <li><a href="../html/about_us.html">About Us</a></li>
+          <li><a href="../html/about_us.html">About Us</a></li>-->
           <div class="login">
             <li><a href="../php/login.php">Log in</a></li>
           </div>
@@ -35,7 +37,7 @@
       <h1>Rescue. Adopt. Love.</h1>
       <p>Learn how to adopt a pet today!</p>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" id="wrapper">
       <div class="carousel-container">
         <h1>Meet our Featured Pets!</h1>
         <p>They are ready for a loving home.</p>
@@ -79,7 +81,7 @@
           src="../images/cat/cat1.jpg"
           alt="Adopt a Pet"
           class="side-image"/>
-        <div class="steps">
+        <div class="steps" id="steps">
           <h1>How to adopt?</h1>
           <p>Here's a step-by-step guide to adopt a pet</p>
           <p class="fstep">
