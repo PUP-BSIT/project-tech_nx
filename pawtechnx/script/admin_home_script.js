@@ -48,9 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  let create=document.querySelector("#create");
+let create=document.querySelector("#create");
 let model=document.querySelector("#create-client");
-let close=document.querySelector("#close")
+let close=document.querySelector("#close");
+let save = document.querySelector("#save");
 
 create.addEventListener("click", () => {
     model.style.display = "flex";
@@ -60,7 +61,7 @@ close.addEventListener("click", () => {
     model.style.display = "none";
 })
 
-const save = async() => {
+ save.addEventListener("click",async() => {
     let name = document.querySelector("#name")
     let id = document.querySelector("#id")
     let date = document.querySelector("#date")
@@ -83,4 +84,4 @@ const save = async() => {
 
     const output = await res.json();
     console.log(output)
-}
+});

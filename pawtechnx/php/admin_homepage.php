@@ -1,6 +1,6 @@
-<?php 
+ <?php 
 
-include 'create.php';
+include 'dataconection.php';
 
 if(isset($_POST ["name"]) || isset($_POST["id"]) || isset
 ($_POST["date"]) || isset($_POST["type"]) || isset($_POST["status"])) {
