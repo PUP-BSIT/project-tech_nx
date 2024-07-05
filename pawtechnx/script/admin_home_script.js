@@ -62,26 +62,31 @@ close.addEventListener("click", () => {
 })
 
  save.addEventListener("click",async() => {
-    let name = document.querySelector("#name")
-    let id = document.querySelector("#id")
-    let date = document.querySelector("#date")
-    let type = document.querySelector("#type")
-    let status = document.querySelector("#status")
-    const data = {
-        name: name,
-        id: id,
-        date: date,
-        type: type,
-        status: status
-    }
-    const res=await fetch("php/insert-data.php", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "appliaction/json"
-        }
-    });
+try {
+  let name = document.querySelector("#name")
+  let id = document.querySelector("#id")
+  let date = document.querySelector("#date")
+  let type = document.querySelector("#type")
+  let status = document.querySelector("#status")
+  const data = {
+      name: name,
+      id: id,
+      date: date,
+      type: type,
+      status: status
+  }
+  const res=await fetch("php/insert-data.php", {
+      method: "POST",
+      body: JSON.stringify({"name": name, "id": id, "date": date, 
+        "type": type, "status": status}),
+      headers: {
+          "Content-Type": "appliaction/json"
+      }
+  });
 
-    const output = await res.json();
-    console.log(output)
+  const output = await res.json();
+  console.log(output)
+} catch (error) {
+      console.log("error " + error.message)
+}
 });
