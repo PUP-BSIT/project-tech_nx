@@ -29,7 +29,7 @@ function showDetails(petID) {
                             <p><strong>Gender:</strong> ${Gender || 'undefined'}</p>
                             <p><strong>Size:</strong> ${Size || 'undefined'}</p>
                             <p>${Description || 'I am looking for a home!'}</p>
-                            <form id="adoptForm" method="POST" action="adopt.php">
+                            <form id="adoptForm" method="POST" action="adoption.php">
                                 <input type="hidden" name="pet_id" value="${pet_ID}">
                                 <button type="submit" class="adopt-button">Adopt</button>
                             </form>
