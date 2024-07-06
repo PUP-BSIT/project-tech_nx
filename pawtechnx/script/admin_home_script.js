@@ -1,3 +1,32 @@
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+async function drawChart() {
+  // Fetch data from server
+  const response = await fetch('/data');
+  const jsonData = await response.json();
+
+  // Transform data into the format Google Charts expects
+  const data = new google.visualization.DataTable();
+  data.addColumn('number', 'Price');
+  data.addColumn('number', 'Size');
+  jsonData.forEach(row => data.addRow([row.price, row.size]));
+
+  // Set Options
+  const options = {
+    title: 'House Prices vs Size',
+    hAxis: {title: 'Square Meters'},
+    vAxis: {title: 'Price in Millions'},
+    legend: 'none'
+  };
+
+  // Draw Chart
+  const chart = new google.visualization.LineChart(document.getElementById('myChart'));
+  chart.draw(data, options);
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const monthlyData = {
       summary: {
@@ -63,19 +92,12 @@ close.addEventListener("click", () => {
 
  save.addEventListener("click",async() => {
 try {
-  let name = document.querySelector("#name")
-  let id = document.querySelector("#id")
-  let date = document.querySelector("#date")
-  let type = document.querySelector("#type")
-  let status = document.querySelector("#status")
-  const data = {
-      name: name,
-      id: id,
-      date: date,
-      type: type,
-      status: status
-  }
-  const res=await fetch("php/insert-data.php", {
+  let name = document.querySelector("#name").value;
+  let id = document.querySelector("#id").value;
+  let date = document.querySelector("#date").value;
+  let type = document.querySelector("#type").value;
+  let status = document.querySelector("#status").value;
+  const res=await fetch("php/admin_homepage.php", {
       method: "POST",
       body: JSON.stringify({"name": name, "id": id, "date": date, 
         "type": type, "status": status}),
@@ -83,8 +105,19 @@ try {
           "Content-Type": "appliaction/json"
       }
   });
-
   const output = await res.json();
+
+  if (output.success){
+    alert(output.message);
+    name = "";
+    id = "";
+    date = "";
+    type = "";
+    status = "";
+    model.style.display = "none";
+  } else {
+    alert(output.message);
+  }
   console.log(output)
 } catch (error) {
       console.log("error " + error.message)
