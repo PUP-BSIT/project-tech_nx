@@ -10,107 +10,81 @@
     <link href="../style/admin_home_style.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="header">
-      <p class="title"><a href="home_page.html"></a>PAWTECHNX</p>
-      <div class="nav">
-        <a href="home_page.html">Home</a>
-        <a href="#">Pets</a>
-      </div>
-    </div>
-    <div class="container">
-      <div class="tFop">
-        <div class="logo">
-          <h2>Admin Home Page</h2>
-          <div class="close">
-            <span class="material-symbols-outlined"></span>
-          </div>
+    <div class="admin-dashboard">
+      <aside class="sidebar" id="sidebar">
           <div class="sidebar-header">
-            <img
-              src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg"
-              alt="Admin Profile"
-              class="admin-profile"/>
+              <h2>WELCOME, ADMIN!</h2>
+              <img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg" 
+                   alt="Admin Profile" class="admin-profile">
           </div>
-          <h2>Users List</h2>
-          <div class="close">
-            <span class="material-symbols-outlined"></span>
+          <nav>
+              <ul>
+                  <li class="active"><a href="#">USERS LIST</a></li>
+                  <li><a href="#">PET LIST</a></li>
+                  <li>ADOPTION PROGRESS
+                      <ul>
+                          <li><a href="#">Request List</a></li>
+                      </ul>
+                  </li>
+                  <li>PAGES
+                      <ul>
+                          <li><a href="#">About Us</a></li>
+                          <li><a href="#">Contact Us</a></li>
+                          <li><a href="#">Privacy Policy</a></li>
+                          <li><a href="#">Address</a></li>
+                          <li><a href="#">FAQ</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </nav>
+      </aside>
+      <div class="main-content">
+          <header class="header">
+              <div class="header-left">
+                  <div class="hamburger-menu" id="hamburgerMenu">
+                      &#9776;
+                  </div>
+                  <div class="logo">PAWTECHNX</div>
+              </div>
+              <div class="search-bar">
+                  <input type="text" id="searchInput" placeholder="Search">
+              </div>
+              <div class="header-icons">
+                  <a href="#">Home</a>
+                  <a href="#">Notifications</a>
+              </div>
+          </header>
+          <div class="content">
+              <h1>Users List</h1>
+              <div id="userList" class="user-list">
+              </div>
           </div>
-
-          <h2>Pet List</h2>
-          <div class="close">
-            <span class="material-symbols-outlined"></span>
-          </div>
-
-          <h2>Adoption Progress</h2>
-          <div class="close">
-            <span class="material-symbols-outlined"></span>
-          </div>
-        </div>
-        <div class="sidebar">
-          <a href="#">
-            <span class="material-symbols-outlined">list</span>
-            <h3>Request List</h3>
-          </a>
-          <a href="#">
-            <span class="material-symbols-outlined">playlist_add_check</span>
-            <h3>Form Responses</h3>
-          </a>
-          <a href="#">
-            <span class="material-symbols-outlined">playlist_remove</span>
-            <h3>Rejected Request</h3>
-          </a>
-          <h2>Message/Contacts</h2>
-          <div class="close">
-            <span class="material-symbols-outlined"></span>
-          </div>
-          <h2>Pages</h2>
-          <span class="material-symbols-outlined"></span>
-
-          <a href="User Account/about_us.html">
-            <span class="material-symbols-outlined">edit</span>
-            <h3>About Us</h3>
-          </a>
-          <a href="User Account/contacts.html">
-            <span class="material-symbols-outlined">edit</span>
-            <h3>Contact Us</h3>
-          </a>
-          <a href="#">
-            <span class="material-symbols-outlined">edit</span>
-            <h3>Privacy Policy</h3>
-          </a>
-          <a href="#">
-            <span class="material-symbols-outlined">edit</span>
-            <h3>Address</h3>
-          </a>
-          <a href="#">
-            <span class="material-symbols-outlined">edit</span>
-            <h3>FAQ</h3>
-          </a>
-        </div>
       </div>
-      <main>
-        <h1>Monthly Recap</h1>
-        <section class="monthly-recap">
-          <div class="summary">
-            <h2>Summary</h2>
-            <p>Insert summary text and data here...</p>
+  </div>
+
+  <div id="userModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="modalProfileImage" class="profile-image"></div>
+          <div id="modalDetails" class="user-details">
+              <h2 id="modalName"></h2>
+              <p><strong>Email:</strong> <span id="modalEmail">
+                 </span></p>
+              <p><strong>Phone:</strong> <span id="modalPhone"> 
+                 </span></p>
+              <p><strong>Address:</strong> <span id="modalAddress">
+                 </span></p>
+              <p><strong>Created At:</strong> <span id="modalCreatedAt">
+                 </span></p>
           </div>
-          <div class="charts">
-            <!-- Insert charts or graphs here -->
-          </div>
-        </section>
-      </main>
-      <div class="users">
-        <h2>New Users</h2>
       </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../script/admin_home_script.js"></script>
+  </div>
 
     <div class="header">
       <div class="container-fluid">
           <h1> Schedule Meeeting</h1>
       </div>
-  </div>
+    </div>
 
   <div class="container">
       <div class="card">
@@ -189,7 +163,6 @@
           </div>
       </div>
   </div>
-  <script src="../script/admin_home_script.js"></script>
 
     <div class="footer">
       <div class="logo">
@@ -214,5 +187,30 @@
         <p>About Us</p>
       </div>
     </div>
+    <script src="../script/admin_home_script.js"></script>
+  </body>
+</html>      <div class="logo">
+        <p>PAWTECHNX</p>
+      </div>
+      <div class="address">
+        <h4>Address</h4>
+        <p>Blk 123</p>
+        <p>Lower Bicutan</p>
+        <p>Taguig City</p>
+      </div>
+      <div class="contact">
+        <h4>Contacts</h4>
+        <p>0912345678</p>
+        <p>1234567890</p>
+        <p>email@example.com</p>
+      </div>
+      <div class="info">
+        <h4>Information</h4>
+        <p>Privacy Policy</p>
+        <p>FAQ</p>
+        <p>About Us</p>
+      </div>
+    </div>
+    <script src="../script/admin_home_script.js"></script>
   </body>
 </html>

@@ -14,10 +14,8 @@
           <p>PAWTECHNX</p>
         </div>
         <ul>
-          <li><a href="#banner">Home</a></li>
-          <li><a href="#wrapper">Meet Pets</a></li>
-          <li><a href="#steps">Adopt Pets</a></li>
-          <!--<li class="dropdown">
+          <li><a href="../php/index.php">Home</a></li>
+          <li class="dropdown">
             <button class="dropbtn">Adopt</button>
             <div class="dropdown-content">
               <a href="../html/cats.html">Cats</a>
@@ -26,7 +24,7 @@
               <a href="../html/rabbits.html">Rabbits</a>
             </div>
           </li>
-          <li><a href="../html/about_us.html">About Us</a></li>-->
+          <li><a href="../php/about_us.php">About Us</a></li>
           <div class="login">
             <li><a href="../php/login.php">Log in</a></li>
           </div>
@@ -42,7 +40,7 @@
         <h1>Meet our Featured Pets!</h1>
         <p>They are ready for a loving home.</p>
         <ul class="carousel">
-          <a href="../php/login.php">
+          <a href="../html/cats.html">
             <li class="cat">
               <div class="pet-image">
                 <img src="../images/cat/cat1.jpg" />
@@ -50,7 +48,7 @@
               <h2>Cat</h2>
             </li>
           </a>
-          <a href="../php/login.php">
+          <a href="../html/hamsters.html">
             <li class="hamster">
               <div class="pet-image">
                 <img src="../images/hamster/hamster6.jpg" />
@@ -58,7 +56,7 @@
               <h2>Hamster</h2>
             </li>
           </a>
-          <a href="../php/login.php">
+          <a href="../html/dogs.html">
             <li class="dog">
               <div class="pet-image">
                 <img src="../images/dog/dog6.jpg" />
@@ -66,7 +64,7 @@
               <h2>Dog</h2>
             </li>
           </a>
-          <a href="../php/login.php">
+          <a href="../html/rabbits.html">
             <li class="rabbit">
               <div class="pet-image">
                 <img src="../images/rabbit/rabbit1.jpg" />

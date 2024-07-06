@@ -11,12 +11,12 @@
 <body>
   <div class="banner">
     <div class="nav-bar">
-      <a href="../html/account.html">A</a>
+      <a href="./account.php">A</a>
       <div class="logo">
         <p>PAWTECHNX</p>
       </div>
       <ul>
-        <li><a href="../php/home_page.php">Home</a></li>
+        <li><a href="../php/index.php">Home</a></li>
         <li class="dropdown">
           <button class="dropbtn">Adopt</button>
           <div class="dropdown-content">

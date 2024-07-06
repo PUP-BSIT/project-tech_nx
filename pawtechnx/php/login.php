@@ -13,7 +13,7 @@
   <div class="banner">
     <div class="nav-bar">
       <div class="logo">
-        <a href="../php/landing_page.php">PAWTECHNX</a>
+        <a href="../php/index.php">PAWTECHNX</a>
       </div>
     </div>
   </div>
