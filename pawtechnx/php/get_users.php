@@ -1,14 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "pet_adoption_system";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-    if (!$conn) {
-        die("Connection failed: " .  mysqli_connect_error());
-    }
+include "dataconnection.php";
 
 $sql = "SELECT user_ID, Firstname, Lastname, Contact, Email, profile_image,
         created_at FROM users";

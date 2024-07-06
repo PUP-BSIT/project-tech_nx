@@ -11,6 +11,7 @@
 <body>
   <div class="banner">
     <div class="nav-bar">
+      <a href="../html/account.html">A</a>
       <div class="logo">
         <p>PAWTECHNX</p>
       </div>
@@ -25,16 +26,16 @@
             <a href="../html/rabbits.html">Rabbits</a>
           </div>
         </li>
-        <li><a href="../html/about_us.html">About Us</a></li>
-        <div class="login">
-          <li><a href="../php/login.php">Log in</a></li>
+        <li><a href="../php/about_us.php">About Us</a></li>
+        <div class="logout">
+          <li><a href="logout.php">Logout</a></li>
         </div>
       </ul>
     </div>
   </div>
   <div class="header">
-    <h1>Rescue. Adopt. Love.</h1>
-    <p>Learn how to adopt a pet today!</p>
+    <h1>Welcome back, user!</h1>
+    <p>We are very happy to see you</p>
   </div>
   <div class="wrapper">
     <div class="carousel-container">

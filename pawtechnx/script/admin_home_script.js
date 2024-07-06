@@ -48,9 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  let create=document.querySelector("#create");
+let create=document.querySelector("#create");
 let model=document.querySelector("#create-client");
-let close=document.querySelector("#close")
+let close=document.querySelector("#close");
+let save = document.querySelector("#save");
 
 create.addEventListener("click", () => {
     model.style.display = "flex";
@@ -60,27 +61,32 @@ close.addEventListener("click", () => {
     model.style.display = "none";
 })
 
-const save = async() => {
-    let name = document.querySelector("#name")
-    let id = document.querySelector("#id")
-    let date = document.querySelector("#date")
-    let type = document.querySelector("#type")
-    let status = document.querySelector("#status")
-    const data = {
-        name: name,
-        id: id,
-        date: date,
-        type: type,
-        status: status
-    }
-    const res=await fetch("php/insert-data.php", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "appliaction/json"
-        }
-    });
+ save.addEventListener("click",async() => {
+try {
+  let name = document.querySelector("#name")
+  let id = document.querySelector("#id")
+  let date = document.querySelector("#date")
+  let type = document.querySelector("#type")
+  let status = document.querySelector("#status")
+  const data = {
+      name: name,
+      id: id,
+      date: date,
+      type: type,
+      status: status
+  }
+  const res=await fetch("php/insert-data.php", {
+      method: "POST",
+      body: JSON.stringify({"name": name, "id": id, "date": date, 
+        "type": type, "status": status}),
+      headers: {
+          "Content-Type": "appliaction/json"
+      }
+  });
 
-    const output = await res.json();
-    console.log(output)
+  const output = await res.json();
+  console.log(output)
+} catch (error) {
+      console.log("error " + error.message)
 }
+});
