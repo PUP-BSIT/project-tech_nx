@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .banner {
+    width: 100%;
+    height: 50vh;
+    background-image: url(../images/header.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .nav-bar {
+    width: 90%;
+    margin: auto;
+    padding: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 900;
+  }
+  
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+  }
+  
+  .nav-bar ul {
+    display: flex;
+    margin-left: auto;
+  }
+  
+  .nav-bar ul li {
+    list-style: none;
+    margin: 0 20px;
+  }
+  
+  .nav-bar ul li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .header {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+  
+  .header h1 {
+    font-size: 70px;
+  }
+  
+  .header p {
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+  }
+  
+  .content {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 50px;
+  }
+  
+  footer {
+    width: 100%;
+    background-color: whitesmoke;
+    color: black;
+    padding: 20px 0;
+    margin-top: 20px;
+  }
+  
+  .footer-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .footer-address,
+  .footer-contact,
+  .footer-info {
+    flex: 1;
+  }
+  
+  .footer-address h3,
+  .footer-contact h3,
+  .footer-info h3 {
+    margin-bottom: 10px;
+  }
+  
+  .footer-address p,
+  .footer-contact p,
+  .footer-info p {
+    margin-bottom: 5px;
+  }
+  
+  .pet-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .pet {
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 200px;
+    padding: 10px;
+    height: 280px;
+    overflow-y: auto;
+    gap: 10px;
+  }
+  
+  .pet:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    padding-top: 60px;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 800px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .close {
+    color: #aaa;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .modal-content img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .pet-details {
+    text-align: center;
+  }
+  
+  .pet-details h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #444;
+  }
+  
+  .pet-details p {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .pet-details p strong {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    padding-right: 10px;
+  }
+  
+  .pet-description {
+    margin-top: 20px;
+    font-style: italic;
+    color: #777;
+  }
+  
+  .adopt-button {
+    background-color: #ff9800;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .adopt-button:hover {
+    background-color: #e68900;
+  }
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .species-container {
+    margin-bottom: 20px;
+  }
+  
+  .species-container h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .pet-carousel {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .pet img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .carousel-button {
+    padding: 5px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .carousel-button.left {
+    order: -1;
+  }
+  
+  .carousel-button.right {
+    order: 1;
+  }
+
+.modal.show {
+    display: block;
+}

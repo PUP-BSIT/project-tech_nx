@@ -72,7 +72,7 @@
         </div>
     </div>
 
-    <script src="display_pet_details.js"></script>
+    <script src="../script/display_pet_details.js"></script>
 
     <div class="footer-container">
         <div class="footer-address">
