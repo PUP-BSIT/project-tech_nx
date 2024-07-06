@@ -14,7 +14,7 @@
             </div>
             <ul>
                 <li><a href="home_page.html">Home</a></li>
-                <li><a href="pet_page.html">Pets</a></li>
+                <li><a href="pet_page.php">Pets</a></li>
                 <li><a href="about_us.html">About Us</a></li>
                 <li><a href="contacts.html">Contact Us</a></li>
             </ul>
@@ -30,65 +30,45 @@
         <p>They are ready for a loving Home.</p>
     </div>
     <div class="wrapper">
-        <div class="carousel-container">
-            <?php 
-            $servername = "localhost";
-            $database = "petss"; 
-            $username = "root";
-            $password = "";
+        <?php
+        include "dataconnection.php";
+        $query = "SELECT `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, `Size`, `profile_img` FROM `pet_details` ORDER BY Species";
+        $query_run = mysqli_query($conn, $query);
 
-            $conn = mysqli_connect($servername, $username, $password, 
-                $database);
-
-            if (!$conn) {
-                die("Connection failed: " . mysqli_connect_error());
-            }
-
-            $query = "SELECT pet_ID, name, profile_image, species FROM
-                pet_details ORDER BY species";
-            $query_run = mysqli_query($conn, $query);
-
-            $current_species = null;
-
-            if ($query_run) {
-                while ($row = mysqli_fetch_assoc($query_run)) {
-                    if ($row['species'] != $current_species) {
-                        if ($current_species !== null) {
-                            echo '</div>'; 
-                        }
-                        echo '<div class="species-container">';
-                        echo '<h2>' . htmlspecialchars($row['species']) .
-                            '</h2>';
-                        $current_species = $row['species'];
+        $current_species = null;
+        if ($query_run) {
+            while ($row = mysqli_fetch_assoc($query_run)) {
+                if ($row['Species'] != $current_species) {
+                    if ($current_species !== null) {
+                        echo '</div></div>';
                     }
-
-                    echo "<div class='pet' onclick='showDetails(" . 
-                        htmlspecialchars($row['pet_ID']) . ")'>";
-                    echo "<img src='" . htmlspecialchars($row['profile_image']) 
-                    . "' alt='Image of " . 
-                    htmlspecialchars($row['name']) . "'>";
-                    echo "<p>" . htmlspecialchars($row['name']) . "</p>";
-                    echo "</div>";
+                    echo '<div class="species-container">';
+                    echo '<h2>' . htmlspecialchars($row['Species']) . '</h2>';
+                    echo '<div class="pet-carousel">';
+                    echo '<button class="carousel-button left">&lt;</button>';
+                    $current_species = $row['Species'];
                 }
-
-                if ($current_species !== null) {
-                    echo '</div>'; 
-                }
-            } else {
-                echo "<p>Error executing query: " . mysqli_error($conn) . 
-                "</p>";
+                echo "<div class='pet' onclick='showDetails(" . htmlspecialchars($row['pet_ID']) . ")'>";
+                echo "<img src='" . htmlspecialchars($row['profile_img']) . "' alt='Image of " . htmlspecialchars($row['Name']) . "'>";
+                echo "<p>" . htmlspecialchars($row['Name']) . "</p>";
+                echo "<p>" . htmlspecialchars($row['Age']) . " years old</p>";
+                echo "</div>";
             }
-
-            mysqli_close($conn);
-            ?>
-        </div>
+            if ($current_species !== null) {
+                echo '<button class="carousel-button right">&gt;</button>';
+                echo '</div></div>';
+            }
+        } else {
+            echo "<p>Error executing query: " . mysqli_error($conn) . "</p>";
+        }
+        mysqli_close($conn);
+        ?>
     </div>
 
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modal-body" class="pet-details">
-            </div>
+            <div id="modal-body" class="pet-details"></div>
         </div>
     </div>
 
