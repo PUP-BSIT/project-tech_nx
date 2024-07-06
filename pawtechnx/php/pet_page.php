@@ -38,14 +38,14 @@
             $password = "";
 
             $conn = mysqli_connect($servername, $username, $password, 
-              $database);
+                $database);
 
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
 
             $query = "SELECT pet_ID, name, profile_image, species FROM
-               pet_details ORDER BY species";
+                pet_details ORDER BY species";
             $query_run = mysqli_query($conn, $query);
 
             $current_species = null;
@@ -58,12 +58,12 @@
                         }
                         echo '<div class="species-container">';
                         echo '<h2>' . htmlspecialchars($row['species']) .
-                         '</h2>';
+                            '</h2>';
                         $current_species = $row['species'];
                     }
 
                     echo "<div class='pet' onclick='showDetails(" . 
-                      htmlspecialchars($row['pet_ID']) . ")'>";
+                        htmlspecialchars($row['pet_ID']) . ")'>";
                     echo "<img src='" . htmlspecialchars($row['profile_image']) 
                     . "' alt='Image of " . 
                     htmlspecialchars($row['name']) . "'>";

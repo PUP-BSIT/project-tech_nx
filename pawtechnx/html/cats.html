@@ -13,7 +13,7 @@
           <p>PAWTECHNX</p>
         </div>
         <ul>
-          <li><a href="../php/home_page.php">Home</a></li>
+          <li><a href="../php/landing_page.php">Home</a></li>
           <li class="dropdown">
             <button class="dropbtn">Adopt</button>
             <div class="dropdown-content">
@@ -23,9 +23,9 @@
               <a href="../html/rabbits.html">Rabbits</a>
             </div>
           </li>
-          <li><a href="../php/about_us.php">About Us</a></li>
-          <div class="logout">
-            <li><a href="../php/logout.php">Logout</a></li>
+          <li><a href="../html/about_us.html">About Us</a></li>
+          <div class="login">
+            <li><a href="../php/login.php">Log in</a></li>
           </div>
         </ul>
       </div>
@@ -84,58 +84,58 @@
             </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="../images/cat/cat6.jpg" />
+              <img src="../images/cat/cat6.jpg" data-name="Andrea"/>
             </div>
             <h2>Andrea</h2>
             <span>7 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="../images/cat/cat10.jpg" />
+              <img src="../images/cat/cat10.jpg" data-name="Mat" />
             </div>
             <h2>Mat</h2>
             <span>3 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="../images/cat/cat11.jpg" />
+              <img src="../images/cat/cat11.jpg" data-name="Ash" />
             </div>
             <h2>Ash</h2>
             <span>1 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="../images/cat/cat12.jpg" />
+              <img src="../images/cat/cat12.jpg" data-name="Alex" />
             </div>
-            <h2>Wayu</h2>
+            <h2>Alex</h2>
             <span>9 months old</span>
           </li>
         </ul>
         <ul class="carousel">
             <li class="cat">
               <div class="pet-image">
-                <img src="../images/cat/cat15.jpg" />
+                <img src="../images/cat/cat15.jpg" data-name="Bob" />
               </div>
               <h2>bob</h2>
-              <span>4 year old</span>
+              <span>2 year old</span>
             </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="../images/cat/cat16.jpg" />
+              <img src="../images/cat/cat16.jpg" data-name="wish" />
             </div>
             <h2>wish</h2>
-            <span>7 years old</span>
-          </li>
-          <li class="cat">
-            <div class="pet-image">
-              <img src="../images/cat/cat17.jpg" />
-            </div>
-            <h2>well</h2>
             <span>3 years old</span>
           </li>
           <li class="cat">
             <div class="pet-image">
-              <img src="../images/cat/cat18.jpg" />
+              <img src="../images/cat/cat17.jpg"  data-name="well"/>
+            </div>
+            <h2>well</h2>
+            <span>1 years old</span>
+          </li>
+          <li class="cat">
+            <div class="pet-image">
+              <img src="../images/cat/cat18.jpg" data-name="max"/>
             </div>
             <h2>max</h2>
             <span>1 years old</span>
@@ -148,6 +148,7 @@
         <span class="close">&times;</span>
         <img id="modal_image" class="modal-image" alt="Pet Image" />
         <div id="modal_details" class="modal-details"></div>
+        <button class="adopt-button" id="adopt_button">Adopt</button>
       </div>
     </div>
     <div class="footer">
