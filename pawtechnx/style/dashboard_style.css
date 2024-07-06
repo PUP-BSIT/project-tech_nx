@@ -1,5 +1,4 @@
 body {
-  font-family: "popins", sans-serif;
   width: 100vw;
   height: 100vh;
   font-size: 0.88rem;
@@ -14,13 +13,11 @@ body {
 
 * {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   text-decoration: none;
   border: 0;
   list-style: none;
   appearance: none;
-  padding: 0px;
 }
 
 .admin-dashboard {
@@ -33,10 +30,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #fcf9f9;
-  color: black;
-  width: 97%;
+  background-color: #f8f8f8;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 97%;
 }
 
 .header-left {
@@ -52,7 +48,7 @@ body {
 
 .logo {
   font-size: 1.5em;
-  font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .search-bar input {
@@ -96,7 +92,7 @@ body {
 .admin-profile {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 40%;
   margin-bottom: 10px;
   border: 2px solid orange;
 }
@@ -119,8 +115,7 @@ body {
 
 .sidebar nav ul li a:hover, .sidebar nav ul li.active a {
   background-color: orange;
-  width: 150px;
-  height: 25px;
+  width: 100px;
   border-radius: 5px;
 }
 
@@ -128,7 +123,7 @@ body {
   padding-left: 20px;
 }
 
-.main-content {
+.main_content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -181,9 +176,6 @@ h1 {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -228,7 +220,7 @@ h1 {
   margin: 10px 0;
 }
 
-.header {
+.header_container {
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -253,21 +245,19 @@ h1 {
   text-decoration: underline;
 }
 
-.contents {
-  height: 500vh;
-}
-
-.header,
+.header_container,
 .container-fluid {
   text-align: center;
   color: black;
   width: 80%;
   margin: 0px auto;
+  display: inline-block;
 }
 
 .container {
   width: 80%;
-  margin: 0px auto;
+  height: 100px;
+  display: inline-block;
 }
 
 .card {
@@ -276,6 +266,7 @@ h1 {
   padding: 15px 5px;
   margin: 20px 0px;
   border-radius: 10px;
+  display: inline-block;
 }
 
 .card-body {
@@ -374,7 +365,24 @@ label {
   }
 }
 
-.footer {
-  background-color: #f4f4f4;
-  padding: 20px;
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #fcf9f9;
+  color: #555;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+      display: block;
+  }
+  
+  .sidebar {
+      transform: translateX(-250px);
+  }
+
+  .sidebar.show {
+      transform: translateX(0);
+  }
 }
