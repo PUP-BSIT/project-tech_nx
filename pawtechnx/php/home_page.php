@@ -11,14 +11,14 @@
 <body>
   <div class="banner">
     <div class="nav-bar">
-      <a href="./account.php">A</a>
+      <a href="account.php" title="User Profile"><img src="../images/icon.png"></a>
       <div class="logo">
         <p>PAWTECHNX</p>
       </div>
       <ul>
-        <li><a href="../php/index.php">Home</a></li>
+        <li><a href="../php/home_page.php">Home</a></li>
         <li class="dropdown">
-          <button class="dropbtn">Adopt</button>
+          <button class="dropbtn"><a href="pet_page.php">Adopt</a></button>
           <div class="dropdown-content">
             <a href="../html/cats.html">Cats</a>
             <a href="../html/hamsters.html">Hamsters</a>

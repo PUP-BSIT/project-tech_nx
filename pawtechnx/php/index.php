@@ -16,7 +16,7 @@
         <ul>
           <li><a href="../php/index.php">Home</a></li>
           <li class="dropdown">
-            <button class="dropbtn">Adopt</button>
+            <button class="dropbtn"><a href="./pet_page.php">Adopt</a></button>
             <div class="dropdown-content">
               <a href="../html/cats.html">Cats</a>
               <a href="../html/hamsters.html">Hamsters</a>

@@ -32,12 +32,21 @@ html {
   z-index: 1000;
 }
 
+a img {
+  width: 30px;
+}
+
+a img:hover {
+  transform: scale(1.2);
+}
+
 .logo {
   font-size: 20px;
   font-weight: bold;
   color: white;
   letter-spacing: 1.5px;
   cursor: pointer;
+  padding: 5px;
 }
 
 .nav-bar ul {
