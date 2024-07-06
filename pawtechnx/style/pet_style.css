@@ -264,6 +264,29 @@ h3 {
   display: block;
 }
 
+.adopt-button {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  background-color: orange;
+  color: white;
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.adopt-button:hover {
+  background-color: darkorange;
+}
+
+.adopt-button:active {
+  transform: translateY(1px);
+}
+
 .footer {
   background-color: #f4f4f4;
   padding: 20px;

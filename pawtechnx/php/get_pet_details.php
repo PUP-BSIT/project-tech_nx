@@ -10,7 +10,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 
 if (!$conn) {
     echo json_encode(['error' => 'Database connection failed: ' .
-     mysqli_connect_error()]);
+        mysqli_connect_error()]);
     exit();
 }
 
