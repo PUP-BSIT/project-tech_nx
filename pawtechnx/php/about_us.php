@@ -1,5 +1,9 @@
 <?php
+include "dataconnection.php";
 session_start();
+
+$logged_in = isset($_SESSION['username']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,22 +22,30 @@ session_start();
         <p>PAWTECHNX</p>
       </div>
       <ul>
-        <li><a href="../php/home_page.php">Home</a></li>
+        <?php
+        if ($logged_in) {
+          echo '<li><a href="home_page.php">Home</a></li>';
+        } else {
+          echo '<li><a href="index.php">Home</a></li>';
+        }
+        ?>
         <li class="dropdown">
-          <button class="dropbtn">Adopt</button>
-          <div class="dropdown-content">
-            <a href="../html/cats.html">Cats</a>
-            <a href="../html/hamsters.html">Hamsters</a>
-            <a href="../html/dogs.html">Dogs</a>
-            <a href="../html/rabbits.html">Rabbits</a>
+        <button class="dropbtn"><a href="./pet_page.php">Adopt</a></button>
+            <div class="dropdown-content">
+              <a href="../html/cats.html">Cats</a>
+              <a href="../html/hamsters.html">Hamsters</a>
+              <a href="../html/dogs.html">Dogs</a>
+              <a href="../html/rabbits.html">Rabbits</a>
           </div>
         </li>
         <li><a href="../php/about_us.php">About Us</a></li>
-        <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) : ?>
-          <li><a href="../php/logout.php">Logout</a></li>
-        <?php else : ?>
-          <li><a href="../php/login.php">Login</a></li>
-        <?php endif; ?>
+        <?php
+        if ($logged_in) {
+          echo '<li><a href="logout.php">Logout</a></li>';
+        } else {
+          echo '<li><a href="login.php">Login</a></li>';
+        }
+        ?>
       </ul>
     </div>
   </div>

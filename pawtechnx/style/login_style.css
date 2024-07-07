@@ -76,7 +76,7 @@ a:visited {
   overflow: hidden;
 }
 
-.wrapper .form-login {
+.form-login {
   width: 100%;
   padding: 40px;
   z-index: 0;
@@ -110,7 +110,9 @@ a:visited {
 
 .input-box input:focus ~ label,
 .input-box input:valid ~ label {
-  top: -5px;
+  top: -3px;
+  left: 5px;
+  color: blue;
 }
 
 .input-box input {
@@ -121,29 +123,7 @@ a:visited {
   outline: none;
   font-size: 1em;
   font-weight: 600;
-}
-
-.remember-forgot {
-  font-size: 0.9em;
-  color: black;
-  font-weight: 300;
-  margin: -15px 0 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.remember-forgot label input {
-  accent-color: black;
-  margin-right: 3px;
-}
-
-.remember-forgot a {
-  color: black;
-  text-decoration: none;
-}
-
-.remember-forgot a:hover {
-  text-decoration: underline;
+  padding: 0 5px;
 }
 
 .btn {
@@ -155,6 +135,11 @@ a:visited {
   font-size: 1em;
   color: white;
   font-weight: 300;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.1);
 }
 
 .login-register {
