@@ -32,11 +32,9 @@
       <div class="main_content">
           <header class="header">
               <div class="header-left">
-                  <div class="hamburger-menu" id="hamburgerMenu">
-                      &#9776;
-                  </div>
+                  <div class="hamburger-menu" id="hamburgerMenu">&#9776;</div>
                   <div class="logo">PAWTECHNX</div>
-              </div>
+                </div>
               <div class="search-bar">
                   <input type="text" id="searchInput" placeholder="Search">
               </div>
@@ -46,45 +44,14 @@
           </header>
           <div class="content">
               <h1>Monthly Recap Report</h1>
-              <div id="userList" class="user-list">
-              </div>
           </div>
-      </div>
-  </div>
-
-  <div id="userModal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <div id="modalProfileImage" class="profile-image"></div>
-          <div id="modalDetails" class="user-details">
-              <h2 id="modalName"></h2>
-              <p><strong>Email:</strong> <span id="modalEmail">
-                 </span></p>
-              <p><strong>Phone:</strong> <span id="modalPhone"> 
-                 </span></p>
-              <p><strong>Address:</strong> <span id="modalAddress">
-                 </span></p>
-              <p><strong>Created At:</strong> <span id="modalCreatedAt">
-                 </span></p>
-          </div>
-      </div>
-  </div>
-
-    <div class="header_container">
-      <div class="container-fluid">
-          <h1> Schedule Meeeting</h1>
       </div>
     </div>
 
-  <div class="container">
-      <div class="card">
-          <div class="card-body">
-              <h3>Clients</h3>
-              <button class="btn btn-primary"
-              id="create">Submit</button>
-          </div>
+
+      <div class="container-fluid">
+          <h1> Schedule Meeeting</h1>
       </div>
-  </div>
 
   <div class="container">
       <div class="table-responsive">
@@ -102,10 +69,9 @@
       </div>
   </div>
 
-  <div class="container">
-      <div class="model" id="create-client">
+
           <div class="model-body">
-              <h3>Create A Schedule</h3>
+              <h3>Add Adoption Meeting</h3>
                   <div class="form-group">
                       <label for=""><b>Enter your name</b>
                           <input type="text" placeholder="Enter your name" 
@@ -141,8 +107,7 @@
                           type="submit" id="close">Close</button>
                   </div>
           </div>
-      </div>
-  </div>
+
 
              <footer>
                 <p>&copy; 2024 PAWTECHNX. All rights reserved.</p>

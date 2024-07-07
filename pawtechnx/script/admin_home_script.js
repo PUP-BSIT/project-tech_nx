@@ -116,7 +116,8 @@ try {
   let date = document.querySelector("#date").value;
   let type = document.querySelector("#type").value;
   let status = document.querySelector("#status").value;
-  const res=await fetch("php/admin_homepage.php", {
+  
+  const res=await fetch("php/insert_data_admin.php", {
       method: "POST",
       body: JSON.stringify({"name": name, "id": id, "date": date, 
         "type": type, "status": status}),
