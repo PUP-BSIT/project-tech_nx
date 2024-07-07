@@ -18,7 +18,7 @@
           <li class="dropdown">
             <button class="dropbtn"><a href="./pet_page.php">Adopt</a></button>
             <div class="dropdown-content">
-              <a href="../html/cats.html">Cats</a>
+              <a href="../html/cats.php">Cats</a>
               <a href="../html/hamsters.html">Hamsters</a>
               <a href="../html/dogs.html">Dogs</a>
               <a href="../html/rabbits.html">Rabbits</a>
