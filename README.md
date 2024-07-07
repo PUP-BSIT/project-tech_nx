@@ -18,9 +18,10 @@ Visit us to meet adorable pets waiting for a family like yours!
 
 <div align="center">
    <img height="140" src="pawtechnx/images/pfp/barrantes_pfp.jpg"/>
-    <img height="140" src="pawtechnx/images/pfp/barrantes_pfp.jpg"/>
-  <img height="140" src="img/myImage.png" />
-  <img height="140" src="img/myImage.png" /> 
+   <img height="140" src="pawtechnx/images/pfp/alimasa_pfp.jpg"/>
+   <img height="140" src="pawtechnx/images/pfp/pepito_pfp.jpg" />
+   <img height="140" src="pawtechnx/images/pfp/tayoto_pfp.jpg"/> 
+   <img height="140" src="pawtechnx/images/pfp/pasion_pfp.jpg"/> 
 </div>
 
 <h2 align="center">Programming Languages used: </h2>
