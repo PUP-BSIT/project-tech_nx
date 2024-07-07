@@ -1,32 +1,31 @@
 <?php
 header('Content-Type: application/json');
 
-$servername = "localhost";
-$database = "petss";
-$username = "root";
-$password = "";
+include 'dataconnection.php';
 
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-if (!$conn) {
-    echo json_encode(['error' => 'Database connection failed: ' .
-        mysqli_connect_error()]);
-    exit();
+if (!isset($_GET['id'])) {
+    echo json_encode(['error' => 'No pet ID provided']);
+    exit;
 }
 
+$petID = intval($_GET['id']);
+
 $query = "
-    SELECT pet_ID, name, age, species, profile_image
+    SELECT `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, `Size`, 
+    `profile_img`
     FROM pet_details
-    ORDER BY species, pet_ID
+    WHERE pet_ID = $petID
 ";
+
 $result = mysqli_query($conn, $query);
 
 if ($result) {
-    $pets = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $pets[$row['species']][] = $row;
+    $pet = mysqli_fetch_assoc($result);
+    if ($pet) {
+        echo json_encode($pet);
+    } else {
+        echo json_encode(['error' => 'No pet found with the provided ID']);
     }
-    echo json_encode($pets);
 } else {
     echo json_encode(['error' => 'Query failed: ' . mysqli_error($conn)]);
 }
