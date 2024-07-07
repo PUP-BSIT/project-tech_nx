@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,22 +29,24 @@
           </div>
         </li>
         <li><a href="../php/about_us.php">About Us</a></li>
-        <div class="logout">
-          <li><a href="logout.php">Logout</a></li>
-        </div>
+        <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) : ?>
+          <li><a href="../php/logout.php">Logout</a></li>
+        <?php else : ?>
+          <li><a href="../php/login.php">Login</a></li>
+        <?php endif; ?>
       </ul>
     </div>
   </div>
   <div class="container">
     <div class="us">
       <div class="about">
-        <div class="about-1">
+        <div class="content">
           <h1>ABOUT US</h1>
           <p>
             PAWTECHNX is a nonprofit team whose mission is to help homeless
             dogs, hamsters, birds, rabbits, and cats in the poorest communities of
             Taguig City with food, shelter, medical care, adoption, and
-            humane treatment. PWATECHNX also offers to rehome the animals
+            humane treatment. PAWTECHNX also offers to rehome the animals
             that we rescue for their better life.
           </p>
 
@@ -159,4 +164,5 @@
     </div>
   </div>
 </body>
+
 </html>

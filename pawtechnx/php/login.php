@@ -29,10 +29,6 @@
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required>
         </div>
-        <div class="remember-forgot">
-          <label><input type="checkbox" /> Remember me</label>
-          <a href="#">Forgot Password</a>
-        </div>
         <button type="submit" class="btn" name="login">Login</button>
         <div class="login-register">
           <p>
