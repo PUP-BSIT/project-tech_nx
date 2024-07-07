@@ -11,7 +11,7 @@ if (!isset($_GET['id'])) {
 $petID = intval($_GET['id']);
 
 $query = "
-    SELECT `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, `Size`, 
+    SELECT `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, `Weight`, `Height`,
     `profile_img`
     FROM pet_details
     WHERE pet_ID = $petID

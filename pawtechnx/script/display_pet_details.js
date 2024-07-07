@@ -15,7 +15,7 @@ function showDetails(petID) {
                 return;
             }
 
-            const { profile_img, Name, Age, Species, Breed, Gender, Size, Description, pet_ID, gallery } = data;
+            const { profile_img, Name, Age, Species, Breed, Gender, Weight, Height, Description, pet_ID, gallery } = data;
 
             let modalContent = `
                 <div class="pet-profile">
@@ -23,11 +23,12 @@ function showDetails(petID) {
                         <img src="${profile_img || ''}" alt="Image of ${Name || 'undefined'}" class="pet-image">
                         <div class="pet-info">
                             <h2>Hello, I'm ${Name || 'undefined'}!</h2>
-                            <p><strong>Age:</strong> ${Age || 'undefined'} years</p>
+                            <p><strong>Age:</strong> ${Age || 'undefined'} years old</p>
                             <p><strong>Species:</strong> ${Species || 'undefined'}</p>
                             <p><strong>Breed:</strong> ${Breed || 'undefined'}</p>
                             <p><strong>Gender:</strong> ${Gender || 'undefined'}</p>
-                            <p><strong>Size:</strong> ${Size || 'undefined'}</p>
+                            <p><strong>Weight:</strong> ${Weight || 'undefined'}</p>
+                            <p><strong>Height:<strong> ${Height || 'undefined'}</p>
                             <p>${Description || 'I am looking for a home!'}</p>
                             <form id="adoptForm" method="POST" action="adoption.php">
                                 <input type="hidden" name="pet_id" value="${pet_ID}">
