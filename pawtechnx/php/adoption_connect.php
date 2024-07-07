@@ -7,18 +7,24 @@
     $pet_interest = $_POST['pet_interest'];
     $reason = $_POST['reason'];
     
-    $conn = mysqli_connect('localhost','root','','adoption_form');
+    $servername = "srv1367.hstgr.io";
+    $username = "u945995174_pawtechnx";
+    $password = "TECHNiX_123456789";
+    $dbname = "u945995174_project";
+    
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
     if(!$conn) {
         die('Connection Failed : '.mysqli_connect_error());
-    } 
-
-    $query = "INSERT INTO adoption (full_name, email, contact_number, 
+    }
+    
+    $query = "INSERT INTO adoption_form (full_name, email, contact_number, 
         address, monthly_salary, pet_interest, reason) 
-        VALUES ('$full_name', '$email', '$contact_number', '$address', 
+        VALUES ('$full_name','$email', '$contact_number', '$address', 
         '$monthly_salary', '$pet_interest', '$reason')";
     
     if (mysqli_query($conn, $query)) {
-        echo "adoption request sucessfully...";
+        header("Location: ../html/adoption_success.html");
     } else {
         die("Connection Failed: ".mysqli_connect_error());
     }
