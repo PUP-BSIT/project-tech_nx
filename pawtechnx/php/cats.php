@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style/pet_page_style.css" />
     <title>Cats List</title>
 </head>
+
 <body>
-    <div class="banner">
+    <div class="banner" id="banner">
         <div class="nav-bar">
             <div class="logo">
                 <p>PAWTECHNX</p>
             </div>
             <ul>
-                <li><a href="../php/index.php">Home</a></li>
+                <li><a href="../../index.php">Home</a></li>
                 <li class="dropdown">
-                    <button class="dropbtn">Adopt</button>
+                    <button class="dropbtn"><a href="pawtechnx/php/pet_page.php">Adopt</a></button>
                     <div class="dropdown-content">
-                        <a href="../html/cats.php">Cats</a>
-                        <a href="../html/hamsters.html">Hamsters</a>
-                        <a href="../html/dogs.html">Dogs</a>
-                        <a href="../html/rabbits.html">Rabbits</a>
+                        <a href="..php/cats.php">Cats</a>
+                        <a href="../php/hamsters.php">Hamsters</a>
+                        <a href="../php/dogs.php">Dogs</a>
+                        <a href="../php/rabbits.php">Rabbits</a>
                     </div>
                 </li>
-                <li><a href="../html/about_us.html">About Us</a></li>
+                <li><a href="pawtechnx/php/about_us.php">About Us</a></li>
                 <div class="login">
-                    <li><a href="../php/login.php">Log in</a></li>
+                    <li><a href="../html/login.html">Log in</a></li>
                 </div>
             </ul>
         </div>
@@ -85,4 +87,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../style/home_style.css" rel="stylesheet" />
+    <link href="pawtechnx/style/home_style.css" rel="stylesheet" />
     <title>PAWTECHNX</title>
   </head>
 
@@ -14,19 +14,19 @@
           <p>PAWTECHNX</p>
         </div>
         <ul>
-          <li><a href="../php/index.php">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li class="dropdown">
-            <button class="dropbtn"><a href="./pet_page.php">Adopt</a></button>
+            <button class="dropbtn"><a href="pawtechnx/php/pet_page.php">Adopt</a></button>
             <div class="dropdown-content">
-              <a href="../html/cats.php">Cats</a>
-              <a href="../html/hamsters.html">Hamsters</a>
-              <a href="../html/dogs.html">Dogs</a>
-              <a href="../html/rabbits.html">Rabbits</a>
+              <a href="pawtechnx/php/cats.php">Cats</a>
+              <a href="pawtechnx/php/hamsters.php">Hamsters</a>
+              <a href="pawtechnx/php/dogs.php">Dogs</a>
+              <a href="pawtechnx/php/rabbits.php">Rabbits</a>
             </div>
           </li>
-          <li><a href="../php/about_us.php">About Us</a></li>
+          <li><a href="pawtechnx/php/about_us.php">About Us</a></li>
           <div class="login">
-            <li><a href="../php/login.php">Log in</a></li>
+            <li><a href="pawtechnx/html/login.html">Log in</a></li>
           </div>
         </ul>
       </div>
@@ -40,34 +40,34 @@
         <h1>Meet our Featured Pets!</h1>
         <p>They are ready for a loving home.</p>
         <ul class="carousel">
-          <a href="../html/cats.html">
+          <a href="pawtechnx/php/cats.php">
             <li class="cat">
               <div class="pet-image">
-                <img src="../images/cat/cat1.jpg" />
+                <img src="pawtechnx/images/cat/cat1.jpg" />
               </div>
               <h2>Cat</h2>
             </li>
           </a>
-          <a href="../html/hamsters.html">
+          <a href="pawtechnx/php/hamsters.php">
             <li class="hamster">
               <div class="pet-image">
-                <img src="../images/hamster/hamster6.jpg" />
+                <img src="pawtechnx/images/hamster/hamster6.jpg" />
               </div>
               <h2>Hamster</h2>
             </li>
           </a>
-          <a href="../html/dogs.html">
+          <a href="pawtechnx/php/dogs.php">
             <li class="dog">
               <div class="pet-image">
-                <img src="../images/dog/dog6.jpg" />
+                <img src="pawtechnx/images/dog/dog6.jpg" />
               </div>
               <h2>Dog</h2>
             </li>
           </a>
-          <a href="../html/rabbits.html">
+          <a href="pawtechnx/php/rabbits.php">
             <li class="rabbit">
               <div class="pet-image">
-                <img src="../images/rabbit/rabbit1.jpg" />
+                <img src="pawtechnx/images/rabbit/rabbit1.jpg" />
               </div>
               <h2>Rabbit</h2>
             </li>
@@ -76,7 +76,7 @@
       </div>
       <div class="container">
         <img
-          src="../images/cat/cat1.jpg"
+          src="pawtechnx/images/cat/cat1.jpg"
           alt="Adopt a Pet"
           class="side-image"/>
         <div class="steps" id="steps">

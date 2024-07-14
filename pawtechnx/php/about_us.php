@@ -26,16 +26,16 @@ $logged_in = isset($_SESSION['username']);
         if ($logged_in) {
           echo '<li><a href="home_page.php">Home</a></li>';
         } else {
-          echo '<li><a href="index.php">Home</a></li>';
+          echo '<li><a href="../../index.php">Home</a></li>';
         }
         ?>
         <li class="dropdown">
         <button class="dropbtn"><a href="./pet_page.php">Adopt</a></button>
             <div class="dropdown-content">
-              <a href="../html/cats.html">Cats</a>
-              <a href="../html/hamsters.html">Hamsters</a>
-              <a href="../html/dogs.html">Dogs</a>
-              <a href="../html/rabbits.html">Rabbits</a>
+              <a href="../php/cats.php">Cats</a>
+              <a href="../php/hamsters.php">Hamsters</a>
+              <a href="../php/dogs.php">Dogs</a>
+              <a href="../php/rabbits.php">Rabbits</a>
           </div>
         </li>
         <li><a href="../php/about_us.php">About Us</a></li>
@@ -43,7 +43,7 @@ $logged_in = isset($_SESSION['username']);
         if ($logged_in) {
           echo '<li><a href="logout.php">Logout</a></li>';
         } else {
-          echo '<li><a href="login.php">Login</a></li>';
+          echo '<li><a href="../html/login.html">Login</a></li>';
         }
         ?>
       </ul>

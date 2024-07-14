@@ -20,10 +20,10 @@
         <li class="dropdown">
           <button class="dropbtn"><a href="pet_page.php">Adopt</a></button>
           <div class="dropdown-content">
-            <a href="../html/cats.html">Cats</a>
-            <a href="../html/hamsters.html">Hamsters</a>
-            <a href="../html/dogs.html">Dogs</a>
-            <a href="../html/rabbits.html">Rabbits</a>
+            <a href="../php/cats.php">Cats</a>
+            <a href="../php/hamsters.php">Hamsters</a>
+            <a href="../php/dogs.php">Dogs</a>
+            <a href="../php/rabbits.php">Rabbits</a>
           </div>
         </li>
         <li><a href="../php/about_us.php">About Us</a></li>
@@ -42,7 +42,7 @@
       <h1>Meet our Featured Pets!</h1>
       <p>They are ready for a loving home.</p>
       <ul class="carousel">
-        <a href="../html/cats.html" title="Adopt a Cat">
+        <a href="../php/cats.php" title="Adopt a Cat">
           <li class="cat">
             <div class="pet-image">
               <img src="../images/cat/cat1.jpg" />
@@ -50,7 +50,7 @@
             <h2>Cat</h2>
           </li>
         </a>
-        <a href="../html/hamsters.html" title="Adopt a Hamster">
+        <a href="../php/hamsters.php" title="Adopt a Hamster">
           <li class="hamster">
             <div class="pet-image">
               <img src="../images/hamster/hamster6.jpg" />
@@ -58,7 +58,7 @@
             <h2>Hamster</h2>
           </li>
         </a>
-        <a href="../html/dogs.html" title="Adopt a Dog">
+        <a href="../php/dogs.php" title="Adopt a Dog">
           <li class="dog">
             <div class="pet-image">
               <img src="../images/dog/dog6.jpg" />
@@ -66,7 +66,7 @@
             <h2>Dog</h2>
           </li>
         </a>
-        <a href="../html/rabbits.html" title="Adopt a Rabbit">
+        <a href="../php/rabbits.php" title="Adopt a Rabbit">
           <li class="rabbit">
             <div class="pet-image">
               <img src="../images/rabbit/rabbit1.jpg" />

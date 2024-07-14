@@ -8,29 +8,29 @@
   </head>
   <body>
   <div class="banner" id="banner">
-      <div class="nav-bar">
-        <div class="logo">
-          <p>PAWTECHNX</p>
-        </div>
-        <ul>
-          <li><a href="../php/index.php">Home</a></li>
-          <li class="dropdown">
-            <button class="dropbtn"><a href="./pet_page.php">Adopt</a></button>
-            <div class="dropdown-content">
-              <a href="../php/cats.php">Cats</a>
-              <a href="../html/hamsters.html">Hamsters</a>
-              <a href="../php/dogs.php">Dogs</a>
-              <a href="../html/rabbits.html">Rabbits</a>
+        <div class="nav-bar">
+            <div class="logo">
+                <p>PAWTECHNX</p>
             </div>
-          </li>
-          <li><a href="../php/about_us.php">About Us</a></li>
-          <div class="login">
-            <li><a href="../php/login.php">Log in</a></li>
-          </div>
-        </ul>
-      </div>
+            <ul>
+                <li><a href="../../index.php">Home</a></li>
+                <li class="dropdown">
+                    <button class="dropbtn"><a href="../php/pet_page.php">Adopt</a></button>
+                    <div class="dropdown-content">
+                        <a href="../php/cats.php">Cats</a>
+                        <a href="../php/hamsters.php">Hamsters</a>
+                        <a href="../php/dogs.php">Dogs</a>
+                        <a href="../php/rabbits.php">Rabbits</a>
+                    </div>
+                </li>
+                <li><a href="../php/about_us.php">About Us</a></li>
+                <div class="login">
+                    <li><a href="../html/login.html">Log in</a></li>
+                </div>
+            </ul>
+        </div>
     </div>
-    <div class="header">
+    <div class="content">
       <h1>Rescue. Adopt. Love.</h1>
       <p>Learn how to adopt a pet today!</p>
     </div>
