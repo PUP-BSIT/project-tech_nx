@@ -8,13 +8,12 @@ if (!isset($_GET['id'])) {
     exit;
 }
 
-$petID = intval($_GET['id']);
+$petID = mysqli_real_escape_string($conn, $_GET['id']);
 
 $query = "
-    SELECT `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, `Weight`, `Height`,
-    `profile_img`
+    SELECT `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, `Weight`, `Height`, `profile_img`
     FROM pet_details
-    WHERE pet_ID = $petID
+    WHERE pet_ID = '$petID'
 ";
 
 $result = mysqli_query($conn, $query);

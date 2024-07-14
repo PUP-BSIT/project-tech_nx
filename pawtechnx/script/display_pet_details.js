@@ -1,12 +1,8 @@
 function showDetails(petID) {
     fetch('get_pet_details.php?id=' + petID)
-        .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             if (data.error) {
-                console.error('Error in data received:', data.error);
                 document.getElementById('modal-body').innerHTML = `
                     <h2>Error</h2>
                     <p>${data.error}</p>
@@ -28,10 +24,11 @@ function showDetails(petID) {
                             <p><strong>Breed:</strong> ${Breed || 'undefined'}</p>
                             <p><strong>Gender:</strong> ${Gender || 'undefined'}</p>
                             <p><strong>Weight:</strong> ${Weight || 'undefined'}</p>
-                            <p><strong>Height:<strong> ${Height || 'undefined'}</p>
+                            <p><strong>Height:</strong> ${Height || 'undefined'}</p>
                             <p>${Description || 'I am looking for a home!'}</p>
                             <form id="adoptForm" method="POST" action="adoption.php">
                                 <input type="hidden" name="pet_id" value="${pet_ID}">
+                                <input type="hidden" name="pet_name" value="${Name}">
                                 <button type="submit" class="adopt-button">Adopt</button>
                             </form>
                         </div>
@@ -53,14 +50,14 @@ function showDetails(petID) {
             document.getElementById('modal-body').innerHTML = modalContent;
             document.getElementById('myModal').classList.add('show');
 
-            fetch('check_login.php')
+            fetch('/php/check_login.php')
                 .then(response => response.json())
                 .then(loginData => {
                     if (!loginData.logged_in) {
                         document.getElementById('adoptForm').addEventListener('submit', function(event) {
                             event.preventDefault();
                             alert('You need to log in first to adopt a pet!');
-                            window.location.href = '../php/login.php';
+                            window.location.href = '../html/login.html'; 
                         });
                     }
                 })
@@ -78,3 +75,19 @@ window.onclick = function(event) {
         closeModal();
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.adopt-button').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const petName = event.target.closest('form').querySelector('input[name="pet_name"]').value;
+            sessionStorage.setItem('recently_viewed_pet', petName);
+            window.location.href = 'adoption.php';
+        });
+    });
+
+    let petName = sessionStorage.getItem('recently_viewed_pet');
+    if (petName) {
+        document.getElementById('pet_interest').value = petName;
+    }
+});

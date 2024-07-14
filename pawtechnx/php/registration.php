@@ -1,5 +1,6 @@
 <?php
 include "dataconnection.php"; 
+session_start(); // Start session handling
 
 function emailExists($conn, $email) {
     $email = mysqli_real_escape_string($conn, $email); 
@@ -29,6 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lname = $_POST['lname'];
     $email = $_POST['email'];
     $username = $_POST['username'];
+    $address = $_POST['address'];
+    $salary = $_POST['salary'];             
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm'];
 
@@ -51,11 +54,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $role = 'user'; 
 
-    $sql = "INSERT INTO users (user_id, Firstname, Lastname, Username, Email, Password, role) 
-            VALUES ('$user_id', '$fname', '$lname', '$username', '$email', '$password', '$role')";
+    $sql = "INSERT INTO `users`(`user_id`, `username`, `Firstname`, `Lastname`, 
+      `Email`, `Address`, `Monthly_Salary`, `Password`, `role`) 
+            VALUES ('$user_id', '$username','$fname', '$lname', '$email', 
+            '$address', '$salary', '$password', '$role')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "New record created successfully";
+        $_SESSION['user_id'] = $user_id;
+        $_SESSION['username'] = $username;
+        $_SESSION['role'] = $role;
+
+        header("Location: home_page.php"); 
+        exit();
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

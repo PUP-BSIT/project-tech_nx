@@ -27,7 +27,17 @@
                 </li>
                 <li><a href="pawtechnx/php/about_us.php">About Us</a></li>
                 <div class="login">
-                    <li><a href="../html/login.html">Log in</a></li>
+                    <?php
+                    session_start();
+
+                    if (isset($_SESSION['user_id'])) {
+                        // User is logged in
+                        echo '<li><a href="../php/logout.php">Log out</a></li>';
+                    } else {
+                        // User is not logged in
+                        echo '<li><a href="../html/login.html">Log in</a></li>';
+                    }
+                    ?>
                 </div>
             </ul>
         </div>
