@@ -1,13 +1,16 @@
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: #f7f9fc;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .admin-dashboard {
   display: flex;
-  height: 100vh;
+  flex: 1;
 }
 
 .header {
@@ -17,7 +20,7 @@ body {
   padding: 10px 20px;
   background-color: #fcf9f9;
   color: black;
-  width: 97%;
+  width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -34,7 +37,7 @@ body {
 
 .logo {
   font-size: 1.5em;
-  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .search-bar input {
@@ -52,7 +55,6 @@ body {
 
 .sidebar {
   width: 260px;
-  height: 900px;
   background-color: #fcf9f9;
   color: black;
   flex-shrink: 0;
@@ -99,8 +101,7 @@ body {
   display: block;
 }
 
-.sidebar nav ul li a:hover,
-.sidebar nav ul li.active a {
+.sidebar nav ul li a:hover, .sidebar nav ul li.active a {
   background-color: orange;
   width: 150px;
   height: 25px;
@@ -113,84 +114,40 @@ body {
 
 .main-content {
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  height: 900px;
-}
-
-.content {
-  flex-grow: 1;
   padding: 20px;
+  overflow-y: auto;
 }
 
-h1 {
-  text-align: center;
+table {
+  width: 100%;
+  border-collapse: collapse;
   margin-bottom: 20px;
-  font-size: 2em;
-  color: orange;
 }
 
-.user-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
-.user-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  text-align: center;
+th {
+  background-color: #f2f2f2;
 }
 
-.user-item img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border: 2px solid orange;
-  transition: transform 0.2s;
+tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-.user-item:hover img {
-  transform: scale(1.1);
-}
-
-.profile-image img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border: 2px solid orange;
-}
-
-.user-details p {
-  margin: 10px 0;
+tr:hover {
+  background-color: #f1f1f1;
 }
 
 footer {
   text-align: center;
-  padding: 10px 0;
+  padding: 10px;
   background-color: #fcf9f9;
-  color: #555;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-  .hamburger-menu {
-    display: block;
-  }
-
-  .sidebar {
-    transform: translateX(-250px);
-  }
-
-  .sidebar.show {
-    transform: translateX(0);
-  }
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
