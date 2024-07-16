@@ -49,6 +49,10 @@ $logged_in = isset($_SESSION['username']);
       </ul>
     </div>
   </div>
+  <div class="header">
+    <h1>Get to know us!</h1>
+    <p>Welcome, to about us page!</p>
+  </div>
   <div class="container">
     <div class="us">
       <div class="about">
@@ -102,22 +106,34 @@ $logged_in = isset($_SESSION['username']);
         </div>
         <div class="values">
           <h3>OUR VALUES</h3>
-          <ul class="val">
-            <li>Compassion and respect for animals</li>
-            <li>Commitment to the vision and mission of PAWTECHNX</li>
-            <li>Dedication to the assigned role in the team</li>
-            <li>
-              Respectful conduct towards each other regardless of position
-            </li>
-            <li>Honesty and trustworthiness</li>
-            <li>Integrity</li>
-            <li>
-              Discipline (standards; compliance to organization’s rules,
-              policies, and standards)
-            </li>
-            <li>Loyalty to the team</li>
+          <ul>
+            <div class="bullet">
+              <li>Compassion and respect for animals</li>
+            </div>
+            <div class="bullet">
+              <li>Commitment to the vision and mission of PAWTECHNX</li>
+            </div>
+            <div class="bullet">
+              <li>Dedication to the assigned role in the team</li>
+            </div>
+            <div class="bullet">
+              <li>Respectful conduct towards each other regardless of position</li>
+            </div>
+            <div class="bullet">
+              <li>Honesty and trustworthiness</li>
+            </div>
+            <div class="bullet">
+              <li>Integrity</li>
+            </div>
+            <div class="bullet">
+              <li>Discipline (standards; compliance to organization’s rules, policies, and standards)</li>
+            </div>
+            <div class="bullet">
+              <li>Loyalty to the team</li>
+            </div>
           </ul>
         </div>
+
 
         <div class="goals">
           <h3>OUR GOALS</h3>

@@ -1,14 +1,21 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: sans-serif;
 }
 
 .banner {
   width: 100%;
-  background-color: #f8f8f8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 70vh;
+  background-image: url(../images/header.jpg);
+  background-size: cover;
+  background-position: center;
+ 
 }
 
 .nav-bar {
@@ -23,6 +30,14 @@
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   z-index: 1000;
+}
+
+a img {
+  width: 30px;
+}
+
+a img:hover {
+  transform: scale(1.2);
 }
 
 .logo {
@@ -91,100 +106,126 @@
 .header {
   width: 100%;
   position: absolute;
-  top: 30%;
-  right: 0;
-  transform: translateY(-50%);
+  top: 15%;
   text-align: right;
   color: white;
-  padding-right: 40px;
+  padding-right: 30px;
 }
 
 .header h1 {
+  font-size: 55px;
   margin-bottom: 10px;
+  padding-top: 50px;
+  padding-right: 30px;
 }
 
 .header p {
-  margin: 0;
   padding-right: 150px;
 }
 
-.register {
-  text-align: right;
-  padding-right: 15px;
-}
-
-h1 {
-  display: inline-block;
+.content {
   text-align: center;
+  padding-top: 15px;
+  padding-bottom: 50px;
 }
 
-h3 {
-  font-family: sans-serif;
-  text-align: center;
-  font-weight: 500;
-  margin: 0;
-}
-
-.container p,
-li {
-  color: black;
-  padding: 5px;
-}
-
-.us {
-  background: #f1f1f1;
-  text-align: center;
-}
-
-.about {
-  font: 100;
-
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
-  text-align: center;
+.logout {
+  text-align: left;
+  padding-left: 50px;
 }
 
 .container {
-  max-width: 1220px;
-  margin: auto;
-  overflow: hidden;
-  padding: 20px;
-  gap: 7px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.us {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.us h1 {
+  margin-bottom: 20px;
+  font-size: 2.5em;
+}
+
+.us h3 {
+  margin-top: 40px;
+  font-size: 2em;
+}
+
+.us p {
+  font-size: 1.1em;
+  line-height: 1.6;
 }
 
 .values {
-  display: inline-block;
-  margin: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  margin-top: 40px;
 }
 
-.bullet {
-  display: inline-block;
-  margin: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
+.values h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
 }
 
+.values ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.values ul .bullet {
+  flex: 1 1 calc(45% - 20px);
+  margin: 10px;
+  padding: 20px;
+  background-color: #e0a800;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  color: white;
+}
+
+
+.goals {
+  margin-top: 40px;
+}
+
+.goals h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.goals ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.goals ul .bullet {
+  flex: 1 1 calc(45% - 20px);
+  margin: 10px;
+  padding: 20px;
+  background-color: #e0a800;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  color: white;
+}
+
+/* Footer Styles */
 .footer {
-  background-color: #f4f4f4;
+  background-color: #333;
+  color: white;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
 }
 
 .footer div {
-  flex: 1;
-  min-width: 150px;
-}
-
-.footer p {
-  margin-bottom: 10px;
+  flex: 1 1 200px;
+  margin: 10px;
 }
 
 .footer .logo {
@@ -192,14 +233,43 @@ li {
   font-weight: bold;
 }
 
-@media screen and (max-width) {
-  .container {
-    width: 50%;
+.footer h4 {
+  margin-bottom: 10px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .header h1, .banner h1 {
+    font-size: 2.5em;
+  }
+
+  .header p, .banner p {
+    font-size: 1em;
+  }
+
+  .nav-bar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-bar li {
+    margin: 10px 0;
+  }
+
+  .values ul li, .goals ul .bullet {
+    flex: 1 1 100%;
   }
 }
 
-@media screen and (max-width) {
-  .container {
-    width: 100%;
+@media screen and (max-width: 576px) {
+  .header h1, .banner h1 {
+    font-size: 2em;
+  }
+
+  .header p, .banner p {
+    font-size: 0.9em;
   }
 }
