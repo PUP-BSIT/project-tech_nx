@@ -3,7 +3,7 @@ include "dataconnection.php";
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: ../html/login.html");
     exit();
 }
 
@@ -24,6 +24,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     exit();
 }
 
+$pet_id = isset($_POST['pet_id']) ? $_POST['pet_id'] : '';
 $pet_name = isset($_POST['pet_name']) ? $_POST['pet_name'] : '';
 ?>
 
@@ -32,7 +33,7 @@ $pet_name = isset($_POST['pet_name']) ? $_POST['pet_name'] : '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/adoption_form_style.css">
+    <link rel="stylesheet" href="../style/adoption_form.css">
     <title>Adoption Form</title>
 </head>
 <body>
@@ -54,7 +55,7 @@ $pet_name = isset($_POST['pet_name']) ? $_POST['pet_name'] : '';
             <input type="text" id="pet_interest" name="pet_interest" value="<?php echo htmlspecialchars($pet_name); ?>" readonly />
             <label for="reason">Why do you want to adopt this pet?</label>
             <textarea id="reason" name="reason" required></textarea>
-            <input type="hidden" name="pet_id" value="<?php echo htmlspecialchars($_POST['pet_id']); ?>">
+            <input type="hidden" name="pet_id" value="<?php echo htmlspecialchars($pet_id); ?>">
             <input type="submit" value="Submit" />
         </form>
     </div>
