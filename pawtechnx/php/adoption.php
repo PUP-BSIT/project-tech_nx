@@ -33,32 +33,71 @@ $pet_name = isset($_POST['pet_name']) ? $_POST['pet_name'] : '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/adoption_form.css">
+    <link href="../style/adoption_form.css" rel="stylesheet" />
     <title>Adoption Form</title>
 </head>
 <body>
-    <div class="form-container">
-        <form action="adoption_connect.php" method="POST">
-            <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($fname); ?>" required />
-            <label for="lname">Last Name:</label>
-            <input type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($lname); ?>" required />
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required />
-            <label for="contact">Contact Number:</label>
-            <input type="tel" id="contact" name="contact" value="<?php echo htmlspecialchars($contact_number); ?>" required />
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>" required />
-            <label for="salary">Monthly Salary:</label>
-            <input type="number" id="salary" name="salary" value="<?php echo htmlspecialchars($salary); ?>" required />
-            <label for="pet_interest">Who is the pet you're interested in?</label>
-            <input type="text" id="pet_interest" name="pet_interest" value="<?php echo htmlspecialchars($pet_name); ?>" readonly />
-            <label for="reason">Why do you want to adopt this pet?</label>
-            <textarea id="reason" name="reason" required></textarea>
-            <input type="hidden" name="pet_id" value="<?php echo htmlspecialchars($pet_id); ?>">
-            <input type="submit" value="Submit" />
-        </form>
+<div class="banner">
+    <div class="nav-bar">
+      <a href="account.php" title="User Profile"><img src="../images/icon.png"></a>
+      <div class="logo">
+        <p>PAWTECHNX</p>
+      </div>
+      <ul>
+        <li><a href="../php/home_page.php">Home</a></li>
+        <li class="dropdown">
+          <button class="dropbtn"><a href="pet_page.php">Adopt</a></button>
+          <div class="dropdown-content">
+            <a href="../php/cats.php">Cats</a>
+            <a href="../php/hamsters.php">Hamsters</a>
+            <a href="../php/dogs.php">Dogs</a>
+            <a href="../php/rabbits.php">Rabbits</a>
+          </div>
+        </li>
+        <li><a href="../php/about_us.php">About Us</a></li>
+        <div class="logout">
+          <li><a href="logout.php">Logout</a></li>
+        </div>
+      </ul>
     </div>
-    <footer class="footer"></footer>
+  </div>
+  <div class="header">
+    <h1>You are almost there!</h1>
+    <p>Are you excited to meet your new friend?</p>
+  </div>
+  <div class="form-container">
+    <h2>PAWTECHNX PET ADOPTION FORM</h2>
+    <p>Welcome to the Pet Adoption Application!</p>
+    <form action="adoption_connect.php" method="POST" id="adoptionForm">
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($fname); ?>" required />
+      
+      <label for="lname">Last Name:</label>
+      <input type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($lname); ?>" required />
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required />
+      
+      <label for="contact">Contact Number:</label>
+      <input type="tel" id="contact" name="contact" value="<?php echo htmlspecialchars($contact_number); ?>" required />
+      
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>" required />
+      
+      <label for="salary">Monthly Salary:</label>
+      <input type="number" id="salary" name="salary" value="<?php echo htmlspecialchars($salary); ?>" required />
+      
+      <label for="pet_interest">Who is the pet you're interested in?</label>
+      <input type="text" id="pet_interest" name="pet_interest" value="<?php echo htmlspecialchars($pet_name); ?>" readonly />
+      
+      <label for="reason">Why do you want to adopt this pet?</label>
+      <textarea id="reason" name="reason" required></textarea>
+      
+      <input type="hidden" name="pet_id" value="<?php echo htmlspecialchars($pet_id); ?>">
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+  <footer class="footer"></footer>
+  <script src="../script/adoption.js"></script>
 </body>
 </html>
