@@ -1,27 +1,27 @@
-  <?php 
+<?php
+header('Content-Type: application/json');
 
-include 'dataconection.php';
+include 'dataconnection.php';
 
-//if(isset($_POST ["name"]) || isset($_POST["id"]) || isset
-//($_POST["date"]) || isset($_POST["type"]) || isset($_POST["status"])) {
-    $input=file_get_contents("php://insert_data_admin");
-    $decode=json_decode($input,true);
-     
-    $name=$decode["name"];
-    $id=$decode["id"];
-    $date=$decode["date"];
-    $type=$decode["type"];
-    $status=$decode["status"];
+$data = json_decode(file_get_contents("php://input"), true);
 
-    $sql="INSERT INTO schedule (std_name, std_id, std_date,
-    std_type, std_status) VALUES ('{$name}', '{$id}', '{$date}',
-    '{$type}', ;{$status}')";
-    $run_sql=mysqli_query($conn, $sql);
-    if($run_sql) {
-        echo json_encode(["success"=>true,"message"=>"Schedule Add Successfully"]);
-    } else {
-        echo json_encode(["success"=>false,"message"=>"Server Problem"]);
-    }
-//}
+if (isset($data['name'], $data['id'], $data['date'], $data['type'], $data['status'])) {
+  $name = mysqli_real_escape_string($conn, $data['name']);
+  $id = mysqli_real_escape_string($conn, $data['id']);
+  $date = mysqli_real_escape_string($conn, $data['date']);
+  $type = mysqli_real_escape_string($conn, $data['type']);
+  $status = mysqli_real_escape_string($conn, $data['status']);
 
+  $query = "INSERT INTO schedule (name, pet_id, date, type, status) VALUES ('$name', '$id', '$date', '$type', '$status')";
+
+  if (mysqli_query($conn, $query)) {
+    echo json_encode(['success' => true, 'message' => 'Adoption meeting scheduled successfully']);
+  } else {
+    echo json_encode(['success' => false, 'message' => 'Error: ' . mysqli_error($conn)]);
+  }
+} else {
+  echo json_encode(['success' => false, 'message' => 'Incomplete data']);
+}
+
+mysqli_close($conn);
 ?>
