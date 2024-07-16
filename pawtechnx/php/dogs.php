@@ -1,64 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style/pet_page_style.css" />
-    <title>Dog List</title>
-  </head>
-  <body>
-  <div class="banner" id="banner">
+    <title>Dogs List</title>
+</head>
+<body>
+    <div class="banner" id="banner">
         <div class="nav-bar">
             <div class="logo">
                 <p>PAWTECHNX</p>
             </div>
             <ul>
-                <li><a href="../../index.php">Home</a></li>
-                <li class="dropdown">
-                    <button class="dropbtn"><a href="../php/pet_page.php">Adopt</a></button>
-                    <div class="dropdown-content">
-                        <a href="../php/cats.php">Cats</a>
-                        <a href="../php/hamsters.php">Hamsters</a>
-                        <a href="../php/dogs.php">Dogs</a>
-                        <a href="../php/rabbits.php">Rabbits</a>
-                    </div>
-                </li>
-                <li><a href="../php/about_us.php">About Us</a></li>
+                <?php
+                session_start();
+                if (isset($_SESSION['user_id'])) {
+                    echo '<li><a href="../php/home_page.php">Home</a></li>';
+                    echo '<li class="dropdown">';
+                    echo '<button class="dropbtn">
+                      <a href="./pet_page.php">Adopt</a></button>';
+                    echo '<div class="dropdown-content">';
+                    echo '<a href="./cats.php">Cats</a>';
+                    echo '<a href="./hamsters.php">Hamsters</a>';
+                    echo '<a href="./dogs.php">Dogs</a>';
+                    echo '<a href="./rabbits.php">Rabbits</a>';
+                    echo '</div>';
+                    echo '</li>';
+                } else {
+                    echo '<li><a href="../../index.php">Home</a></li>';
+                    echo '<li class="dropdown">';
+                    echo '<button class="dropbtn">
+                      <a href="./pet_page.php">Adopt</a></button>';
+                    echo '<div class="dropdown-content">';
+                    echo '<a href="./cats.php">Cats</a>';
+                    echo '<a href="./hamsters.php">Hamsters</a>';
+                    echo '<a href="./dogs.php">Dogs</a>';
+                    echo '<a href="./rabbits.php">Rabbits</a>';
+                    echo '</div>';
+                    echo '</li>';
+                }
+                ?>
+                <li><a href="pawtechnx/php/about_us.php">About Us</a></li>
                 <div class="login">
-                    <li><a href="../html/login.html">Log in</a></li>
+                    <?php
+                    if (isset($_SESSION['user_id'])) {
+                        echo '<li><a href="./logout.php">Log out</a></li>';
+                    } else {
+                        echo '<li><a href="../html/login.html">Log in</a></li>';
+                    }
+                    ?>
                 </div>
             </ul>
         </div>
     </div>
+    <div class="header">
+    <h1>Here are our Dog!</h1>
+    <p>They can't wait to meet you</p>
+  </div>
     <div class="content">
-      <h1>Rescue. Adopt. Love.</h1>
-      <p>Learn how to adopt a pet today!</p>
+        <h3>Meet our Lovely Dog!</h3>
+        <p>They are ready for a loving Home.</p>
     </div>
     <div class="wrapper">
-    <div class="pet-container">
-            <?php
-            include "dataconnection.php";
+        <?php
+        include "dataconnection.php";
 
-            $query = "SELECT `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, `Weight`, `Height`, `profile_img` FROM `pet_details` WHERE `Species` = 'Dog' ORDER BY `Name`";
-            $query_run = mysqli_query($conn, $query);
+        $query = "SELECT `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, 
+                `Weight`, `Height`, `profile_img`, `Availability` 
+                FROM `pet_details` WHERE `Species` = 'Dog' 
+                AND `Availability` = 'Available' 
+                ORDER BY `Name`";
+        $query_run = mysqli_query($conn, $query);
 
-            if ($query_run) {
-                while ($row = mysqli_fetch_assoc($query_run)) {
-                    echo "<div class='pet' onclick='showDetails(" . htmlspecialchars($row['pet_ID']) . ")'>";
-                    echo "<img src='" . htmlspecialchars($row['profile_img']) . "' alt='Image of " . htmlspecialchars($row['Name']) . "'>";
-                    echo "<p>" . htmlspecialchars($row['Name']) . "</p>";
-                    echo "<p>" . htmlspecialchars($row['Age']) . " years old</p>";
-                    echo "</div>";
-                }
-            } else {
-                echo "<p>Error executing query: " . mysqli_error($conn) . "</p>";
+        if ($query_run && mysqli_num_rows($query_run) > 0) {
+            echo '<div class="pet-container">';
+            while ($row = mysqli_fetch_assoc($query_run)) {
+                $pet_ID_parts = explode('-', $row['pet_ID']);
+                $formatted_pet_ID = 'PT-' . str_pad($pet_ID_parts[1], 3, '0', 
+                  STR_PAD_LEFT) . '-PTX';
+
+                echo "<div class='pet' data-pet-id='" 
+                . htmlspecialchars($formatted_pet_ID) . "'
+                 onclick='showDetails(\"" 
+                 . htmlspecialchars($formatted_pet_ID) . "\")'>";
+                echo "<img src='" . htmlspecialchars($row['profile_img']) 
+                . "' alt='Image of " . htmlspecialchars($row['Name']) . "'>";
+                echo "<p>" . htmlspecialchars($row['Name']) . "</p>";
+                echo "<p>" . htmlspecialchars($row['Age']) . " years old</p>";
+                echo "</div>";
             }
+            echo '</div>';
+        } else {
+            echo '<div class="adoption-message">All dogs are adopted!</div>';
+        }
 
-            mysqli_close($conn);
-            ?>
-        </div>
+        mysqli_close($conn);
+        ?>
     </div>
-    </div>  
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -84,5 +123,5 @@
         </div>
     </div>
     <script src="../script/display_pet_details.js"></script>
-  </body>
+</body>
 </html>

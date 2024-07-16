@@ -1,17 +1,9 @@
 <?php
 session_start();
-
-header('Content-Type: application/json');
-
-$data = json_decode(file_get_contents('php://input'), true);
-
-if (!isset($data['pet_id']) || !isset($data['name'])) {
-    echo json_encode(['status' => 'error', 'message' => 'Pet ID or Name not provided']);
-    exit;
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['pet_name'])) {
+    $_SESSION['recently_viewed_pet_name'] = $_POST['pet_name'];
+    echo 'Pet name set in session: ' . $_POST['pet_name'];
+} else {
+    echo 'No pet name provided';
 }
-
-$_SESSION['pet_id'] = $data['pet_id'];
-$_SESSION['pet_name'] = $data['pet_name'];
-
-echo json_encode(['status' => 'success']);
 ?>
