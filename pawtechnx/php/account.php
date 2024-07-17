@@ -1,20 +1,38 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: ../html/login.html");
     exit();
 }
 
-include 'dataconnection.php';
+include 'dataconnection.php'; 
 
 $user_id = $_SESSION['user_id'];
 
-$sql = "SELECT Firstname, Lastname, Email, profile_image FROM users WHERE 
-      user_ID = $user_id";
-$result = mysqli_query($conn, $sql);
+$sql = "SELECT Firstname, Lastname, Email FROM users WHERE user_ID = ?";
+$stmt = mysqli_prepare($conn, $sql);
+
+if (!$stmt) {
+    die('Error preparing statement: ' . mysqli_error($conn));
+}
+
+mysqli_stmt_bind_param($stmt, "s", $user_id); 
+
+mysqli_stmt_execute($stmt);
+
+$result = mysqli_stmt_get_result($stmt);
+
+if (!$result) {
+    die('Error executing statement: ' . mysqli_stmt_error($stmt));
+}
 
 $user = mysqli_fetch_assoc($result);
 
+if (!$user) {
+    die('User not found');
+}
+
+mysqli_stmt_close($stmt);
 mysqli_close($conn);
 ?>
 
@@ -24,7 +42,7 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Profile</title>
-    <link rel="stylesheet" href="../style/account_style.css" />
+    <link rel="stylesheet" href="../style/account_style.css"> <!-- Adjust the path to your CSS file -->
 </head>
 <body>
     <div class="banner">
@@ -53,7 +71,6 @@ mysqli_close($conn);
     </div>
     <div class="profile-section">
         <div class="profile-title">My Profile</div>
-        <div class="profile-image" style="background-image: url('<?php echo htmlspecialchars($user['profile_image']); ?>')"></div>
         <div class="profile-box">
             <div class="form">
                 <div class="input-group">
@@ -74,18 +91,6 @@ mysqli_close($conn);
                         <div class="label"><?php echo htmlspecialchars($user['Email']); ?></div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="section-title">Favourites</div>
-            <div class="section-description">
-                You haven’t added a pet to your favourites
-            </div>
-        </div>
-        <div class="section">
-            <div class="section-title">Adoption Progress</div>
-            <div class="section-description">
-                You haven’t applied for adoption process
             </div>
         </div>
     </div>
