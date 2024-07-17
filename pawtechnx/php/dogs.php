@@ -9,12 +9,17 @@
 <body>
     <div class="banner" id="banner">
         <div class="nav-bar">
+            <?php
+            session_start();
+            if (isset($_SESSION['user_id'])) {
+                echo '<a href="account.php" title="User Profile"><img src="../images/icon.png"></a>';
+            }
+            ?>
             <div class="logo">
                 <p>PAWTECHNX</p>
             </div>
             <ul>
                 <?php
-                session_start();
                 if (isset($_SESSION['user_id'])) {
                     echo '<li><a href="../php/home_page.php">Home</a></li>';
                     echo '<li class="dropdown">';
