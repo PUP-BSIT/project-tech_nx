@@ -25,11 +25,7 @@ function showDetails(petID) {
                             <p><strong>Weight:</strong> ${Weight || 'undefined'}</p>
                             <p><strong>Height:</strong> ${Height || 'undefined'}</p>
                             <p>${Description || 'I am looking for a home!'}</p>
-                            <form id="adoptForm" method="POST" action="../php/adoption.php">
-                                <input type="hidden" name="pet_id" value="${pet_ID}">
-                                <input type="hidden" name="pet_name" value="${Name}">
-                                <button type="submit" class="adopt-button" data-pet-id="${pet_ID}" data-pet-name="${Name}">Adopt</button>
-                            </form>
+                            <button id="adoptButton" class="adopt-button" data-pet-id="${pet_ID}" data-pet-name="${Name}">Adopt</button>
                         </div>
                     </div>
                     <h3>My Gallery</h3>
@@ -50,15 +46,30 @@ function showDetails(petID) {
             document.getElementById('modal-body').innerHTML = modalContent;
             document.getElementById('myModal').classList.add('show');
 
-            const adoptForm = document.getElementById('adoptForm');
-            adoptForm.addEventListener('submit', function(event) {
-                const petName = event.target.querySelector('input[name="pet_name"]').value;
-                console.log('Adopt button clicked, pet name:', petName);
-                sessionStorage.setItem('recently_viewed_pet', petName);
+            const adoptButton = document.getElementById('adoptButton');
+            adoptButton.addEventListener('click', function(event) {
+                const petName = event.target.getAttribute('data-pet-name');
+                const petID = event.target.getAttribute('data-pet-id');
+                checkLoginAndProceed(petName, petID);
             });
-
         })
         .catch(error => console.error('Error fetching pet details:', error));
+}
+
+function checkLoginAndProceed(petName, petID) {
+    fetch('check_login.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.loggedIn) {
+                alert("Proceeding to the adoption form");
+                sessionStorage.setItem('recently_viewed_pet', petName);
+                window.location.href = `../php/adoption.php?pet_id=${petID}&pet_name=${petName}`;
+            } else {
+                alert("User needs to login before adopting");
+                window.location.href = '../html/login.html';
+            }
+        })
+        .catch(error => console.error('Error checking login status:', error));
 }
 
 function closeModal() {
