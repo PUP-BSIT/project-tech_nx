@@ -7,11 +7,11 @@ function validateForm(event) {
   let contact = document.getElementById('contact').value.trim();
   let email = document.getElementById('email').value.trim();
   let address = document.getElementById('address').value.trim();
-  let salary = document.getElementById('salary').value.trim();
+  let source_of_income = document.getElementById('source_of_income').value.trim(); // Changed from 'salary'
   let password = document.getElementById('password').value;
   let confirm = document.getElementById('confirm').value;
 
-  if (fname === '' || lname === '' || username === '' || contact === '' || email === '' || address === '' || salary === '' || password === '' || confirm === '') {
+  if (fname === '' || lname === '' || username === '' || contact === '' || email === '' || address === '' || source_of_income === '' || password === '' || confirm === '') {
     alert('Please fill in all fields.');
     return false;
   }
@@ -28,7 +28,7 @@ function validateForm(event) {
   formData.append('contact', contact);
   formData.append('email', email);
   formData.append('address', address);
-  formData.append('salary', salary);
+  formData.append('source_of_income', source_of_income); // Changed from 'salary'
   formData.append('password', password);
 
   fetch('../php/registration.php', {
@@ -43,8 +43,8 @@ function validateForm(event) {
     }
   })
   .then(data => {
-    alert('New record added successfully');
-    window.location.href = '../php/home_page.php';
+    alert('New record added successfully. Now please login.');
+    window.location.href = '../html/login.html';
   })
   .catch(error => {
     alert('Error: ' + error.message);
