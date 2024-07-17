@@ -42,7 +42,7 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Profile</title>
-    <link rel="stylesheet" href="../style/account_style.css"> <!-- Adjust the path to your CSS file -->
+    <link rel="stylesheet" href="../style/account_style.css"> 
 </head>
 <body>
     <div class="banner">
@@ -56,13 +56,13 @@ mysqli_close($conn);
                 <li class="dropdown">
                     <button class="dropbtn">Adopt</button>
                     <div class="dropdown-content">
-                        <a href="../html/cats.html">Cats</a>
-                        <a href="../html/hamsters.html">Hamsters</a>
-                        <a href="../html/dogs.html">Dogs</a>
-                        <a href="../html/rabbits.html">Rabbits</a>
+                        <a href="../php/cats.php">Cats</a>
+                        <a href="../php/hamsters.php">Hamsters</a>
+                        <a href="../php/dogs.php">Dogs</a>
+                        <a href="../php/rabbits.php">Rabbits</a>
                     </div>
                 </li>
-                <li><a href="../html/about_us.html">About Us</a></li>
+                <li><a href="../php/about_us.php">About Us</a></li>
                 <div class="logout">
                     <li><a href="logout.php">Logout</a></li>
                 </div>
