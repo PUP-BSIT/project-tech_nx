@@ -102,7 +102,6 @@ if (empty($pet_id)) {
       <textarea id="reason" name="reason" required></textarea>
       
       <input type="hidden" name="pet_id" value="<?php echo htmlspecialchars($pet_id); ?>">
-      <p>Debug: Pet ID is <?php echo htmlspecialchars($pet_id); ?></p> <!-- Debugging line -->
       <input type="submit" value="Submit" />
     </form>
   </div>
