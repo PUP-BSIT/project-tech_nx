@@ -2,13 +2,15 @@
 include "dataconnection.php";
 session_start();
 
+// Redirect to login if user is not authenticated
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../html/login.html");
     exit();
 }
 
+// Fetch user details from database
 $user_id = $_SESSION['user_id'];
-$query = "SELECT user_id, Firstname, Lastname, Email, Address, Monthly_Salary, contact_number FROM users WHERE user_id = '$user_id'";
+$query = "SELECT user_id, Firstname, Lastname, Email, Address, contact_number, Source_of_Income FROM users WHERE user_id = '$user_id'";
 $result = mysqli_query($conn, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
@@ -17,15 +19,21 @@ if ($result && mysqli_num_rows($result) > 0) {
     $lname = $row['Lastname'];
     $email = $row['Email'];
     $address = $row['Address'];
-    $salary = $row['Monthly_Salary'];
+    $salary = $row['Source_of_Income'];
     $contact_number = $row['contact_number'];
 } else {
     echo "Error fetching user data: " . mysqli_error($conn);
     exit();
 }
 
-$pet_id = isset($_POST['pet_id']) ? $_POST['pet_id'] : '';
-$pet_name = isset($_POST['pet_name']) ? $_POST['pet_name'] : '';
+// Retrieve pet_id from URL
+$pet_id = isset($_GET['pet_id']) ? $_GET['pet_id'] : '';
+$pet_name = isset($_GET['pet_name']) ? $_GET['pet_name'] : '';
+
+if (empty($pet_id)) {
+    echo "Error: pet_id is not set.";
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +76,7 @@ $pet_name = isset($_POST['pet_name']) ? $_POST['pet_name'] : '';
   <div class="form-container">
     <h2>PAWTECHNX PET ADOPTION FORM</h2>
     <p>Welcome to the Pet Adoption Application!</p>
-    <form action="adoption_connect.php" method="POST" id="adoptionForm">
+    <form action="./adoption_connect.php" method="POST" id="adoptionForm">
       <label for="fname">First Name:</label>
       <input type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($fname); ?>" required />
       
@@ -84,8 +92,8 @@ $pet_name = isset($_POST['pet_name']) ? $_POST['pet_name'] : '';
       <label for="address">Address:</label>
       <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>" required />
       
-      <label for="salary">Monthly Salary:</label>
-      <input type="number" id="salary" name="salary" value="<?php echo htmlspecialchars($salary); ?>" required />
+      <label for="salary">Source of Income:</label>
+      <input type="text" id="salary" name="salary" value="<?php echo htmlspecialchars($salary); ?>" required />
       
       <label for="pet_interest">Who is the pet you're interested in?</label>
       <input type="text" id="pet_interest" name="pet_interest" value="<?php echo htmlspecialchars($pet_name); ?>" readonly />
@@ -94,6 +102,7 @@ $pet_name = isset($_POST['pet_name']) ? $_POST['pet_name'] : '';
       <textarea id="reason" name="reason" required></textarea>
       
       <input type="hidden" name="pet_id" value="<?php echo htmlspecialchars($pet_id); ?>">
+      <p>Debug: Pet ID is <?php echo htmlspecialchars($pet_id); ?></p> <!-- Debugging line -->
       <input type="submit" value="Submit" />
     </form>
   </div>

@@ -8,8 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-
-$query_user = "SELECT user_id, Firstname, Lastname, Email, Address, Monthly_Salary, contact_number FROM users WHERE user_id = '$user_id'";
+$query_user = "SELECT user_id, Firstname, Lastname, Email, Address, Source_of_Income, contact_number FROM users WHERE user_id = '$user_id'";
 $result_user = mysqli_query($conn, $query_user);
 
 if ($result_user && mysqli_num_rows($result_user) > 0) {
@@ -18,7 +17,7 @@ if ($result_user && mysqli_num_rows($result_user) > 0) {
     $lname = $row_user['Lastname'];
     $email = $row_user['Email'];
     $address = $row_user['Address'];
-    $salary = $row_user['Monthly_Salary'];
+    $salary = $row_user['Source_of_Income'];
     $contact_number = $row_user['contact_number'];
 } else {
     echo "Error fetching user data: " . mysqli_error($conn);
@@ -26,9 +25,14 @@ if ($result_user && mysqli_num_rows($result_user) > 0) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $pet_id = $_POST['pet_id'];
-    $pet_interest = $_POST['pet_interest'];
-    $reason = $_POST['reason'];
+    $pet_id = mysqli_real_escape_string($conn, $_POST['pet_id']);
+    $pet_interest = mysqli_real_escape_string($conn, $_POST['pet_interest']);
+    $reason = mysqli_real_escape_string($conn, $_POST['reason']);
+
+    if (empty($pet_id)) {
+        echo "Error: pet_id is not set.";
+        exit();
+    }
 
     $check_query = "SELECT availability FROM pet_details WHERE pet_ID = '$pet_id'";
     $check_result = mysqli_query($conn, $check_query);
@@ -51,15 +55,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $adoption_ID = 'ADP-' . str_pad($count, 3, '0', STR_PAD_LEFT) . '-PTX';
 
             $insert_query = "INSERT INTO adoption_form 
-                            (`adoption_ID`, `pet_ID`, `user_ID`, `Firstname`, `Lastname`, `Email`, `Contact_Number`, `Address`, `Monthly_Salary`, `pet_interest`, `Reason`)
+                            (`adoption_ID`, `pet_ID`, `user_ID`, `Firstname`, `Lastname`, `Email`, `Contact_Number`, `Address`, `Source_of_Income`, `pet_interest`, `Reason`)
                             VALUES ('$adoption_ID', '$pet_id', '$user_id', '$fname', '$lname', '$email', '$contact_number', '$address', '$salary', '$pet_interest', '$reason')";
 
             if (mysqli_query($conn, $insert_query)) {
                 $update_query = "UPDATE pet_details SET availability = 'Adopted' WHERE pet_ID = '$pet_id'";
-                mysqli_query($conn, $update_query);
-
-                header("Location: ../html/adoption_success.html");
-                exit();
+                if (mysqli_query($conn, $update_query)) {
+                    header("Location: ../html/adoption_success.html");
+                    exit();
+                } else {
+                    echo "Error updating pet availability: " . mysqli_error($conn);
+                }
             } else {
                 echo "Error inserting adoption form: " . mysqli_error($conn);
             }
