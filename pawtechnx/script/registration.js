@@ -21,7 +21,6 @@ function validateForm(event) {
     return false;
   }
 
-  // Create a form data object
   let formData = new FormData();
   formData.append('fname', fname);
   formData.append('lname', lname);
