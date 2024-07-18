@@ -1,5 +1,5 @@
 <?php
-include "dataconnection.php";
+include 'dataconnection.php';
 
 $species_sql = "SELECT DISTINCT `Species` FROM `pet_details`";
 $species_result = mysqli_query($conn, $species_sql);
@@ -43,7 +43,7 @@ if (mysqli_num_rows($species_result) > 0) {
                         <td>{$row['Height']}</td>
                         <td>{$row['Availability']}</td>
                         <td>
-                            <form action='../php/update_pet.php' method='get' style='display: inline;'>
+                            <form action='../php/edit_pet_form.php' method='get' style='display: inline;'>
                                 <input type='hidden' name='pet_ID' value='{$row['pet_ID']}'>
                                 <button type='submit'>Edit</button>
                             </form>

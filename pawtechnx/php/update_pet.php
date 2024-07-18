@@ -1,10 +1,9 @@
 <?php
 include 'dataconnection.php';
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $pet_ID = $_GET['id'];
+    $pet_ID = $_GET['pet_ID'];
 
     $name = $_POST['Name'];
     $age = $_POST['Age'];
