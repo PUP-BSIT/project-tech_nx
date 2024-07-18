@@ -18,7 +18,7 @@ function showDetails(petID) {
                         <img src="${profile_img || ''}" alt="Image of ${Name || 'undefined'}" class="pet-image">
                         <div class="pet-info">
                             <h2>Hello, I'm ${Name || 'undefined'}!</h2>
-                            <p><strong>Age:</strong> ${Age || 'undefined'} years old</p>
+                            <p><strong>Age:</strong> ${Age || 'undefined'} years</p>
                             <p><strong>Species:</strong> ${Species || 'undefined'}</p>
                             <p><strong>Breed:</strong> ${Breed || 'undefined'}</p>
                             <p><strong>Gender:</strong> ${Gender || 'undefined'}</p>

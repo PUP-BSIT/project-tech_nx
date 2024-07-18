@@ -2,21 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../style/pet_page_style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/pet_page_style.css" />
     <title>PETS</title>
 </head>
 <body>
     <div class="banner">
         <div class="nav-bar">
+            <?php
+            session_start();
+            if (isset($_SESSION['user_id'])) {
+                echo '<a href="account.php" title="User Profile"><img src="../images/icon.png"></a>';
+            }
+            ?>
             <div class="logo">
                 <p>PAWTECHNX</p>
             </div>
             <ul>
-                <li><a href="home_page.html">Home</a></li>
-                <li><a href="pet_page.php">Pets</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="contacts.html">Contact Us</a></li>
+                <?php
+                if (isset($_SESSION['user_id'])) {
+                    echo '<li><a href="../php/home_page.php">Home</a></li>';
+                    echo '<li><a href="../php/pet_page.php">Pets</a></li>';
+                } else {
+                    echo '<li><a href="../../index.php">Home</a></li>';
+                    echo '<li><a href="./pet_page.php">Pets</a></li>';
+                }
+                ?>
+                <li><a href="../php/about_us.php">About Us</a></li>
+                <div class="login">
+                    <?php
+                    if (isset($_SESSION['user_id'])) {
+                        echo '<li><a href="./logout.php">Log out</a></li>';
+                    } else {
+                        echo '<li><a href="../html/login.html">Log in</a></li>';
+                    }
+                    ?>
+                </div>
             </ul>
         </div>
         <div class="header">
@@ -32,7 +53,7 @@
     <div class="wrapper">
         <?php
         include "dataconnection.php";
-        $query = "SELECT `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, `Size`, `profile_img` FROM `pet_details` ORDER BY Species";
+        $query = "SELECT `ID`, `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, `Weight`, `Height`, `profile_img` FROM `pet_details` ORDER BY Species";
         $query_run = mysqli_query($conn, $query);
 
         $current_species = null;
@@ -72,8 +93,6 @@
         </div>
     </div>
 
-    <script src="../script/display_pet_details.js"></script>
-
     <div class="footer-container">
         <div class="footer-address">
             <h3>Address</h3>
@@ -92,5 +111,8 @@
             <p>About us</p>
         </div>
     </div>
+
+    <script src="../script/display_pet_details.js"></script>
+
 </body>
 </html>

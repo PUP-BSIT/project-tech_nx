@@ -1,0 +1,380 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  .banner {
+    width: 100%;
+    height: 70vh;
+    background-image: url(../images/header.jpg);
+    background-size: cover;
+    background-position: center;
+   
+  }
+  
+  .nav-bar {
+    margin: auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 50;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    z-index: 1000;
+  }
+  
+  a img {
+    width: 30px;
+  }
+  
+  a img:hover {
+    transform: scale(1.2);
+  }
+  
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .nav-bar ul {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+  }
+  
+  .nav-bar ul li {
+    list-style: none;
+    margin: 0 20px;
+    position: relative;
+  }
+  
+  .nav-bar ul li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .nav-bar ul li .dropbtn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-bar ul li .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .nav-bar ul li .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+  }
+  
+  .nav-bar ul li:hover .dropdown-content {
+    display: block;
+  }
+  
+  .nav-bar ul li a:hover {
+    color: #ffbe00;
+    font-size: 18px;
+  }
+  
+  .header {
+    width: 100%;
+    position: absolute;
+    top: 15%;
+    text-align: right;
+    color: white;
+    padding-right: 30px;
+  }
+  
+  .header h1 {
+    font-size: 55px;
+    margin-bottom: 10px;
+    padding-top: 50px;
+    padding-right: 30px;
+  }
+  
+  .header p {
+    padding-right: 150px;
+  }
+  
+  .content {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 50px;
+  }
+  
+  .logout {
+    text-align: left;
+    padding-left: 50px;
+  }
+  
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .pet-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .pet {
+    text-align: center;
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 200px;
+    padding: 10px;
+    height: 280px;
+    overflow-y: auto;
+  }
+  
+  .pet:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pet img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 60px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 800px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #333;
+  }
+  
+  .close {
+    color: #aaa;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .modal img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .modal .pet-info {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .modal .pet-info h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .modal .pet-info p {
+    margin-bottom: 10px;
+  }
+  
+  .modal .adopt-button {
+    background-color: #ffc107;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  .modal .adopt-button:hover {
+    background-color: #e0a800;
+  }
+  
+  .modal.show {
+    display: block;
+  }
+  
+  .footer-container {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .footer-address,
+  .footer-contact,
+  .footer-info {
+    flex: 1;
+    padding: 0 20px;
+  }
+  
+  .footer-address h3,
+  .footer-contact h3,
+  .footer-info h3 {
+    margin-bottom: 10px;
+  }
+  
+  .footer-address p,
+  .footer-contact p,
+  .footer-info p {
+    margin-bottom: 5px;
+  }
+  
+  .wrapper .adoption-message {
+    background-color: #e0a800;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: xx-large;
+    margin: 20px auto;
+    border: 1px solid #ebccd1;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .nav-bar ul {
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+    }
+  
+    .nav-bar ul li {
+      margin: 10px 0;
+    }
+  
+    .nav-bar ul li .dropdown-content {
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  
+    .nav-bar ul li .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+    }
+  
+    .login {
+      display: none;
+    }
+  
+    .modal-content {
+      width: 80%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .banner {
+      height: 50vh;
+    }
+  
+    .nav-bar {
+      padding: 10px;
+    }
+  
+    .logo {
+      font-size: 20px;
+    }
+  
+    .content {
+      padding: 30px 0;
+    }
+  
+    .wrapper {
+      padding: 10px;
+    }
+  
+    .pet {
+      width: 150px;
+      height: 240px;
+    }
+  
+    .pet img {
+      height: 160px;
+    }
+  
+    .modal-content {
+      width: 80%;
+    }
+  
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-address,
+    .footer-contact,
+    .footer-info {
+      padding: 20px;
+    }
+  }
+  
