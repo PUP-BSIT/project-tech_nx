@@ -1,9 +1,19 @@
 <?php
 include "dataconnection.php";
 session_start();
+header('Content-Type: application/json');
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$response = array();
+
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
+
+if (empty($username) || empty($password)) {
+    $response['status'] = 'error';
+    $response['message'] = 'Both fields are required.';
+    echo json_encode($response);
+    exit();
+}
 
 $sql_admin = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
 $result_admin = mysqli_query($conn, $sql_admin);
@@ -14,7 +24,9 @@ if (mysqli_num_rows($result_admin) == 1) {
     $_SESSION['username'] = $username;
     $_SESSION['role'] = 'admin';
 
-    header('Location: dashboard.php');
+    $response['status'] = 'success';
+    $response['redirect'] = 'dashboard.php';
+    echo json_encode($response);
     exit();
 }
 
@@ -27,11 +39,15 @@ if (mysqli_num_rows($result_user) == 1) {
     $_SESSION['username'] = $username;
     $_SESSION['role'] = 'user';
 
-    header('Location: home_page.php');
+    $response['status'] = 'success';
+    $response['redirect'] = '../php/home_page.php';
+    echo json_encode($response);
     exit();
 }
 
-echo "Invalid username or password";
+$response['status'] = 'error';
+$response['message'] = 'Invalid username or password';
+echo json_encode($response);
 
 mysqli_close($conn);
 ?>
