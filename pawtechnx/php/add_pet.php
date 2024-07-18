@@ -1,7 +1,6 @@
 <?php
 include "dataconnection.php";
 
-// Function to generate pet_ID in the format PT-001-PTX
 function generatePetID($conn) {
     $sql = "SELECT MAX(CAST(SUBSTRING(pet_ID, 4, 3) AS UNSIGNED)) AS max_id FROM pet_details";
     $result = mysqli_query($conn, $sql);
@@ -19,7 +18,6 @@ function sanitizeInput($conn, $data) {
     return mysqli_real_escape_string($conn, htmlspecialchars(stripslashes(trim($data))));
 }
 
-// Retrieve POST data and sanitize
 $Name = isset($_POST['name']) ? sanitizeInput($conn, $_POST['name']) : '';
 $Age = isset($_POST['age']) ? sanitizeInput($conn, $_POST['age']) : '';
 $Species = isset($_POST['species']) ? sanitizeInput($conn, $_POST['species']) : '';
@@ -31,7 +29,6 @@ $Availability = isset($_POST['availability']) ? sanitizeInput($conn, $_POST['ava
 $profile_img = "";
 $gallery_paths = "";
 
-// Handle profile image upload
 if (isset($_FILES['profile_img']) && $_FILES['profile_img']['error'] == 0) {
     $target_dir = "../images/uploaded/profiles/";
     $target_file = $target_dir . basename($_FILES["profile_img"]["name"]);
@@ -44,7 +41,6 @@ if (isset($_FILES['profile_img']) && $_FILES['profile_img']['error'] == 0) {
     $profile_img = isset($_POST['profile_image']) ? sanitizeInput($conn, $_POST['profile_image']) : '';
 }
 
-// Handle gallery image upload
 if (isset($_FILES['gallery_paths']) && !empty($_FILES['gallery_paths']['name'][0])) {
     $gallery_paths_array = array();
     $target_dir = "../images/uploaded/gallery/";
@@ -63,9 +59,7 @@ if (isset($_FILES['gallery_paths']) && !empty($_FILES['gallery_paths']['name'][0
 
 $pet_ID = generatePetID($conn);
 
-// Insert into database if all required fields are present
 if ($pet_ID && $Name && $Age && $Species && $Breed && $Gender && $Weight && $Height && $profile_img && $Availability) {
-    // Prepare and bind parameters
     $sql = "INSERT INTO pet_details (pet_ID, Name, Age, Species, Breed, Gender, Weight, Height, profile_img, Availability, gallery_paths, current_datetimestamp, updated_timestamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
     $stmt = mysqli_prepare($conn, $sql);
     
