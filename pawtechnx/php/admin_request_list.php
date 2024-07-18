@@ -1,10 +1,29 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require_once("dataconnection.php");
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  require_once("dataconnection.php");
 
-if ($conn->connect_error) {
+  if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $adoption_ID = $_POST['adoption_ID'];
+    if (isset($_POST['approve'])) {
+      $status = 'approved';
+    } elseif (isset($_POST['reject'])) {
+      $status = 'rejected';
+    } elseif (isset($_POST['delete'])) {
+      $query = "DELETE FROM adoption WHERE adoption_ID = '$adoption_ID'";
+      mysqli_query($conn, $query);
+      header("Location: admin_request_list.php");
+    exit;
+  }
+
+  if (isset($status)) {
+    $query = "UPDATE adoption SET status = '$status' WHERE adoption_ID = '$adoption_ID'";
+    mysqli_query($conn, $query);
+  }
 }
 ?>
 
@@ -21,7 +40,7 @@ if ($conn->connect_error) {
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
           <h2>WELCOME, ADMIN!</h2>
-          <img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg" 
+          <img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg"
             alt="Admin Profile"
             class="admin-profile">
         </div>
@@ -42,7 +61,7 @@ if ($conn->connect_error) {
       <div class="main-content">
         <header class="header">
           <div class="header-left">
-            <div class="hamburger-menu" id="hamburgerMenu">&#9776;</div>
+            <div class="hamburger-menu">&#9776;</div>
             <div class="logo">PAWTECHNX</div>
           </div>
           <div class="search-bar">
@@ -81,8 +100,8 @@ if ($conn->connect_error) {
                   <td>
                     <form action="admin_request_list.php" method="POST">
                       <input type="hidden" name="adoption_ID" value="<?php echo $row['adoption_ID']; ?>"/>
-                      <input type="submit" name="approve" value="Approve"> &nbsp &nbsp
-                      <input type="submit" name="reject" value="Reject"> 
+                      <input type="submit" name="approve" value="Approve">
+                      <input type="submit" name="reject" value="Reject">
                     </form>
                   </td>
                 </tr>
