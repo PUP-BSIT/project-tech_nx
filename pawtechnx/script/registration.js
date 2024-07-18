@@ -7,7 +7,7 @@ function validateForm(event) {
   let contact = document.getElementById('contact').value.trim();
   let email = document.getElementById('email').value.trim();
   let address = document.getElementById('address').value.trim();
-  let source_of_income = document.getElementById('source_of_income').value.trim(); // Changed from 'salary'
+  let source_of_income = document.getElementById('source_of_income').value.trim(); 
   let password = document.getElementById('password').value;
   let confirm = document.getElementById('confirm').value;
 
@@ -28,7 +28,7 @@ function validateForm(event) {
   formData.append('contact', contact);
   formData.append('email', email);
   formData.append('address', address);
-  formData.append('source_of_income', source_of_income); // Changed from 'salary'
+  formData.append('source_of_income', source_of_income); 
   formData.append('password', password);
 
   fetch('../php/registration.php', {
