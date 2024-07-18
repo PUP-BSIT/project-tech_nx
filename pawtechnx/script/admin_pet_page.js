@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     addPetBtn.addEventListener("click", function() {
         petModal.style.display = "block";
-        petForm.reset(); // Reset form fields
+        petForm.reset(); 
     });
 
     closeModal.addEventListener("click", function() {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
             console.log(data); 
             petModal.style.display = "none"; 
-            fetchPets(); // Call fetchPets after successfully adding a pet
+            fetchPets(); 
         })
         .catch(error => {
             console.error('Error:', error);
@@ -43,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Function to fetch pets data
+ 
     function fetchPets() {
         fetch("../php/get_pets.php")
             .then(response => response.json())
             .then(data => {
-                // Process fetched data (e.g., render pet list)
+               
             })
             .catch(error => {
                 console.error('Error fetching pets:', error);

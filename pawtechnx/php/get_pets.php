@@ -1,19 +1,19 @@
 <?php
 include "dataconnection.php";
 
-// SQL query to fetch pets
+
 $query = "SELECT `ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, `Description`, `image_path` FROM `pets`";
 $result = mysqli_query($conn, $query);
 
-$pets = array(); // Initialize an empty array to store pets data
+$pets = array(); 
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-        $pets[] = $row; // Populate $pets array with fetched data
+        $pets[] = $row; 
     }
 }
 
-// Close database connection
+
 mysqli_close($conn);
 ?>
 <!DOCTYPE html>
@@ -58,7 +58,7 @@ mysqli_close($conn);
     </thead>
     <tbody>
         <?php
-        // Check if $pets is defined and not empty
+
         if (!empty($pets) && is_array($pets)) {
             foreach ($pets as $pet) {
                 echo "<tr>";
