@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,7 +29,7 @@
             <li>
               ADOPTION PROGRESS
               <ul>
-                <li><a href="../html/admin_request_list.php">Request List</a></li>
+                <li><a href="../php/admin_request_list.php">Request List</a></li>
               </ul>
             </li>
           </ul>
@@ -59,7 +60,7 @@
 
     <div class="container">
       <div class="table-responsive">
-        <table>
+        <table id="scheduleTable">
           <thead>
             <tr>
               <th>Id</th>
@@ -71,6 +72,7 @@
               <th>Status</th>
             </tr>
           </thead>
+          <tbody></tbody>
         </table>
       </div>
     </div>
@@ -78,19 +80,15 @@
     <div class="model-body">
       <h3>Add Adoption Meeting</h3>
       <div class="form-group">
-        <label for="name"><b>Enter your Id</b></label>
-        <input type="text" placeholder="Enter your Id" id="id" class="form-control" />
+        <label for="schedule_ID"><b>Enter your Schedule Id</b></label>
+        <input type="text" placeholder="Enter your Schedule Id" id="schedule_ID" class="form-control" />
       </div>
       <div class="form-group">
-        <label for="name"><b>Enter your Schedule Id</b></label>
-        <input type="text" placeholder="Enter your Schedule Id" id="id" class="form-control" />
+        <label for="adoption_ID"><b>Enter your Adoption Id</b></label>
+        <input type="text" placeholder="Enter your Adoption Id" id="adoption_ID" class="form-control" />
       </div>
       <div class="form-group">
-        <label for="name"><b>Enter your Adoption Id</b></label>
-        <input type="text" placeholder="Enter your Adoption Id" id="id" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="id"><b>Enter your name</b></label>
+        <label for="name"><b>Enter your name</b></label>
         <input type="text" placeholder="Enter your Name" id="name" class="form-control" />
       </div>
       <div class="form-group">
