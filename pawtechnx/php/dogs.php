@@ -104,11 +104,11 @@
         ?>
     </div>
     <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modal-body" class="pet-details"></div>
-        </div>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-body" class="pet-details"></div>
     </div>
+</div>    
     <div class="footer-container">
         <div class="footer-address">
             <h3>Address</h3>
