@@ -33,8 +33,8 @@ mysqli_close($conn);
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h2>WELCOME, ADMIN!</h2>
-        <img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg" 
-              alt="Admin Profile" class="admin-profile" />
+        <a href="../php/admin_account.php" ><img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg" 
+        alt="Admin Profile" class="admin-profile" /></a>
       </div>
       <nav>
         <ul>
