@@ -8,40 +8,46 @@
     <link rel="stylesheet" href="../style/admin_pet_page.css">
 </head>
 <body>
-    <div class="admin-dashboard">
+<div class="admin-dashboard">
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <h2>WELCOME, ADMIN!</h2>
-                <img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg" 
-                     alt="Admin Profile" class="admin-profile">
+                <img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg" alt="Admin Profile" class="admin-profile">
             </div>
             <nav>
                 <ul>
-                    <li><a href="../php/user_list.php">USERS LIST</a></li>
-                    <li class="active"><a href="../php/admin_pet_page.php">
-                        PET LIST</a></li>
-                    <li>ADOPTION PROGRESS
+                    <li><a href="./dashboard.php">HOME</a></li>
+                    <li>
+                      <a href="./user_list.php">USERS LIST</a>
+                    </li>
+                    <li class="active">
+                        <a href="./admin_pet_page.php">
+                            PET LIST
+                        </a>
+                    </li>
+                    <li>
+                        ADOPTION PROGRESS
                         <ul>
-                            <li><a href="../html/admin_request_list.html">
-                                Request List</a></li>
+                            <li>
+                              <a href="./admin_request_list.php">REQUEST LIST</a>
+                            </li>
                         </ul>
+                    <a href="logout.php">Logout</a>    
                     </li>
                 </ul>
             </nav>
         </aside>
-        <div class="main-content">
+        <div class="main_content">
             <header class="header">
                 <div class="header-left">
-                    <div class="hamburger-menu" id="hamburgerMenu">
-                        &#9776;
-                    </div>
+                    <div class="hamburger-menu" id="hamburgerMenu">&#9776;</div>
                     <div class="logo">PAWTECHNX</div>
                 </div>
                 <div class="search-bar">
                     <input type="text" id="searchInput" placeholder="Search">
                 </div>
                 <div class="header-icons">
-                    <a href="../php/dashboard.php">Home</a>
+                    <a href="../php/index.php">Home</a>
                 </div>
             </header>
             <div class="content">
@@ -49,9 +55,6 @@
                 <button id="addPetBtn">Add Pet</button>
                 <?php include('../php/display_pets.php'); ?>
             </div>
-            <footer>
-                <p>&copy; 2024 PAWTECHNX. All rights reserved.</p>
-            </footer>
         </div>
     </div>
     <div id="petModal" class="modal">
@@ -62,7 +65,7 @@
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required><br><br>
                 <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required><br><br>
+                <input type="text" id="age" name="age" required><br><br>
                 <label for="species">Species:</label>
                 <input type="text" id="species" name="species" required><br><br>
                 <label for="breed">Breed:</label>
@@ -88,7 +91,9 @@
             </form>
         </div>
     </div>
-
+    <footer>
+        <p>&copy; 2024 PAWTECHNX. All rights reserved.</p>
+    </footer>
     <script src="../script/admin_pet_page.js"></script>
 </body>
 </html>

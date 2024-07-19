@@ -1,7 +1,8 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f4f4f4;
 }
 
 .admin-dashboard {
@@ -11,21 +12,21 @@ body {
 
 .sidebar {
   width: 250px;
-  background-color: #333;
-  color: #fff;
-  position: fixed;
-  height: 100%;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 .sidebar-header {
   text-align: center;
-  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .admin-profile {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  border: 2px solid orange;
 }
 
 .sidebar nav ul {
@@ -34,59 +35,44 @@ body {
 }
 
 .sidebar nav ul li {
-  padding: 15px 20px;
+  margin-bottom: 10px;
 }
 
-.sidebar nav ul li.active,
-.sidebar nav ul li:hover {
-  background-color: #444;
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.sidebar nav ul li ul {
-  padding-left: 20px;
+.sidebar nav ul li.active a {
+  background-color: orange;
+  color: white;
 }
 
-.main-content {
-  margin-left: 250px;
-  padding: 20px;
+.sidebar nav ul li a:hover {
+  background-color: orange;
+  color: white;
+}
+
+.main_content {
   flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-bottom: 1px solid #ddd;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-}
-
-.hamburger-menu {
-  cursor: pointer;
-  font-size: 24px;
-  margin-right: 20px;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .search-bar input {
-  padding: 10px;
+  padding: 5px 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-}
-
-.header-icons a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
 }
 
 .content {
@@ -96,7 +82,7 @@ body {
 button {
   padding: 10px 20px;
   margin-top: 20px;
-  background-color: #333;
+  background-color: orange;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -104,17 +90,14 @@ button {
 }
 
 button:hover {
-  background-color: #444;
+  background-color: orange;
 }
 
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-top: 1px solid #ddd;
-  position: absolute;
-  width: calc(100% - 250px);
-  bottom: 0;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .modal {
@@ -151,4 +134,20 @@ footer {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: orange;
+  color: white;
 }
