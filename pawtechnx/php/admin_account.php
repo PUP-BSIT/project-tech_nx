@@ -50,16 +50,21 @@ mysqli_close($conn);
 </head>
 <body>
     <div class="account">
-        <div class="main-container"></div>
         <div class="header">
             <div class="logo"><a href="./dashboard.php">PAWTECHNX</a></div>
         </div>
         <div class="profile-section">
-            <div class="profile-title">Admin Profile</div>
-            <div class="profile-image"></div>
+            <div class="profile-title">My Profile</div>
+            <hr>
             <div class="profile-box">
                 <div class="form">
                     <form method="POST">
+                        <div class="input-group">
+                            <div class="input-field">Username</div>
+                            <div class="input-box">
+                                <input type="text" name="username" value="<?php echo htmlspecialchars($admin['Username']); ?>" required />
+                            </div>
+                        </div>
                         <div class="input-group">
                             <div class="input-field">First Name</div>
                             <div class="input-box">
@@ -73,18 +78,14 @@ mysqli_close($conn);
                             </div>
                         </div>
                         <div class="input-group">
-                            <div class="input-field">Username</div>
-                            <div class="input-box">
-                                <input type="text" name="username" value="<?php echo htmlspecialchars($admin['Username']); ?>" required />
-                            </div>
-                        </div>
-                        <div class="input-group">
                             <div class="input-field">Password</div>
                             <div class="input-box">
                                 <input type="password" name="password" value="<?php echo htmlspecialchars($admin['Password']); ?>" required />
                             </div>
                         </div>
-                        <button type="submit" name="update_profile">Update Profile</button>
+                        <div class="button-container">
+                            <button type="submit" name="update_profile">Update User</button>
+                        </div>
                     </form>
                 </div>
             </div>
