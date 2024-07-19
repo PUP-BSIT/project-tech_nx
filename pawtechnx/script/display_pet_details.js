@@ -10,12 +10,14 @@ function showDetails(petID) {
                 return;
             }
 
-            const { profile_img, Name, Age, Species, Breed, Gender, Weight, Height, Description, pet_ID, gallery } = data;
+            const { profile_img, Name, Age, Species, Breed, Gender, Weight, 
+                Height, Description, pet_ID, gallery } = data;
 
             let modalContent = `
             <div class="pet-header">
               <div class="pet-image-container">
-                <img src="${profile_img || ''}" alt="Image of ${Name || 'undefined'}" class="pet-image">
+                <img src="${profile_img || ''}" alt="Image of ${Name || 
+                    'undefined'}" class="pet-image">
               </div>
               <div class="pet-info">
                 <h2>Hello, I'm ${Name || 'undefined'}!</h2>
@@ -23,10 +25,11 @@ function showDetails(petID) {
                 <p><strong>Species:</strong> ${Species || 'undefined'}</p>
                 <p><strong>Breed:</strong> ${Breed || 'undefined'}</p>
                 <p><strong>Gender:</strong> ${Gender || 'undefined'}</p>
-                <p><strong>Weight:</strong> ${Weight || 'undefined'}</p>
-                <p><strong>Height:</strong> ${Height || 'undefined'}</p>
+                <p><strong>Weight:</strong> ${Weight || 'undefined'} kg</p>
+                <p><strong>Height:</strong> ${Height || 'undefined'} inches</p>
                 <p>${Description || 'I am looking for a home!'}</p>
-                <button id="adoptButton" class="adopt-button" data-pet-id="${pet_ID}" data-pet-name="${Name}">Adopt</button>
+                <button id="adoptButton" class="adopt-button" 
+                data-pet-id="${pet_ID}" data-pet-name="${Name}">Adopt</button>
               </div>
             </div>
             <div class="gallery">
@@ -36,7 +39,9 @@ function showDetails(petID) {
           
             if (Array.isArray(gallery)) {
                 gallery.forEach((imagePath, index) => {
-                    modalContent += `<img src="${imagePath}" alt="Gallery image ${index + 1}" class="gallery-image" onclick="openLightbox(${index})">`;
+                    modalContent += `<img src="${imagePath}" 
+                    alt="Gallery image ${index + 1}" class="gallery-image" 
+                    onclick="openLightbox(${index})">`;
                 });
             }
           
@@ -56,7 +61,7 @@ function showDetails(petID) {
                 });
             }
 
-            populateGalleryImages(gallery); // Ensure gallery is passed to the function
+            populateGalleryImages(gallery); 
         })
         .catch(error => console.error('Error fetching pet details:', error));
 }
@@ -71,6 +76,7 @@ function checkLoginAndProceed(petName, petID) {
                 window.location.href = `../php/adoption.php?pet_id=${petID}&pet_name=${petName}`;
             } else {
                 alert("User needs to login before adopting");
+                sessionStorage.setItem('lastVisitedPage', window.location.href);
                 window.location.href = '../html/login.html';
             }
         })
@@ -132,7 +138,7 @@ function closeLightbox() {
 }
 
 function populateGalleryImages(gallery) {
-    galleryImages.length = 0; // Clear the existing images
+    galleryImages.length = 0; 
     if (Array.isArray(gallery)) {
         galleryImages.push(...gallery);
     }
