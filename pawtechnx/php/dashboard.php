@@ -1,3 +1,26 @@
+<?php
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  require_once("dataconnection.php");
+
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $adoption_ID = $_POST['adoption_ID'];
+    $query = "DELETE FROM schedule WHERE adoption_ID = '$adoption_ID'";
+    mysqli_query($conn, $query);
+    header("Location: dashboard.php");
+    exit;
+  }
+
+  if (isset($status)) {
+    $query = "UPDATE adoption SET status = '$status' WHERE adoption_ID = '$adoption_ID'";
+    mysqli_query($conn, $query);
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +35,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <h2>WELCOME, ADMIN!</h2>
-                <img
-                    src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg"
-                    alt="Admin Profile"
-                    class="admin-profile"
-                />
+                <img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg" alt="Admin Profile" class="admin-profile" />
             </div>
             <nav>
                 <ul>
