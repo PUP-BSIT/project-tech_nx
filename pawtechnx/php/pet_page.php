@@ -57,13 +57,13 @@
             </ul>
         </div>
     </div>
-    <div class="header">
-        <h1>Here are our pets!</h1>
-        <p>They can't wait to meet you</p>
-    </div>
     <div class="content">
-        <h3>Meet our Featured Pets!</h3>
-        <p>They are ready for a loving Home.</p>
+        <h1>Adopt, Don’t Shop!</h1>
+        <p>Adopting a pet gives a loving home to an animal in need, saving 
+            lives and reducing the demand for mass breeding. Shelters have many
+            loving animals waiting for a second chance, and our adoption 
+            process helps match you with the perfect pet for your lifestyle. 
+            Make a difference today by choosing to adopt, not shop!</p>
     </div>
     <div class="wrapper">
         <?php

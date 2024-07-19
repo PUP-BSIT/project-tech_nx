@@ -13,14 +13,6 @@ body {
   line-height: 1.6;
 }
 
-.banner {
-  width: 100%;
-  height: 70vh;
-  background-image: url(../images/header.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
 .nav-bar {
   margin: auto;
   padding: 15px;
@@ -127,9 +119,14 @@ a img:hover {
 }
 
 .content {
+  margin-top: 100px;
   text-align: center;
-  padding-top: 15px;
   padding-bottom: 50px;
+}
+
+.content p {
+  width: 85%;
+  padding-left: 200px;
 }
 
 .logout {

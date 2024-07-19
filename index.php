@@ -13,7 +13,7 @@
         <div class="logo">
           <p>PAWTECHNX</p>
         </div>
-        <ul>
+        <ul>+
           <li><a href="index.php">Home</a></li>
           <li class="dropdown">
             <button class="dropbtn"><a href="pawtechnx/php/pet_page.php">Adopt</a></button>
