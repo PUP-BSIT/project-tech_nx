@@ -18,10 +18,10 @@
           <li class="dropdown">
             <button class="dropbtn"><a href="pawtechnx/php/pet_page.php">Adopt</a></button>
             <div class="dropdown-content">
-              <a href="pawtechnx/php/cats.php">Cats</a>
-              <a href="pawtechnx/php/hamsters.php">Hamsters</a>
-              <a href="pawtechnx/php/dogs.php">Dogs</a>
-              <a href="pawtechnx/php/rabbits.php">Rabbits</a>
+              <a href="pawtechnx/php/cat.php">Cats</a>
+              <a href="pawtechnx/php/hamster.php">Hamsters</a>
+              <a href="pawtechnx/php/dog.php">Dogs</a>
+              <a href="pawtechnx/php/rabbit.php">Rabbits</a>
             </div>
           </li>
           <li><a href="pawtechnx/php/about_us.php">About Us</a></li>

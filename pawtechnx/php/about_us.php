@@ -32,10 +32,10 @@ $logged_in = isset($_SESSION['username']);
         <li class="dropdown">
         <button class="dropbtn"><a href="./pet_page.php">Adopt</a></button>
             <div class="dropdown-content">
-              <a href="../php/cats.php">Cats</a>
-              <a href="../php/hamsters.php">Hamsters</a>
-              <a href="../php/dogs.php">Dogs</a>
-              <a href="../php/rabbits.php">Rabbits</a>
+              <a href="../php/cat.php">Cats</a>
+              <a href="../php/hamster.php">Hamsters</a>
+              <a href="../php/dog.php">Dogs</a>
+              <a href="../php/rabbit.php">Rabbits</a>
           </div>
         </li>
         <li><a href="../php/about_us.php">About Us</a></li>

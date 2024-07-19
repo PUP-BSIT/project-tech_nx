@@ -12,7 +12,8 @@
             <?php
             session_start();
             if (isset($_SESSION['user_id'])) {
-                echo '<a href="account.php" title="User Profile"><img src="../images/icon.png"></a>';
+                echo '<a href="account.php" title="User Profile">
+                <img src="../images/icon.png"></a>';
             }
             ?>
             <div class="logo">
@@ -26,10 +27,10 @@
                     echo '<button class="dropbtn">
                       <a href="../php/pet_page.php">Adopt</a></button>';
                     echo '<div class="dropdown-content">';
-                    echo '<a href="./cats.php">Cats</a>';
-                    echo '<a href="./hamsters.php">Hamsters</a>';
-                    echo '<a href="./dogs.php">Dogs</a>';
-                    echo '<a href="./rabbits.php">Rabbits</a>';
+                    echo '<a href="./cat.php">Cats</a>';
+                    echo '<a href="./hamster.php">Hamsters</a>';
+                    echo '<a href="./dog.php">Dogs</a>';
+                    echo '<a href="./rabbit.php">Rabbits</a>';
                     echo '</div>';
                     echo '</li>';
                 } else {
@@ -38,10 +39,10 @@
                     echo '<button class="dropbtn">
                       <a href="./pet_page.php">Adopt</a></button>';
                     echo '<div class="dropdown-content">';
-                    echo '<a href="./cats.php">Cats</a>';
-                    echo '<a href="./hamsters.php">Hamsters</a>';
-                    echo '<a href="./dogs.php">Dogs</a>';
-                    echo '<a href="./rabbits.php">Rabbits</a>';
+                    echo '<a href="./cat.php">Cats</a>';
+                    echo '<a href="./hamster.php">Hamsters</a>';
+                    echo '<a href="./dog.php">Dogs</a>';
+                    echo '<a href="./rabbit.php">Rabbits</a>';
                     echo '</div>';
                     echo '</li>';
                 }

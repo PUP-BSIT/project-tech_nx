@@ -2,13 +2,11 @@
 include "dataconnection.php";
 session_start();
 
-// Redirect to login if user is not authenticated
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../html/login.html");
     exit();
 }
 
-// Fetch user details from database
 $user_id = $_SESSION['user_id'];
 $query = "SELECT user_id, Firstname, Lastname, Email, Address, contact_number, Source_of_Income FROM users WHERE user_id = '$user_id'";
 $result = mysqli_query($conn, $query);
@@ -26,7 +24,6 @@ if ($result && mysqli_num_rows($result) > 0) {
     exit();
 }
 
-// Retrieve pet_id from URL
 $pet_id = isset($_GET['pet_id']) ? $_GET['pet_id'] : '';
 $pet_name = isset($_GET['pet_name']) ? $_GET['pet_name'] : '';
 

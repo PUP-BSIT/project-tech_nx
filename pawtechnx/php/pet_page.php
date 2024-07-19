@@ -25,10 +25,10 @@
                     echo '<li class="dropdown">';
                     echo '<button class="dropbtn"><a href="../php/pet_page.php">Adopt</a></button>';
                     echo '<div class="dropdown-content">';
-                    echo '<a href="./cats.php">Cats</a>';
-                    echo '<a href="./hamsters.php">Hamsters</a>';
-                    echo '<a href="./dogs.php">Dogs</a>';
-                    echo '<a href="./rabbits.php">Rabbits</a>';
+                    echo '<a href="./cat.php">Cats</a>';
+                    echo '<a href="./hamster.php">Hamsters</a>';
+                    echo '<a href="./dog.php">Dogs</a>';
+                    echo '<a href="./rabbit.php">Rabbits</a>';
                     echo '</div>';
                     echo '</li>';
                 } else {
@@ -36,10 +36,10 @@
                     echo '<li class="dropdown">';
                     echo '<button class="dropbtn"><a href="./pet_page.php">Adopt</a></button>';
                     echo '<div class="dropdown-content">';
-                    echo '<a href="./cats.php">Cats</a>';
-                    echo '<a href="./hamsters.php">Hamsters</a>';
-                    echo '<a href="./dogs.php">Dogs</a>';
-                    echo '<a href="./rabbits.php">Rabbits</a>';
+                    echo '<a href="./cat.php">Cats</a>';
+                    echo '<a href="./hamster.php">Hamsters</a>';
+                    echo '<a href="./dog.php">Dogs</a>';
+                    echo '<a href="./rabbit.php">Rabbits</a>';
                     echo '</div>';
                     echo '</li>';
                 }
@@ -87,12 +87,12 @@
                         if ($species_count >= $max_pets_per_species) {
                             echo '<a href="./' . strtolower($current_species) . '.php" class="view-more">View More</a>';
                         }
-                        echo '</div>'; // Close previous species row
+                        echo '</div>'; 
                     }
                     $current_species = $row['Species'];
                     $species_count = 0;
-                    echo "<h3>$current_species</h3>"; // Display species title
-                    echo '<div class="species-row">'; // Start new species row
+                    echo "<h3>$current_species</h3>";
+                    echo '<div class="species-row">'; 
                 }
 
                 if ($species_count < $max_pets_per_species) {
