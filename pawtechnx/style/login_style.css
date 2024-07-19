@@ -118,13 +118,13 @@ a:visited {
 }
 
 .checkbox-container input[type="checkbox"] {
-  width: 15px; /* Adjust size */
-  height: 15px; /* Adjust size */
-  margin-right: 5px; /* Adjust spacing */
+  width: 15px; 
+  height: 15px; 
+  margin-right: 5px; 
 }
 
 .checkbox-container label {
-  font-size: 14px; /* Adjust font size */
+  font-size: 14px;
   cursor: pointer;
 }
 

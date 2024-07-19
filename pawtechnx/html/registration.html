@@ -14,51 +14,71 @@
       </div>
     </div>
   </div>
-  <div class="image-container">
-    <img src="https://s3-alpha-sig.figma.com/img/0e01/5e3a/c73b5846f7ac4b5aa450d2355cfb9e06?Expires=1718582400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dxHRCG5s4mVjVW3yvy7FBc-Vn7Lweb4pN1ZWL-J4HpjMSyzFabzzMHXNHbkNdQMXn1cuF72pCN1j~HqNTrgrePlLaXuFoXjIHdu2SF355c89L3966Np1YoYeTbHDMrD3i7W4LJFnPOKfU1vUG~90Vv59a-vAIhPiIxuPA3qJd2EAjMlrpIZ6VyaUJBJE7~AJu3sRSCo-UCHqKDCgNtVIU8ktSmnVVQTvxETNK~56i3csPRj4PJoTQ49qBKpf1XksDq~ioDPJxYfc21uFRw94Zi8WAKkEgv3PxcLJEHNBqpm7wHvV5hlnZa6iTgpnJqGjSyL6fhSAHdKPZkUVQpF-Ag__" alt="Decorative Image"/>
-  </div>
   <div class="wrapper">
     <div class="form-register">
-      <form action="../php/registration.php" method="post" onsubmit="validateForm(event)">
-        <div class="input-box">
-          <input type="text" name="fname" id="fname" required />
-          <label for="fname">First Name</label>
-        </div>
-        <div class="input-box">
-          <input type="text" name="lname" id="lname" required />
-          <label for="lname">Last Name</label>
-        </div>
+      <h2>Register</h2>
+      <p>Kindly fill the form to register.</p>
+      <form action="../php/registration.php" method="post" 
+        onsubmit="validateForm(event)">
         <div class="input-box">
           <input type="text" name="username" id="username" required />
           <label for="username">Username</label>
         </div>
-        <div class="input-box">
-          <input type="tel" name="contact" id="contact" required />
-          <label for="contact">Contact Number</label>
+        <div class="input-row">
+          <div class="input-box">
+            <input type="text" name="fname" id="fname" required />
+            <label for="fname">First Name</label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="lname" id="lname" required />
+            <label for="lname">Last Name</label>
+          </div>
         </div>
-        <div class="input-box">
-          <input type="email" name="email" id="email" required />
-          <label for="email">Email</label>
+        <div class="input-row">
+          <div class="input-box">
+            <input type="tel" name="contact" id="contact" required />
+            <label for="contact">Contact Number</label>
+          </div>
+          <div class="input-box">
+            <input type="email" name="email" id="email" required />
+            <label for="email">Email</label>
+          </div>
         </div>
-        <div class="input-box">
-          <input type="text" name="address" id="address" required />
-          <label for="address">Address</label>
+        <div class="input-row">
+          <div class="input-box">
+            <input type="text" name="address" id="address" required />
+            <label for="address">Address</label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="source_of_income" 
+              id="source_of_income" required />
+            <label for="source_of_income">Source of Income</label>
+          </div>
         </div>
-        <div class="input-box">
-          <input type="text" name="source_of_income" id="source_of_income" required />
-          <label for="source_of_income">Source of Income</label>
-        </div>
-        <div class="input-box">
-          <input type="password" name="password" id="password" required />
-          <label for="password">Password</label>
-        </div>
-        <div class="input-box">
-          <input type="password" name="confirm" id="confirm" required />
-          <label for="confirm">Confirm Password</label>
+        <div class="input-row">
+          <div class="input-box password-box">
+            <input type="password" name="password" id="password" required />
+            <label for="password">Password</label>
+            <div class="show-password">
+              <input type="checkbox" id="show-password" 
+              onclick="togglePassword('password')"/>
+              <label for="show-password">Show Password</label>
+            </div>
+          </div>
+          <div class="input-box password-box">
+            <input type="password" name="confirm" id="confirm" required />
+            <label for="confirm">Confirm Password</label>
+            <div class="show-password">
+              <input type="checkbox" id="show-confirm" 
+              onclick="togglePassword('confirm')"/>
+              <label for="show-confirm">Show Password</label>
+            </div>
+          </div>
         </div>
         <button type="submit" class="btn" name="submit">Register</button>
         <div class="login-register">
-          <p>Already have an account? <a href="../html/login.html">Login</a></p>
+          <p>Already have an account? 
+            <a href="../html/login.html">Log in</a></p>
         </div>
       </form>
     </div>

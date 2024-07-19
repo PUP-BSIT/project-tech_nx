@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
         drawAdoptionStatusChart();
         drawScheduleStatusChart();
         
-        // Update charts every 30 seconds
         setInterval(drawSpeciesCountChart, 30000);
         setInterval(drawAdoptedSpeciesChart, 30000);
         setInterval(drawAvailablePetsChart, 30000);
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(jsonData => {
                 if (!Array.isArray(jsonData) || jsonData.length === 0) {
-                    console.error('No data available for this month');
                     document.getElementById('pie_chart').innerText = 'No data available for this month';
                     return;
                 }
@@ -65,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(jsonData => {
                 if (!Array.isArray(jsonData) || jsonData.length === 0) {
-                    console.error('No adopted species data available for this month');
                     document.getElementById('adopted_species_chart').innerText = 'No adopted species data available for this month';
                     return;
                 }
@@ -101,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(jsonData => {
                 if (!Array.isArray(jsonData) || jsonData.length === 0) {
-                    console.error('No available pets data available for this month');
                     document.getElementById('available_pets_chart').innerText = 'No available pets data available for this month';
                     return;
                 }
@@ -137,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(jsonData => {
                 if (!Array.isArray(jsonData) || jsonData.length === 0) {
-                    console.error('No online choices data available for this month');
                     document.getElementById('online_choices_chart').innerText = 'No online choices data available for this month';
                     return;
                 }
@@ -173,7 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(jsonData => {
                 if (!Array.isArray(jsonData) || jsonData.length === 0) {
-                    console.error('No adoption status data available for this month');
                     document.getElementById('adoption_status_chart').innerText = 'No adoption status data available for this month';
                     return;
                 }
@@ -195,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Fetch error:', error);
-                document.getElementById('adoption_status_chart_error').innerText = 'Error fetching data';
+                document.getElementById('adoption_status_chart').innerText = 'Error fetching data';
             });
     }
 
@@ -209,7 +203,6 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(jsonData => {
                 if (!Array.isArray(jsonData) || jsonData.length === 0) {
-                    console.error('No schedule status data available for this month');
                     document.getElementById('schedule_status_chart').innerText = 'No schedule status data available for this month';
                     return;
                 }
@@ -231,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Fetch error:', error);
-                document.getElementById('schedule_status_chart_error').innerText = 'Error fetching data';
+                document.getElementById('schedule_status_chart').innerText = 'Error fetching data';
             });
     }
 });

@@ -1,3 +1,12 @@
+function togglePassword(inputId) {
+  const passwordInput = document.getElementById(inputId);
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+  } else {
+    passwordInput.type = "password";
+  }
+}
+
 function validateForm(event) {
   event.preventDefault(); 
 
@@ -11,7 +20,9 @@ function validateForm(event) {
   let password = document.getElementById('password').value;
   let confirm = document.getElementById('confirm').value;
 
-  if (fname === '' || lname === '' || username === '' || contact === '' || email === '' || address === '' || source_of_income === '' || password === '' || confirm === '') {
+  if (fname === '' || lname === '' || username === '' || contact === '' || 
+    email === '' || address === '' || source_of_income === '' || password === '' 
+    || confirm === '') {
     alert('Please fill in all fields.');
     return false;
   }
