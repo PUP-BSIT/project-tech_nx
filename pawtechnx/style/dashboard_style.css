@@ -46,7 +46,11 @@ body {
   border-radius: 5px;
 }
 
-.sidebar nav ul li.active a,
+.sidebar nav ul li.active a {
+  background-color: orange;
+  color: white;
+}
+
 .sidebar nav ul li a:hover {
   background-color: orange;
   color: white;

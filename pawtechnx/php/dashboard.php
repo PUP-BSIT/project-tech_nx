@@ -17,20 +17,16 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="../php/dashboard.php">HOME</a></li>
-                    <li class="active">
-                      <a href="../php/user_list.php">
-                        USERS LIST
-                      </a>
+                    <li class="active"><a href="./dashboard.php">HOME</a></li>
+                    <li>
+                      <a href="./user_list.php">USERS LIST</a>
                     </li>
-                    <li><a href="../html/admin_pet_page.html">PET LIST</a></li>
+                    <li><a href="./admin_pet_page.php">PET LIST</a></li>
                     <li>
                         ADOPTION PROGRESS
                         <ul>
                             <li>
-                              <a href="../html/admin_request_list.html">
-                                REQUEST LIST
-                              </a>
+                              <a href="./admin_request_list.php">REQUEST LIST</a>
                             </li>
                         </ul>
                     </li>
