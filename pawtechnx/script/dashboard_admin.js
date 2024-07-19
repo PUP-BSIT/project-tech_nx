@@ -1,73 +1,96 @@
-document.addEventListener('DOMContentLoaded', () => {
-    loadSchedules();
-
-    const submitButton = document.getElementById('submit');
-    submitButton.addEventListener('click', submitForm);
+document.getElementById('hamburgerMenu').addEventListener('click', function() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
 });
 
-async function loadSchedules() {
-    try {
-        const response = await fetch('../php/fetch_schedule.php');
+document.getElementById('searchInput').addEventListener('input', function() {
+    const searchValue = this.value.toLowerCase();
+    const tableRows = document.querySelectorAll('#scheduleTable tbody tr');
+    tableRows.forEach(row => {
+        const cells = row.getElementsByTagName('td');
+        let match = false;
+        for (let i = 0; i < cells.length; i++) {
+            if (cells[i].textContent.toLowerCase().includes(searchValue)) {
+                match = true;
+                break;
+            }
+        }
+        row.style.display = match ? '' : 'none';
+    });
+});
+
+fetch('../php/monthly_chart.php')
+    .then(response => {
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            throw new Error('Network response was not ok ' + response.statusText);
         }
-        const schedules = await response.json();
-        const scheduleTable = document.getElementById('scheduleTable').getElementsByTagName('tbody')[0];
-        scheduleTable.innerHTML = '';
+        return response.json();
+    })
+    .then(data => {
+        console.log('Data received:', data); // Add this line for debugging
 
-        schedules.forEach(schedule => {
-            const row = scheduleTable.insertRow();
-            row.insertCell().textContent = schedule.schedule_ID;
-            row.insertCell().textContent = schedule.name;
-            row.insertCell().textContent = schedule.date;
-            row.insertCell().textContent = schedule.type;
-            row.insertCell().textContent = schedule.status;
-        });
-    } catch (error) {
-        console.error('Error loading schedules:', error);
-    }
-}
+        const labels = [
+            'January', 'February', 'March', 'April', 'May', 'June', 
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+        const values = new Array(12).fill(0); 
 
-async function submitForm() {
-    try {
-        const schedule_ID = document.getElementById('schedule_ID').value;
-        const name = document.getElementById('name').value;
-        const date = document.getElementById('date').value;
-        const type = document.getElementById('type').value;
-        const status = document.getElementById('status').value;
-        const adoption_ID = document.getElementById('adoption_ID').value;
-
-        if (!schedule_ID || !name || !date || !type || !status || !adoption_ID) {
-            alert('Please fill out all fields.');
-            return;
-        }
-
-        const response = await fetch('../php/insert_data_admin.php', {
-            method: 'POST',
-            body: JSON.stringify({ schedule_ID, name, date, type, status, adoption_ID }),
-            headers: {
-                'Content-Type': 'application/json'
+        data.forEach(item => {
+            const monthName = item.month;
+            const monthIndex = labels.indexOf(monthName);
+            if (monthIndex !== -1) {
+                values[monthIndex] = parseInt(item.count, 10);
             }
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+        console.log('Labels:', labels); // Add this line for debugging
+        console.log('Values:', values); // Add this line for debugging
 
-        const result = await response.json();
-        if (result.success) {
-            alert(result.message);
-            document.getElementById('schedule_ID').value = '';
-            document.getElementById('name').value = '';
-            document.getElementById('date').value = '';
-            document.getElementById('type').value = '';
-            document.getElementById('status').value = '';
-            document.getElementById('adoption_ID').value = '';
-            loadSchedules();
-        } else {
-            alert(result.message);
-        }
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
+        const ctx = document.getElementById('adoptedSpeciesChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Species Adopted',
+                    data: labels.map((label, index) => ({
+                        x: index, // X-axis: Month index
+                        y: values[index] // Y-axis: Count of species
+                    })),
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 2,
+                    showLine: true // This will connect the dots with lines if you want a line graph appearance
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        },
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return labels[value]; // Display month names on the x-axis
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Number of Species'
+                        },
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 10
+                        }
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching chart data:', error.message);
+        console.error('Stack trace:', error.stack);
+    });
