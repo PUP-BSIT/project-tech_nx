@@ -14,14 +14,14 @@
     } elseif (isset($_POST['reject'])) {
       $status = 'rejected';
     } elseif (isset($_POST['delete'])) {
-      $query = "DELETE FROM adoption WHERE adoption_ID = '$adoption_ID'";
+      $query = "DELETE FROM adoption_form WHERE adoption_ID = '$adoption_ID'";
       mysqli_query($conn, $query);
       header("Location: admin_request_list.php");
     exit;
   }
 
   if (isset($status)) {
-    $query = "UPDATE adoption SET status = '$status' WHERE adoption_ID = '$adoption_ID'";
+    $query = "UPDATE adoption_form SET status = '$status' WHERE adoption_ID = '$adoption_ID'";
     mysqli_query($conn, $query);
   }
 }
@@ -77,8 +77,8 @@
             <table class="request-tbl">
               <thead>
                 <tr>
-                  <th>ID no.</th>
-                  <th>User ID</th>
+                <th>Adoption ID</th>
+                <th>User ID</th>
                   <th>Pet ID</th>
                   <th>Reason to Adopt</th>
                   <th>Status</th>
@@ -87,7 +87,7 @@
               </thead>
               <tbody>
                 <?php
-                  $query = "SELECT * FROM adoption WHERE status = 'pending' ORDER BY adoption_ID ASC";
+                  $query = "SELECT * FROM adoption_form WHERE status = 'pending' ORDER BY adoption_ID ASC";
                   $result = mysqli_query($conn, $query);
                   while($row = mysqli_fetch_array($result)) {
                 ?>
@@ -95,7 +95,7 @@
                   <th scope="row"><?php echo $row['adoption_ID']; ?></th>
                   <td><?php echo $row['user_ID']; ?></td>
                   <td><?php echo $row['pet_ID']; ?></td>
-                  <td><?php echo $row['reason']; ?></td>
+                  <td><?php echo $row['Reason']; ?></td>
                   <td><?php echo $row['status']; ?></td>
                   <td>
                     <form action="admin_request_list.php" method="POST">
@@ -112,17 +112,18 @@
             <h1>Approved List</h1>
             <table class="approved-tbl">
               <thead>
-                <tr>
-                  <th>ID no.</th>
-                  <th>User ID</th>
+                <>
+                <th>Adoption ID</th>
+                <th>User ID</th>
                   <th>Pet ID</th>
                   <th>Reason to Adopt</th>
                   <th>Status</th>
-                </tr>
+                  <th>Action</th>
+                </>
               </thead>
               <tbody>
                 <?php
-                  $query = "SELECT * FROM adoption WHERE status = 'approved' ORDER BY adoption_ID ASC";
+                  $query = "SELECT * FROM adoption_form WHERE status = 'approved' ORDER BY adoption_ID ASC";
                   $result = mysqli_query($conn, $query);
                   while($row = mysqli_fetch_array($result)) {
                 ?>
@@ -130,8 +131,14 @@
                   <th scope="row"><?php echo $row['adoption_ID']; ?></th>
                   <td><?php echo $row['user_ID']; ?></td>
                   <td><?php echo $row['pet_ID']; ?></td>
-                  <td><?php echo $row['reason']; ?></td>
+                  <td><?php echo $row['Reason']; ?></td>
                   <td><?php echo $row['status']; ?></td>
+                  <td>
+                    <form action="admin_request_list.php" method="POST">
+                    <input type="hidden" name="adoption_ID" value="<?php echo $row['adoption_ID']; ?>"/>
+                    <input type="submit" name="delete" value="Delete">
+                    </form>
+                  </td>
                 </tr>
                 <?php } ?>
               </tbody>
@@ -141,16 +148,17 @@
             <table class="rejected-tbl">
               <thead>
                 <tr>
-                  <th>ID no.</th>
+                  <th>Adoption ID</th>
                   <th>User ID</th>
                   <th>Pet ID</th>
                   <th>Reason to Adopt</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                  $query = "SELECT * FROM adoption WHERE status = 'rejected' ORDER BY adoption_ID ASC";
+                  $query = "SELECT * FROM adoption_form WHERE status = 'rejected' ORDER BY adoption_ID ASC";
                   $result = mysqli_query($conn, $query);
                   while($row = mysqli_fetch_array($result)) {
                 ?>
@@ -158,8 +166,14 @@
                   <th scope="row"><?php echo $row['adoption_ID']; ?></th>
                   <td><?php echo $row['user_ID']; ?></td>
                   <td><?php echo $row['pet_ID']; ?></td>
-                  <td><?php echo $row['reason']; ?></td>
+                  <td><?php echo $row['Reason']; ?></td>
                   <td><?php echo $row['status']; ?></td>
+                  <td>
+                    <form action="admin_request_list.php" method="POST">
+                    <input type="hidden" name="adoption_ID" value="<?php echo $row['adoption_ID']; ?>"/>
+                    <input type="submit" name="delete" value="Delete">
+                    </form>
+                  </td>
                 </tr>
                 <?php } ?>
               </tbody>
@@ -172,5 +186,6 @@
     <footer>
       <p>&copy; 2024 PAWTECHNX. All rights reserved.</p>
     </footer>
+    <script src="../script/admin_request_list.js"></script>
   </body>
 </html>
