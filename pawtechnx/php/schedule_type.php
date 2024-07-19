@@ -2,12 +2,9 @@
 include "dataconnection.php";
 header('Content-Type: application/json');
 
-$sql = "SELECT `type`, COUNT(*) as count
-        FROM `schedule`
-        WHERE `type` = 'Online'
-        AND MONTH(`date`) = MONTH(CURRENT_DATE())
-        AND YEAR(`date`) = YEAR(CURRENT_DATE())
-        GROUP BY `type`";
+$sql = "SELECT `type`, COUNT(*) as count FROM `schedule` 
+ WHERE MONTH(`current_datetimestamp`) = MONTH(CURRENT_DATE()) 
+ AND YEAR(`current_datetimestamp`) = YEAR(CURRENT_DATE()) GROUP BY `type`";
 
 $result = mysqli_query($conn, $sql);
 

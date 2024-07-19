@@ -167,23 +167,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(jsonData => {
+                console.log('Adoption Status Data:', jsonData);  
+                
                 if (!Array.isArray(jsonData) || jsonData.length === 0) {
                     document.getElementById('adoption_status_chart').innerText = 'No adoption status data available for this month';
                     return;
                 }
-
+    
                 let dataTable = new google.visualization.DataTable();
                 dataTable.addColumn('string', 'Status');
                 dataTable.addColumn('number', 'Count');
-
+    
                 jsonData.forEach(row => dataTable.addRow([row.status, parseInt(row.count)]));
-
+    
                 let options = {
-                    title: 'Adoption Form Statuses for This Month',
+                    title: 'Adoption Statuses for This Month',
                     pieHole: 0.4,
                     legend: { position: 'bottom' }
                 };
-
+    
                 let chart = new google.visualization.PieChart(document.getElementById('adoption_status_chart'));
                 chart.draw(dataTable, options);
             })
@@ -192,6 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('adoption_status_chart').innerText = 'Error fetching data';
             });
     }
+    
 
     function drawScheduleStatusChart() {
         fetch('../php/status_schedule.php')
@@ -201,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 return response.json();
             })
-            .then(jsonData => {
+            .then(jsonData => {                
                 if (!Array.isArray(jsonData) || jsonData.length === 0) {
                     document.getElementById('schedule_status_chart').innerText = 'No schedule status data available for this month';
                     return;

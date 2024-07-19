@@ -17,7 +17,12 @@ if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
             $data[] = $row;
         }
+    } else {
+        $data[] = array('type' => 'No data', 'count' => 0);
     }
+} else {
+    $data[] = array('type' => 'Error', 'count' => 0);
+    error_log("SQL Error: " . mysqli_error($conn));
 }
 
 echo json_encode($data);

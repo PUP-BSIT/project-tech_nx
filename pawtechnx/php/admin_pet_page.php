@@ -18,10 +18,12 @@
             <nav>
                 <ul>
                     <li><a href="../php/user_list.php">USERS LIST</a></li>
-                    <li class="active"><a href="../php/admin_pet_page.php">PET LIST</a></li>
+                    <li class="active"><a href="../php/admin_pet_page.php">
+                        PET LIST</a></li>
                     <li>ADOPTION PROGRESS
                         <ul>
-                            <li><a href="../html/admin_request_list.html">Request List</a></li>
+                            <li><a href="../html/admin_request_list.html">
+                                Request List</a></li>
                         </ul>
                     </li>
                 </ul>
