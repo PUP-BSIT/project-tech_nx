@@ -13,7 +13,6 @@ body {
   height: 100vh;
   align-items: center;
   width: auto;
-  justify-content: space-between;
 }
 
 .banner {
@@ -28,7 +27,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: 50;
 }
 
 .logo {
@@ -45,19 +43,6 @@ a {
 
 a:visited {
   color: black;
-}
-
-.image-container {
-  position: absolute;
-  margin-bottom: 340px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-.image-container img {
-  width: 200px;
-  height: auto;
 }
 
 .wrapper {
@@ -126,16 +111,34 @@ a:visited {
   padding: 0 5px;
 }
 
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 15px; /* Adjust size */
+  height: 15px; /* Adjust size */
+  margin-right: 5px; /* Adjust spacing */
+}
+
+.checkbox-container label {
+  font-size: 14px; /* Adjust font size */
+  cursor: pointer;
+}
+
 .btn {
+  display: block;
   width: 100%;
-  height: 50px;
+  padding: 10px;
   background-color: black;
+  color: white;
   border: none;
   border-radius: 5px;
   font-size: 1em;
-  color: white;
-  font-weight: 300;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .btn:hover {
@@ -152,12 +155,15 @@ a:visited {
   margin-top: 10px;
 }
 
-.login-register p a {
-  color: blue;
-  text-decoration: none;
-  font-weight: 600;
+.login-register p {
+  margin-top: 20px;
 }
 
-.login-register p a:hover {
+.login-register a {
+  color: blue;
+  text-decoration: none;
+}
+
+.login-register a:hover {
   text-decoration: underline;
 }
