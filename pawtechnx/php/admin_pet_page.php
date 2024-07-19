@@ -52,49 +52,40 @@
             </footer>
         </div>
     </div>
-<div id="petModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Add a New Pet</h2>
-        <form id="petForm" action="../php/add_pet.php" method="POST" enctype="multipart/form-data">
-            
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
-            
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" required><br><br>
-            
-            <label for="species">Species:</label>
-            <input type="text" id="species" name="species" required><br><br>
-            
-            <label for="breed">Breed:</label>
-            <input type="text" id="breed" name="breed" required><br><br>
-            
-            <label for="gender">Gender:</label>
-            <input type="text" id="gender" name="gender" required><br><br>
-
-            <label for="weight">Weight:</label>
-            <input type="number" id="weight" name="weight" required><br><br>
-            
-            <label for="height">Height:</label>
-            <input type="number" id="height" name="height" required><br><br>
-            
-            <label for="availability">Availability:</label>
-            <select id="availability" name="availability" required>
-                <option value="Available">Available</option>
-                <option value="Adopted">Adopted</option>
-            </select><br><br>
-    
-            <label for="profile_img">Profile Image:</label>
-            <input type="file" id="profile_img" name="profile_img" accept="image/*"><br><br>
-            
-            <label for="gallery_paths">Gallery Paths:</label>
-            <input type="file" id="gallery_paths" name="gallery_paths[]" multiple accept="image/*"><br><br>
-            
-            <input type="submit" value="Create Pet">
-        </form>
+    <div id="petModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add a New Pet</h2>
+            <form id="petForm" action="../php/add_pet.php" method="POST" enctype="multipart/form-data">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required><br><br>
+                <label for="species">Species:</label>
+                <input type="text" id="species" name="species" required><br><br>
+                <label for="breed">Breed:</label>
+                <input type="text" id="breed" name="breed" required><br><br>
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender" required><br><br>
+                <label for="weight">Weight:</label>
+                <input type="number" id="weight" name="weight" required><br><br>
+                <label for="height">Height:</label>
+                <input type="number" id="height" name="height" required><br><br>
+                <label for="availability">Availability:</label>
+                <select id="availability" name="availability" required>
+                    <option value="Available">Available</option>
+                    <option value="Adopted">Adopted</option>
+                </select><br><br>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea><br><br>
+                <label for="profile_img">Profile Image:</label>
+                <input type="file" id="profile_img" name="profile_img" accept="image/*"><br><br>
+                <label for="gallery_paths">Gallery Paths:</label>
+                <input type="file" id="gallery_paths" name="gallery_paths[]" multiple accept="image/*"><br><br>
+                <input type="submit" value="Create Pet">
+            </form>
+        </div>
     </div>
-</div>
 
     <script src="../script/admin_pet_page.js"></script>
 </body>

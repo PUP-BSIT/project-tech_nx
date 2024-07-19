@@ -1,14 +1,14 @@
 <?php
-include 'dataconnection.php';
+include "dataconnection.php";
 
-$species_sql = "SELECT DISTINCT `Species` FROM `pet_details`";
+$species_sql = "SELECT DISTINCT Species FROM pet_details";
 $species_result = mysqli_query($conn, $species_sql);
 
 if (mysqli_num_rows($species_result) > 0) {
     while ($species_row = mysqli_fetch_assoc($species_result)) {
         $species = $species_row['Species'];
 
-        $sql = "SELECT `pet_ID`, `Name`, `Age`, `Breed`, `Gender`, `Weight`, `Height`, `Availability` FROM `pet_details` WHERE `Species` = '$species'";
+        $sql = "SELECT pet_ID, Name, Age, Breed, Gender, Weight, Height, Availability, Description FROM pet_details WHERE Species = '$species'";
         $result = mysqli_query($conn, $sql);
 
         echo "<div class='species-table-container'>";
@@ -25,6 +25,7 @@ if (mysqli_num_rows($species_result) > 0) {
                           <th>Weight</th>
                           <th>Height</th>
                           <th>Availability</th>
+                          <th>Description</th>
                           <th>Action</th>
                         </tr>
                     </thead>
@@ -42,6 +43,7 @@ if (mysqli_num_rows($species_result) > 0) {
                         <td>{$row['Weight']}</td>
                         <td>{$row['Height']}</td>
                         <td>{$row['Availability']}</td>
+                        <td>{$row['Description']}</td>
                         <td>
                             <form action='../php/edit_pet_form.php' method='get' style='display: inline;'>
                                 <input type='hidden' name='pet_ID' value='{$row['pet_ID']}'>
@@ -62,7 +64,7 @@ if (mysqli_num_rows($species_result) > 0) {
                 echo "<style>.table-container { max-height: 200px; overflow-y: auto; }</style>";
             }
         } else {
-            echo "<tr><td colspan='9'>No pets found</td></tr>";
+            echo "<tr><td colspan='10'>No pets found</td></tr>";
             echo "</tbody></table></div>"; 
         }
 
