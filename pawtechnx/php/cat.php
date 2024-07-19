@@ -72,7 +72,7 @@
     include "dataconnection.php";
 
     $query = "SELECT `pet_ID`, `Name`, `Age`, `Species`, `Breed`, `Gender`, 
-            `Weight`, `Height`, `profile_img`, `Availability` 
+            `Weight`, `Height`, `profile_img`, `Availability`, `Description`
             FROM `pet_details` WHERE `Species` = 'Cat' 
             AND `Availability` = 'Available' 
             ORDER BY `Name`";
@@ -92,7 +92,7 @@
             echo "<img src='" . htmlspecialchars($row['profile_img']) 
             . "' alt='Image of " . htmlspecialchars($row['Name']) . "'>";
             echo "<p>" . htmlspecialchars($row['Name']) . "</p>";
-            echo "<p>" . htmlspecialchars($row['Age']) . " years old</p>";
+            echo "<p>" . htmlspecialchars($row['Age']) . " </p>";
             echo "</div>";
         }
         echo '</div>';

@@ -92,7 +92,7 @@
                 echo "<img src='" . htmlspecialchars($row['profile_img']) 
                 . "' alt='Image of " . htmlspecialchars($row['Name']) . "'>";
                 echo "<p>" . htmlspecialchars($row['Name']) . "</p>";
-                echo "<p>" . htmlspecialchars($row['Age']) . " years old</p>";
+                echo "<p>" . htmlspecialchars($row['Age']) . " </p>";
                 echo "</div>";
             }
             echo '</div>';
