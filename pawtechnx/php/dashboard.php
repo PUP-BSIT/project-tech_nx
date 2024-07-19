@@ -29,6 +29,7 @@
                               <a href="./admin_request_list.php">REQUEST LIST</a>
                             </li>
                         </ul>
+                    <a href="logout.php">Logout</a>    
                     </li>
                 </ul>
             </nav>

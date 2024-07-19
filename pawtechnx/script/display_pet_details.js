@@ -117,7 +117,6 @@ function openLightbox(index) {
         </div>
     `;
     document.body.appendChild(lightbox);
-    lightbox.style.display = 'block';
 }
 
 function changeImage(direction) {

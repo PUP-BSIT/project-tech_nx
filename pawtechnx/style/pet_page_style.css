@@ -219,9 +219,32 @@ a img:hover {
   cursor: pointer;
 }
 
-.pet-profile {
+.pet-header {
   display: flex;
-  flex-direction: column;
+  gap: 20px;
+}
+
+.pet-image-container {
+  flex: 1;
+}
+
+.pet-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.pet-info {
+  flex: 1;
+}
+
+.pet-info h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.pet-info p {
+  margin-bottom: 5px;
 }
 
 .adopt-button {
