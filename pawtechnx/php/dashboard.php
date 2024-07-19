@@ -1,3 +1,4 @@
+<?php include "dataconnection.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,12 +25,17 @@
         </div>
         <nav>
           <ul>
-            <li><a href="../html/admin_user_list.html">User List</a></li>
-            <li><a href="../html/pet_details_admin.html">Pet List</a></li>
+            <li><a href="../php/dashboard.php">HOME </a></li>
+            <li class="active">
+              <a href="../php/user_list.php">USERS LIST</a>
+            </li>
+            <li><a href="../html/admin_pet_page.html">PET LIST</a></li>
             <li>
               ADOPTION PROGRESS
               <ul>
-                <li><a href="../php/admin_request_list.php">Request List</a></li>
+                <li>
+                  <a href="../html/admin_request_list.html">REQUEST LIST</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -63,7 +69,6 @@
         <table id="scheduleTable">
           <thead>
             <tr>
-              <th>Id</th>
               <th>Schedule Id</th>
               <th>Adoption Id</th>
               <th>Name</th>
@@ -72,45 +77,105 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+          <?php
+                    $sql = "SELECT schedule_ID, adoption_ID, name, date, type, 
+                    status FROM schedule";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr>
+                                    <td>" . $row["schedule_ID"] . "</td>
+                                    <td>" . $row["adoption_ID"] . "</td>
+                                    <td>" . $row["name"] . "</td>
+                                    <td>" . $row["date"] . "</td>
+                                    <td>" . $row["type"] . "</td>
+                                    <td>" . $row["status"] . "</td>
+                                  </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='6'>No schedules found</td></tr>";
+                    }
+                    ?>
+          </tbody>
         </table>
       </div>
     </div>
 
     <div class="model-body">
       <h3>Add Adoption Meeting</h3>
-      <div class="form-group">
-        <label for="schedule_ID"><b>Enter your Schedule Id</b></label>
-        <input type="text" placeholder="Enter your Schedule Id" id="schedule_ID" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="adoption_ID"><b>Enter your Adoption Id</b></label>
-        <input type="text" placeholder="Enter your Adoption Id" id="adoption_ID" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="name"><b>Enter your name</b></label>
-        <input type="text" placeholder="Enter your Name" id="name" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="date"><b>Date</b></label>
-        <input type="date" placeholder="Enter a Date" id="date" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="type"><b>Type of Meeting</b></label>
-        <input type="text" placeholder="Enter type of meeting" id="type" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="status"><b>Status</b></label>
-        <input type="text" placeholder="Enter your adoption status" id="status" class="form-control" />
-      </div>
-      <div class="form-group buttons">
-        <button class="btn btn-success" type="button" id="submit">Submit</button>
-      </div>
+      <form action="add_schedule.php" method="POST">
+        <input type="hidden" id="schedule_ID" name="schedule_ID" />
+        <div class="form-group">
+          <label for="adoption_ID"><b>Enter your Adoption Id</b></label>
+          <input
+            type="text"
+            placeholder="Enter your Adoption Id"
+            id="adoption_ID"
+            name="adoption_ID"
+            class="form-control"
+            autocomplete="adoption-id"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name"><b>Enter your Name</b></label>
+          <input
+            type="text"
+            placeholder="Enter your Name"
+            id="name"
+            name="name"
+            class="form-control"
+            autocomplete="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="date"><b>Date</b></label>
+          <input
+            type="date"
+            placeholder="Enter a Date"
+            id="date"
+            name="date"
+            class="form-control"
+            autocomplete="date"
+          />
+        </div>
+        <div class="form-group">
+          <label for="type"><b>Type of Meeting</b></label>
+          <select
+            id="type"
+            name="type"
+            class="form-control"
+            autocomplete="type"
+          >
+            <option value="">Select Type</option>
+            <option value="Online">Online</option>
+            <option value="Visit">Visit</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="status"><b>Status</b></label>
+          <select
+            id="status"
+            name="status"
+            class="form-control"
+            autocomplete="status"
+          >
+            <option value="">Select Status</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Not Started">Not Started</option>
+          </select>
+        </div>
+        <div class="form-group buttons">
+          <button class="btn btn-success" type="submit" id="submit">
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
 
     <footer>
       <p>&copy; 2024 PAWTECHNX. All rights reserved.</p>
     </footer>
-    <script src="../script/dashboard_admin.js"></script>
   </body>
 </html>
