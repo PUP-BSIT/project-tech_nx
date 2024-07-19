@@ -1,10 +1,18 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-    var approveButtons = document.querySelectorAll('input[name="approve"]');
-    var deleteButtons = document.querySelectorAll('input[name="delete"]');
+    let approveButtons = document.querySelectorAll('input[name="approve"]');
+    let rejectButtons = document.querySelectorAll('input[name="reject"]');
 
     approveButtons.forEach(function (button) {
         button.addEventListener("click", function (e) {
             if (!confirm("Are you sure you want to approve this request?")) {
+                e.preventDefault();
+            }
+        });
+    });
+
+    rejectButtons.forEach(function (button) {
+        button.addEventListener("click", function (e) {
+            if (!confirm("Are you sure you want to reject this request?")) {
                 e.preventDefault();
             }
         });

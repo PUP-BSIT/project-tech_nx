@@ -1,74 +1,75 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('sidebar');
     const hamburgerMenu = document.getElementById('hamburgerMenu');
-    const userList = document.getElementById('userList');
     const searchInput = document.getElementById('searchInput');
-    const userModal = document.getElementById('userModal');
-    const closeModal = document.querySelector('.modal .close');
     const submitButton = document.getElementById('submit');
-  
-    if (!sidebar || !hamburgerMenu || !userList || !searchInput || !userModal || !closeModal || !submitButton) return;
-  
-    hamburgerMenu.addEventListener('click', function() {
-      sidebar.classList.toggle('show');
-    });
-  
-    fetch('get_users.php')
-      .then(response => response.json())
-      .then(data => {
-        renderUsers(data);
-  
-        searchInput.addEventListener('input', function() {
-          const searchTerm = searchInput.value.toLowerCase();
-          const filteredUsers = data.filter(user => (user.Firstname + ' ' + user.Lastname).toLowerCase().includes(searchTerm));
-          renderUsers(filteredUsers);
-        });
-  
-        closeModal.addEventListener('click', function() {
-          userModal.style.display = 'none';
-        });
-  
-        window.addEventListener('click', function(event) {
-          if (event.target === userModal) {
-            userModal.style.display = 'none';
-          }
-        });
-      });
+    const scheduleTable = document.getElementById('scheduleTable').getElementsByTagName('tbody')[0];
 
-  
-    submitButton.addEventListener('click', async function(event) {
-      event.preventDefault();
-  
-      try {
-        let id = document.querySelector('#id').value;
-        let name = document.querySelector('#name').value;
-        let date = document.querySelector('#date').value;
-        let type = document.querySelector('#type').value;
-        let status = document.querySelector('#status').value;
-  
-        const res = await fetch('php/insert_data_admin.php', {
-          method: 'POST',
-          body: JSON.stringify({ name, id, date, type, status }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-  
-        const output = await res.json();
-  
-        if (output.success) {
-          alert(output.message);
-          document.querySelector('#name').value = '';
-          document.querySelector('#id').value = '';
-          document.querySelector('#date').value = '';
-          document.querySelector('#type').value = '';
-          document.querySelector('#status').value = '';
-        } else {
-          alert(output.message);
-        }
-      } catch (error) {
-        console.log('error ' + error.message);
-      }
+    if (!sidebar || !hamburgerMenu || !searchInput || !submitButton || !scheduleTable) return;
+
+    hamburgerMenu.addEventListener('click', function() {
+        sidebar.classList.toggle('show');
     });
-  });
-  
+
+    async function loadSchedules() {
+        try {
+            const response = await fetch('../php/fetch_schedule.php');
+            const schedules = await response.json();
+
+            // Clear existing rows
+            scheduleTable.innerHTML = '';
+
+            schedules.forEach(schedule => {
+                const row = scheduleTable.insertRow();
+                row.insertCell().textContent = schedule.id;
+                row.insertCell().textContent = schedule.schedule_ID;
+                row.insertCell().textContent = schedule.adoption_ID;
+                row.insertCell().textContent = schedule.name;
+                row.insertCell().textContent = schedule.date;
+                row.insertCell().textContent = schedule.type;
+                row.insertCell().textContent = schedule.status;
+            });
+        } catch (error) {
+            console.error('Error loading schedules:', error);
+        }
+    }
+
+    submitButton.addEventListener('click', async function() {
+        try {
+            const schedule_ID = document.getElementById('schedule_ID').value;
+            const adoption_ID = document.getElementById('adoption_ID').value;
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const type = document.getElementById('type').value;
+            const status = document.getElementById('status').value;
+
+            const response = await fetch('../php/insert_data_admin.php', {
+                method: 'POST',
+                body: JSON.stringify({schedule_ID, adoption_ID, name, date, type, status }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                alert(result.message);
+                document.getElementById('schedule_ID').value = '';
+                document.getElementById('adoption_ID').value = '';
+                document.getElementById('name').value = '';
+                document.getElementById('date').value = '';
+                document.getElementById('type').value = '';
+                document.getElementById('status').value = '';
+
+                loadSchedules(); // Refresh the table
+            } else {
+                alert(result.message);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+
+    loadSchedules(); // Load the initial data
+});

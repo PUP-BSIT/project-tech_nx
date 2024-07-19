@@ -4,7 +4,6 @@ include "dataconnection.php";
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['pet_id'])) {
     $pet_id = $_GET['pet_id'];
 
-    // Check if the pet is available
     $check_query = "SELECT availability FROM pet_details WHERE pet_ID = '$pet_id'";
     $check_result = mysqli_query($conn, $check_query);
 

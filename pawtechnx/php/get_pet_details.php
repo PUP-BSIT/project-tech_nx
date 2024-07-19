@@ -21,9 +21,8 @@ $result = mysqli_query($conn, $query);
 if ($result) {
     $pet = mysqli_fetch_assoc($result);
     if ($pet) {
-        // Convert gallery_paths to an array
         $pet['gallery'] = $pet['gallery_paths'] ? explode(',', $pet['gallery_paths']) : [];
-        unset($pet['gallery_paths']); // Remove the original gallery_paths field
+        unset($pet['gallery_paths']); 
 
         echo json_encode($pet);
     } else {
