@@ -33,7 +33,7 @@ input, select, textarea {
 }
 
 input[type="submit"] {
-  background-color: #333;
+  background-color: orange;
   color: #fff;
   border: none;
   cursor: pointer;
