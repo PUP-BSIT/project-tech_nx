@@ -9,11 +9,11 @@ $users = [];
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
     $users[] = $row;
-  } 
-  } else {
+  }
+} else {
   echo "No users found.";
-} 
-mysqli_close($conn); 
+}
+mysqli_close($conn);
 
 ?>
 
@@ -24,7 +24,7 @@ mysqli_close($conn);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
   <link rel="stylesheet" href="../style/user_list_style.css" />
 </head>
 
@@ -33,27 +33,39 @@ mysqli_close($conn);
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h2>WELCOME, ADMIN!</h2>
-        <a href="../php/admin_account.php" ><img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg" 
-        alt="Admin Profile" class="admin-profile" /></a>
+        <a href="../php/admin_account.php">
+          <img src="../images/pawtechnx_logo.png" alt="Admin Profile" class="admin-profile"></a>
       </div>
       <nav>
         <ul>
-          <li><a href="../php/dashboard.php">HOME</a></li>
+          <li><a href="./dashboard.php">HOME</a></li>
           <li class="active">
-            <a href="../php/user_list.php">USERS LIST</a>
+            <a href="./user_list.php">USERS LIST</a>
           </li>
-          <li><a href="../php/admin_pet_page.php">PET LIST</a></li>
-          <li><a href="../php/admin_request_list.php">REQUEST LIST</a></li>
+          <li><a href="./admin_pet_page.php">PET LIST</a></li>
+          <li>
+            <ul>
+              <li>
+                <a href="./admin_request_list.php">REQUEST LIST</a>
+              </li>
+            </ul>
+            <a href="logout.php">Logout</a>
+          </li>
         </ul>
       </nav>
     </aside>
-    <div class="main-content">
+    <div class="main_content">
       <header class="header">
         <div class="header-left">
+          <div class="hamburger-menu" id="hamburgerMenu"></div>
           <div class="logo">PAWTECHNX</div>
         </div>
         <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="Search" />
+          <input type="hidden" id="searchInput">
+
+        </div>
+        <div class="header-icons">
+
         </div>
       </header>
       <div class="content">
@@ -86,15 +98,13 @@ mysqli_close($conn);
                     <td><?php echo $user['Source_of_Income']; ?></td>
                     <td><?php echo $user['Password']; ?></td>
                     <td>
-                      <button 
-                      onclick="window.location.href='edit_user.php?user_id=<?php 
-                      echo $user['user_id']; ?>'">
+                      <button onclick="window.location.href='edit_user.php?user_id=<?php
+                                                                                    echo $user['user_id']; ?>'">
                         Edit
                       </button>
-                      <form method="POST" action="delete_user.php" 
-                      onsubmit="return confirmDelete()">
-                        <input type="hidden" name="user_id" value="<?php 
-                        echo htmlspecialchars($user['user_id']); ?>" />
+                      <form method="POST" action="delete_user.php" onsubmit="return confirmDelete()">
+                        <input type="hidden" name="user_id" value="<?php
+                                                                    echo htmlspecialchars($user['user_id']); ?>" />
                         <button type="submit">Delete</button>
                       </form>
                     </td>
@@ -107,12 +117,12 @@ mysqli_close($conn);
           <?php endif; ?>
         </div>
       </div>
-      <footer>
-        <p>&copy; 2024 PAWTECHNX. All rights reserved.</p>
-      </footer>
     </div>
   </div>
-
+  <footer>
+        <p>&copy; 2024 PAWTECHNX. All rights reserved.</p>
+      </footer>
   <script src="../script/user_edit.js"></script>
 </body>
+
 </html>
