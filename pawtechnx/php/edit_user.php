@@ -55,77 +55,104 @@ if (isset($_GET['user_id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit User</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
     <link rel="stylesheet" href="../style/edit_user.css" />
-
-</head>
-<body>
+  </head>
+  <body>
     <div class="admin-dashboard">
-        <div class="main-content">
-            <header class="header">
-                <div class="header-left">
-                    <div class="logo">PAWTECHNX</div>
-                </div>
-            </header>
-            <div class="content">
-                <h1>Edit User</h1>
-                <form id="editUserForm" method="POST" 
-                onsubmit="return confirmUpdate()">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" 
-                    value="<?php echo htmlspecialchars($user['username']); ?>" 
-                    required />
+      <div class="main-content">
+        <header class="header">
+          <div class="header-left">
+            <div class="logo">PAWTECHNX</div>
+          </div>
+        </header>
+        <div class="content">
+          <h1>Edit User</h1>
+          <form
+            id="editUserForm"
+            method="POST"
+            onsubmit="return confirmUpdate()" >
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value="<?php echo htmlspecialchars($user['username']); ?>"
+              required />
 
-                    <label for="firstname">Firstname</label>
-                    <input type="text" id="firstname" name="firstname" 
-                    value="<?php echo htmlspecialchars($user['Firstname']); ?>" 
-                    required />
+            <label for="firstname">Firstname</label>
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              value="<?php echo htmlspecialchars($user['Firstname']); ?>"
+              required />
 
-                    <label for="lastname">Lastname</label>
-                    <input type="text" id="lastname" name="lastname" 
-                    value="<?php echo htmlspecialchars($user['Lastname']); ?>" 
-                    required />
+            <label for="lastname">Lastname</label>
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              value="<?php echo htmlspecialchars($user['Lastname']); ?>"
+              required />
 
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" 
-                    value="<?php echo htmlspecialchars($user['Email']); ?>" 
-                    required />
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value="<?php echo htmlspecialchars($user['Email']); ?>"
+              required />
 
-                    <label for="address">Address</label>
-                    <input type="text" id="address" name="address" 
-                    value="<?php echo htmlspecialchars($user['Address']); ?>"
-                    required />
+            <label for="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value="<?php echo htmlspecialchars($user['Address']); ?>"
+              required />
 
-                    <label for="contact_number">Contact Number</label>
-                    <input type="text" id="contact_number" 
-                    name="contact_number" 
-                    value="<?php echo htmlspecialchars($user['Contact_Number']); 
-                    ?>" required />
+            <label for="contact_number">Contact Number</label>
+            <input
+              type="text"
+              id="contact_number"
+              name="contact_number"
+              value="<?php echo htmlspecialchars($user['Contact_Number']); 
+                    ?>"
+              required />
 
-                    <label for="source_of_income">Source of Income</label>
-                    <input type="text" id="source_of_income" 
-                    name="source_of_income" value="<?php 
-                    echo htmlspecialchars($user['Source_of_Income']); ?>" 
-                    required />
+            <label for="source_of_income">Source of Income</label>
+            <input
+              type="text"
+              id="source_of_income"
+              name="source_of_income"
+              value="<?php 
+                    echo htmlspecialchars($user['Source_of_Income']); ?>"
+              required />
 
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" 
-                    value="<?php echo htmlspecialchars($user['Password']); ?>" 
-                    required />
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value="<?php echo htmlspecialchars($user['Password']); ?>"
+              required />
 
-                    <input type="hidden" name="user_id" 
-                    value="<?php echo htmlspecialchars($user['user_id']); ?>" />
-                    <button type="submit">Update User</button>
-                </form>
-                
-            </div>
+            <input
+              type="hidden"
+              name="user_id"
+              value="<?php echo htmlspecialchars($user['user_id']); ?>" />
+            <button type="submit">Update User</button>
+          </form>
         </div>
+      </div>
     </div>
     <script src="../script/user_edit.js"></script>
-</body>
+  </body>
 </html>
-
