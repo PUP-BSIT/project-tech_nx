@@ -1,6 +1,7 @@
 <?php
 function generateScheduleID($conn) {
-    $sql = "SELECT schedule_ID FROM schedule ORDER BY schedule_ID DESC LIMIT 1";
+    $sql = "SELECT schedule_ID FROM schedule ORDER BY
+     schedule_ID DESC LIMIT 1";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
@@ -27,8 +28,10 @@ $date = $_POST['date'];
 $type = $_POST['type'];
 $status = $_POST['status'];
 
-$sql = "INSERT INTO schedule (schedule_ID, adoption_ID, name, date, type, status) 
-        VALUES ('$schedule_ID', '$adoption_ID', '$name', '$date', '$type', '$status')";
+$sql = "INSERT INTO schedule (schedule_ID, adoption_ID,
+ name, date, type, status) 
+        VALUES ('$schedule_ID', '$adoption_ID', '$name', 
+        '$date', '$type', '$status')";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
