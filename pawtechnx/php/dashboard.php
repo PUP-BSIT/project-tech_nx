@@ -44,7 +44,7 @@
                     <input type="text" id="searchInput" placeholder="Search">
                 </div>
                 <div class="header-icons">
-                    <a href="../php/index.php">Home</a>
+                    <a href="../php/home_page.php">Home</a>
                 </div>
             </header>
 
