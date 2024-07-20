@@ -194,6 +194,12 @@ a:visited {
   padding: 0;
 }
 
+.validation-note {
+  color: #888;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
+
 @media (max-width: 768px) {
   .nav-bar {
     flex-direction: column;
