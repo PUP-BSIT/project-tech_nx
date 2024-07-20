@@ -40,7 +40,7 @@
         <h1>Meet our Featured Pets!</h1>
         <p>They are ready for a loving home.</p>
         <ul class="carousel">
-          <a href="pawtechnx/php/cats.php">
+          <a href="pawtechnx/php/cat.php">
             <li class="cat">
               <div class="pet-image">
                 <img src="pawtechnx/images/cat/cat1.jpg" />
@@ -48,7 +48,7 @@
               <h2>Cat</h2>
             </li>
           </a>
-          <a href="pawtechnx/php/hamsters.php">
+          <a href="pawtechnx/php/hamster.php">
             <li class="hamster">
               <div class="pet-image">
                 <img src="pawtechnx/images/hamster/hamster6.jpg" />
@@ -56,7 +56,7 @@
               <h2>Hamster</h2>
             </li>
           </a>
-          <a href="pawtechnx/php/dogs.php">
+          <a href="pawtechnx/php/dog.php">
             <li class="dog">
               <div class="pet-image">
                 <img src="pawtechnx/images/dog/dog6.jpg" />
@@ -64,7 +64,7 @@
               <h2>Dog</h2>
             </li>
           </a>
-          <a href="pawtechnx/php/rabbits.php">
+          <a href="pawtechnx/php/rabbit.php">
             <li class="rabbit">
               <div class="pet-image">
                 <img src="pawtechnx/images/rabbit/rabbit1.jpg" />

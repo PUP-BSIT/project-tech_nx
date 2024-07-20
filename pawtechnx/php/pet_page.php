@@ -44,7 +44,7 @@
                     echo '</li>';
                 }
                 ?>
-                <li><a href="pawtechnx/php/about_us.php">About Us</a></li>
+                <li><a href="./about_us.php">About Us</a></li>
                 <div class="login">
                     <?php
                     if (isset($_SESSION['user_id'])) {

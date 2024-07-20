@@ -41,25 +41,21 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <h2>WELCOME, ADMIN!</h2>
-                <img src="https://i.pinimg.com/564x/2b/00/c5/2b00c50876ac15f61dbf7f048bdf54ff.jpg" alt="Admin Profile" class="admin-profile">
+                <a href="../php/admin_account.php" >
+                <img src="../images/pawtechnx_logo.png" 
+                     alt="Admin Profile" class="admin-profile"></a>
             </div>
             <nav>
                 <ul>
-                  <li>
-                    <a href="./dashboard.php">HOME</a>
-                  </li>
+                    <li><a href="./dashboard.php">HOME</a></li>
                     <li>
                       <a href="./user_list.php">USERS LIST</a>
                     </li>
                     <li><a href="./admin_pet_page.php">PET LIST</a></li>
                     <li>
-                        ADOPTION PROGRESS
                         <ul>
-                            <li>
-                              <li class="active">
-                                <a href="./admin_request_list.php">
-                                  REQUEST LIST
-                                </a>
+                            <li class="active">
+                              <a href="./admin_request_list.php">REQUEST LIST</a>
                             </li>
                         </ul>
                     <a href="logout.php">Logout</a>    
@@ -70,14 +66,15 @@
         <div class="main_content">
             <header class="header">
                 <div class="header-left">
-                    <div class="hamburger-menu" id="hamburgerMenu">&#9776;</div>
+                    <div class="hamburger-menu" id="hamburgerMenu"></div>
                     <div class="logo">PAWTECHNX</div>
                 </div>
                 <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="Search">
+                    <input type="hidden" id="searchInput">
+                   
                 </div>
                 <div class="header-icons">
-                    <a href="../php/index.php">Home</a>
+
                 </div>
             </header>
 
