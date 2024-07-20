@@ -1,6 +1,7 @@
 document.getElementById('hamburgerMenu').addEventListener('click', function() {
     const sidebar = document.getElementById('sidebar');
-    sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
+    sidebar.style.display = sidebar.style.display === 'none' ? 'block' :
+     'none';
 });
 
 document.getElementById('searchInput').addEventListener('input', function() {
@@ -22,12 +23,13 @@ document.getElementById('searchInput').addEventListener('input', function() {
 fetch('../php/monthly_chart.php')
     .then(response => {
         if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
+            throw new Error('Network response was not ok ' +
+                 response.statusText);
         }
         return response.json();
     })
     .then(data => {
-        console.log('Data received:', data); // Add this line for debugging
+        console.log('Data received:', data); 
 
         const labels = [
             'January', 'February', 'March', 'April', 'May', 'June', 
@@ -43,23 +45,24 @@ fetch('../php/monthly_chart.php')
             }
         });
 
-        console.log('Labels:', labels); // Add this line for debugging
-        console.log('Values:', values); // Add this line for debugging
+        console.log('Labels:', labels); 
+        console.log('Values:', values); 
 
-        const ctx = document.getElementById('adoptedSpeciesChart').getContext('2d');
+        const ctx = document.getElementById('adoptedSpeciesChart')
+        .getContext('2d');
         new Chart(ctx, {
             type: 'scatter',
             data: {
                 datasets: [{
                     label: 'Species Adopted',
                     data: labels.map((label, index) => ({
-                        x: index, // X-axis: Month index
-                        y: values[index] // Y-axis: Count of species
+                        x: index, 
+                        y: values[index] 
                     })),
                     borderColor: 'rgba(75, 192, 192, 1)',
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderWidth: 2,
-                    showLine: true // This will connect the dots with lines if you want a line graph appearance
+                    showLine: true 
                 }]
             },
             options: {
@@ -72,7 +75,7 @@ fetch('../php/monthly_chart.php')
                         },
                         ticks: {
                             callback: function(value, index, values) {
-                                return labels[value]; // Display month names on the x-axis
+                                return labels[value]; 
                             }
                         }
                     },
