@@ -29,7 +29,8 @@
                         ADOPTION PROGRESS
                         <ul>
                             <li>
-                              <a href="./admin_request_list.php">REQUEST LIST</a>
+                              <a href="./admin_request_list.php">
+                                    REQUEST LIST</a>
                             </li>
                         </ul>
                     <a href="logout.php">Logout</a>    
@@ -40,7 +41,8 @@
         <div class="main_content">
             <header class="header">
                 <div class="header-left">
-                    <div class="hamburger-menu" id="hamburgerMenu">&#9776;</div>
+                    <div class="hamburger-menu" id="hamburgerMenu">
+                        &#9776;</div>
                     <div class="logo">PAWTECHNX</div>
                 </div>
                 <div class="search-bar">
@@ -61,33 +63,49 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Add a New Pet</h2>
-            <form id="petForm" action="../php/add_pet.php" method="POST" enctype="multipart/form-data">
+            <form id="petForm" action="../php/add_pet.php" method="POST" 
+                enctype="multipart/form-data">
+
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
+                <input type="text" id="name" name="name" required>
+    
                 <label for="age">Age:</label>
-                <input type="text" id="age" name="age" required><br><br>
+                <input type="text" id="age" name="age" required>
+    
                 <label for="species">Species:</label>
-                <input type="text" id="species" name="species" required><br><br>
+                <input type="text" id="species" name="species" required>
+    
                 <label for="breed">Breed:</label>
-                <input type="text" id="breed" name="breed" required><br><br>
+                <input type="text" id="breed" name="breed" required>
+    
                 <label for="gender">Gender:</label>
-                <input type="text" id="gender" name="gender" required><br><br>
+                <input type="text" id="gender" name="gender" required>
+    
                 <label for="weight">Weight:</label>
-                <input type="number" id="weight" name="weight" required><br><br>
+                <input type="number" id="weight" name="weight" required>
+    
                 <label for="height">Height:</label>
-                <input type="number" id="height" name="height" required><br><br>
+                <input type="number" id="height" name="height" required>
+    
                 <label for="availability">Availability:</label>
                 <select id="availability" name="availability" required>
-                    <option value="Available">Available</option>
-                    <option value="Adopted">Adopted</option>
-                </select><br><br>
+                  <option value="Available">Available</option>
+                  <option value="Adopted">Adopted</option>
+                </select>
+    
                 <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea><br><br>
+                <textarea id="description" name="description" required>
+                </textarea>
+    
                 <label for="profile_img">Profile Image:</label>
-                <input type="file" id="profile_img" name="profile_img" accept="image/*"><br><br>
+                <input type="file" id="profile_img" name="profile_img" 
+                    accept="image/*">
+    
                 <label for="gallery_paths">Gallery Paths:</label>
-                <input type="file" id="gallery_paths" name="gallery_paths[]" multiple accept="image/*"><br><br>
-                <input type="submit" value="Create Pet">
+                <input type="file" id="gallery_paths" name="gallery_paths[]" 
+                     multiple accept="image/*">
+    
+            <input type="submit" value="Create Pet">
             </form>
         </div>
     </div>
