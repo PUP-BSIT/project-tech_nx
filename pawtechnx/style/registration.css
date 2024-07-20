@@ -13,12 +13,17 @@ body {
   min-height: 100vh;
   align-items: center;
   width: 100%;
+  padding-top: 60px; /* Space for the fixed header */
 }
 
 .banner {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   background-color: #f8f8f8;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure the banner is above other content */
 }
 
 .nav-bar {
@@ -46,9 +51,10 @@ a:visited {
 }
 
 .wrapper {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   margin: 20px auto;
-  padding: 40px;
+  padding: 20px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -57,13 +63,14 @@ a:visited {
 .pet-images {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
 .pet-image {
-  width: 100px;
+  width: 80px;
   height: auto;
-  margin: 0 10px;
+  margin: 5px;
 }
 
 .form-register {
@@ -71,7 +78,7 @@ a:visited {
 }
 
 .form-register h2 {
-  font-size: 2em;
+  font-size: 1.5em;
   color: black;
   text-align: center;
   margin-bottom: 10px;
@@ -85,11 +92,11 @@ a:visited {
 
 .input-row {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .input-row .input-box {
-  width: 48%;
+  width: 100%;
 }
 
 .input-box {
@@ -169,9 +176,7 @@ a:visited {
 }
 
 .show-password {
-  position: absolute;
-  bottom: -20px;
-  left: 0;
+  position: relative;
   display: flex;
   align-items: center;
 }
@@ -185,7 +190,72 @@ a:visited {
 .show-password label {
   font-size: 12px;
   color: #666;
-  position: static;
   background: none;
   padding: 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .wrapper {
+    padding: 15px;
+  }
+
+  .pet-images {
+    flex-direction: column;
+  }
+
+  .pet-image {
+    width: 100px;
+    margin: 10px 0;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  .input-row .input-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .wrapper {
+    padding: 10px;
+  }
+
+  .pet-image {
+    width: 80px;
+    margin: 5px 0;
+  }
+
+  .form-register h2 {
+    font-size: 1.2em;
+  }
+
+  .input-box input {
+    height: 35px;
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 8px;
+    font-size: 0.9em;
+  }
 }
