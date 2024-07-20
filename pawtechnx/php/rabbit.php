@@ -110,6 +110,14 @@
             <div id="modal-body" class="pet-details"></div>
         </div>
     </div>
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <span class="lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+        <span class="lightbox-next" onclick="changeImage(1)">&#10095;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-image" class="lightbox-image" src="" alt="Lightbox Image">
+        </div>
+    </div>
     <div class="footer-container">
         <div class="footer-address">
             <h3>Address</h3>

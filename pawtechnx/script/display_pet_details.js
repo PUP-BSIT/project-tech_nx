@@ -110,13 +110,14 @@ function openLightbox(index) {
     lightbox.className = 'lightbox';
     lightbox.innerHTML = `
         <div class="lightbox-content">
-            <img src="${galleryImages[index]}" class="lightbox-image">
+            <img src="${galleryImages[index]}" class="lightbox-image" alt="Lightbox Image">
             <span class="lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
             <span class="lightbox-next" onclick="changeImage(1)">&#10095;</span>
             <span class="lightbox-close" onclick="closeLightbox()">&#10005;</span>
         </div>
     `;
     document.body.appendChild(lightbox);
+    lightbox.classList.add('show');
 }
 
 function changeImage(direction) {
@@ -124,21 +125,18 @@ function changeImage(direction) {
     if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
     if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
     const lightboxImage = document.querySelector('.lightbox-image');
-    if (lightboxImage) {
-        lightboxImage.src = galleryImages[currentImageIndex];
-    }
+    if (lightboxImage) lightboxImage.src = galleryImages[currentImageIndex];
 }
 
 function closeLightbox() {
     const lightbox = document.querySelector('.lightbox');
     if (lightbox) {
-        lightbox.remove();
+        lightbox.classList.remove('show'); 
+        setTimeout(() => lightbox.remove(), 300); 
     }
 }
 
 function populateGalleryImages(gallery) {
     galleryImages.length = 0; 
-    if (Array.isArray(gallery)) {
-        galleryImages.push(...gallery);
-    }
+    if (Array.isArray(gallery)) galleryImages.push(...gallery);
 }
