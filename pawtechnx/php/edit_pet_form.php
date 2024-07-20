@@ -26,29 +26,54 @@ mysqli_close($conn);
 </head>
 <body>
     <h2>Edit Pet</h2>
-    <form action="../php/update_pet.php?pet_ID=<?php echo $pet_ID; ?>" method="POST">
-        <label for="Name">Name:</label>
-        <input type="text" id="Name" name="Name" value="<?php echo htmlspecialchars($pet['Name']); ?>" required><br>
-        <label for="Age">Age:</label>
-        <input type="number" id="Age" name="Age" value="<?php echo htmlspecialchars($pet['Age']); ?>" required><br>
-        <label for="Species">Species:</label>
-        <input type="text" id="Species" name="Species" value="<?php echo htmlspecialchars($pet['Species']); ?>" required><br>
-        <label for="Breed">Breed:</label>
-        <input type="text" id="Breed" name="Breed" value="<?php echo htmlspecialchars($pet['Breed']); ?>" required><br>
-        <label for="Gender">Gender:</label>
-        <input type="text" id="Gender" name="Gender" value="<?php echo htmlspecialchars($pet['Gender']); ?>" required><br>
-        <label for="Weight">Weight:</label>
-        <input type="number" id="Weight" name="Weight" value="<?php echo htmlspecialchars($pet['Weight']); ?>" required><br>
-        <label for="Height">Height:</label>
-        <input type="number" id="Height" name="Height" value="<?php echo htmlspecialchars($pet['Height']); ?>" required><br>
-        <label for="Availability">Availability:</label>
-        <select id="Availability" name="Availability" required>
-            <option value="Available" <?php echo ($pet['Availability'] == 'Available') ? 'selected' : ''; ?>>Available</option>
-            <option value="Adopted" <?php echo ($pet['Availability'] == 'Adopted') ? 'selected' : ''; ?>>Adopted</option>
-        </select><br>
-        <label for="Description">Description:</label>
-        <textarea id="Description" name="Description" required><?php echo htmlspecialchars($pet['Description']); ?></textarea><br>
-        <input type="submit" value="Update Pet">
-    </form>
+    <form action="../php/update_pet.php?pet_ID=<?php echo $pet_ID; ?>" 
+        method="POST">
+    
+    <label for="Name">Name:</label>
+    <input type="text" id="Name" name="Name" value="<?php
+          echo htmlspecialchars($pet['Name']); ?>" required>
+    
+    <label for="Age">Age:</label>
+    <input type="number" id="Age" name="Age" value="<?php 
+          echo htmlspecialchars($pet['Age']); ?>" required>
+    
+    <label for="Species">Species:</label>
+    <input type="text" id="Species" name="Species" value="<?php 
+          echo htmlspecialchars($pet['Species']); ?>" required>
+    
+    <label for="Breed">Breed:</label>
+    <input type="text" id="Breed" name="Breed" value="<?php 
+          echo htmlspecialchars($pet['Breed']); ?>" required>
+    
+    <label for="Gender">Gender:</label>
+    <input type="text" id="Gender" name="Gender" value="<?php 
+          echo htmlspecialchars($pet['Gender']); ?>" required>
+    
+    <label for="Weight">Weight:</label>
+    <input type="number" id="Weight" name="Weight" value="<?php 
+          echo htmlspecialchars($pet['Weight']); ?>" required>
+    
+    <label for="Height">Height:</label>
+    <input type="number" id="Height" name="Height" value="<?php 
+          echo htmlspecialchars($pet['Height']); ?>" required>
+    
+    <label for="Availability">Availability:</label>
+    <select id="Availability" name="Availability" required>
+
+        <option value="Available" <?php
+            echo ($pet['Availability'] == 'Available') ? 'selected' : ''; ?>
+                  >Available</option>
+
+        <option value="Adopted" <?php
+            echo ($pet['Availability'] == 'Adopted') ? 'selected' : ''; ?>
+                  >Adopted</option>
+    </select>
+    
+    <label for="Description">Description:</label>
+    <textarea id="Description" name="Description" required><?php
+         echo htmlspecialchars($pet['Description']); ?></textarea>
+    
+    <input type="submit" value="Update Pet">
+</form>
 </body>
 </html>
