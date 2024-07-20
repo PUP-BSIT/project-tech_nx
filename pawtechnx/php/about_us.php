@@ -18,6 +18,11 @@ $logged_in = isset($_SESSION['username']);
 <body>
   <div class="banner">
     <div class="nav-bar">
+      <?php
+      if (isset($_SESSION['user_id'])) {
+        echo '<a href="account.php" title="User Profile"><img src="../images/icon.png" alt="User Icon"></a>';
+      }
+      ?>
       <div class="logo">
         <p>PAWTECHNX</p>
       </div>
@@ -30,12 +35,12 @@ $logged_in = isset($_SESSION['username']);
         }
         ?>
         <li class="dropdown">
-        <button class="dropbtn"><a href="./pet_page.php">Adopt</a></button>
-            <div class="dropdown-content">
-              <a href="../php/cat.php">Cats</a>
-              <a href="../php/hamster.php">Hamsters</a>
-              <a href="../php/dog.php">Dogs</a>
-              <a href="../php/rabbit.php">Rabbits</a>
+          <button class="dropbtn"><a href="./pet_page.php">Adopt</a></button>
+          <div class="dropdown-content">
+            <a href="../php/cat.php">Cats</a>
+            <a href="../php/hamster.php">Hamsters</a>
+            <a href="../php/dog.php">Dogs</a>
+            <a href="../php/rabbit.php">Rabbits</a>
           </div>
         </li>
         <li><a href="../php/about_us.php">About Us</a></li>
@@ -49,10 +54,6 @@ $logged_in = isset($_SESSION['username']);
       </ul>
     </div>
   </div>
-  <div class="header">
-    <h1>Get to know us!</h1>
-    <p>Welcome, to about us page!</p>
-  </div>
   <div class="container">
     <div class="us">
       <div class="about">
@@ -60,15 +61,15 @@ $logged_in = isset($_SESSION['username']);
           <h1>ABOUT US</h1>
           <p>
             PAWTECHNX is a nonprofit team whose mission is to help homeless
-            dogs, hamsters, birds, rabbits, and cats in the poorest communities of
-            Taguig City with food, shelter, medical care, adoption, and
+            dogs, hamsters, birds, rabbits, and cats in the poorest communities
+            of Taguig City with food, shelter, medical care, adoption, and
             humane treatment. PAWTECHNX also offers to rehome the animals
             that we rescue for their better life.
           </p>
 
           <p>
-            Founded in 2024 by Alimas Eliza, Alona Pepito, Precious Pasion,
-            Sofia Barrantes, and Mikaella Tayoto after the five found a team
+            Founded in 2024 by Alona Pepito, Precious Pasion, Sofia Barrantes,
+            Eliza Alimasa ,and Mikaella Tayoto after the five found a team
             where hundreds of animals were waiting to be euthanized by
             electrocution. Unable to erase the images of the suffering animals
             from their minds, the five members have dedicated their lives to
@@ -169,28 +170,28 @@ $logged_in = isset($_SESSION['username']);
   </div>
 
   <div class="footer">
-    <div class="logo">
-      <p>PAWTECHNX</p>
+      <div class="logo">
+        <p>PAWTECHNX</p>
+      </div>
+      <div class="address">
+        <h4>Address</h4>
+        <p>Blk 123</p>
+        <p>Lower Bicutan</p>
+        <p>Taguig City</p>
+      </div>
+      <div class="contact">
+        <h4>Contacts</h4>
+        <p>0912345678</p>
+        <p>1234567890</p>
+        <p>email@example.com</p>
+      </div>
+      <div class="info">
+        <h4>Information</h4>
+        <p>Privacy Policy</p>
+        <p>FAQ</p>
+        <p>About Us</p>
+      </div>
     </div>
-    <div class="address">
-      <h4>Address</h4>
-      <p>Blk 123</p>
-      <p>Lower Bicutan</p>
-      <p>Taguig City</p>
-    </div>
-    <div class="contact">
-      <h4>Contacts</h4>
-      <p>0912345678</p>
-      <p>1234567890</p>
-      <p>email@example.com</p>
-    </div>
-    <div class="info">
-      <h4>Information</h4>
-      <p>Privacy Policy</p>
-      <p>FAQ</p>
-      <p>About Us</p>
-    </div>
-  </div>
 </body>
 
 </html>

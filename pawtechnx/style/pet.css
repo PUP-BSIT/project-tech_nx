@@ -164,7 +164,7 @@ a img:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   transition: transform 0.2s, box-shadow 0.2s;
-  width: calc(33.333% - 20px); /* Adjust width for 3 items per row */
+  width: calc(33.333% - 20px); 
   padding: 10px;
   height: 280px;
   overflow-y: auto;
@@ -182,7 +182,6 @@ a img:hover {
   border-radius: 10px;
 }
 
-/* Modal Styles */
 .modal {
   display: none;
   position: fixed;
